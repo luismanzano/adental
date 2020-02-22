@@ -11,7 +11,7 @@ body{
     margin:auto;
     width: 350px;
     margin-top: 2.5rem;
-    margin-left: 5rem;  
+    margin-left: 5.5rem;  
 }
 
 .fondo{
@@ -19,10 +19,12 @@ body{
     background-color: white;
     height: 30em;
     width: 32em;
-    margin-left: 22rem;
+    margin-left: 23rem;
+    margin-top: 2rem;
     border-radius: 1rem;
     align-items: center;
     display: block;
+    filter: drop-shadow(5px 5px 10px #444);
 }
 
 .datos{
@@ -72,7 +74,7 @@ p{
 #diseño{
     margin-top: 22rem;
     width: 100%;
-    height: 10rem;
+    height: 9.5rem;
     left:0;
 }
 
