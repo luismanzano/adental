@@ -9,9 +9,9 @@ body{
 }
 #logo{
     margin:auto;
-    width: 350px;
+    width: 22rem;
     margin-top: 2.5rem;
-    margin-left: 5.5rem;  
+    margin-left: 5rem;  
 }
 
 .fondo{
@@ -36,7 +36,7 @@ body{
 }
 .form-control{
     padding: 0.5rem;
-    border-radius: 15px;
+    border-radius: 1rem;
     border-color: #545454;
 }
 
@@ -47,7 +47,7 @@ body{
     height: 2.5rem;
     color: white;
     font-weight: bolder;
-    border-radius: 10px;
+    border-radius: 1rem;
     background: rgb(12,52,106);
     background: linear-gradient(180deg, rgba(12,52,106,0.8337710084033614) 0%, rgba(174,233,169,0.9150035014005602) 100%);
 }
@@ -58,8 +58,8 @@ footer{
     margin-left: 7rem;
     position: fixed;
     bottom: 0;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .contacto{
