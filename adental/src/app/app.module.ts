@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DoctorModule } from './doctor/doctor.module';
-import { SidebarModule } from './components/patient/sidebar/sidebar.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import { SidebarModule } from './components/patient/sidebar/sidebar.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DoctorModule,
-    SidebarModule
+    DoctorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
