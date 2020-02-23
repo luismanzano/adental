@@ -6,6 +6,7 @@ body{
     align-items: center;
     top:0;
     height: 45rem;
+    margin: 0;
 }
 #logo{
     margin:auto;
@@ -30,13 +31,13 @@ body{
 .datos{
     margin:auto;
     margin-top: 2rem;
-    grid-gap: 2rem;
+    grid-gap: 1.5rem;
     display:grid;
     width: 20rem;
 }
 .form-control{
-    padding: 0.5rem;
-    border-radius: 1rem;
+    padding: 0.9rem;
+    border-radius: 1.5rem;
     border-color: #545454;
 }
 
