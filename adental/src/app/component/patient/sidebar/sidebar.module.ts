@@ -7,10 +7,16 @@ import { SidebarComponent } from './sidebar.component';
 
 @NgModule({
   declarations: [SidebarComponent],
+<<<<<<< HEAD
   exports: [SidebarComponent],
   imports: [
     CommonModule,
     SidebarComponent
+=======
+  imports: [
+    CommonModule,
+    SidebarRoutingModule
+>>>>>>> origin/luisfer
   ]
 })
 export class SidebarModule { }

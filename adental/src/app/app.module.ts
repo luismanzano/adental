@@ -5,8 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 <<<<<<< HEAD
 import { DoctorModule } from './doctor/doctor.module';
+<<<<<<< HEAD
 =======
 import { SidebarModule } from './component/patient/sidebar/sidebar.module';
+>>>>>>> origin/luisfer
+=======
+import { SidebarModule } from './components/patient/sidebar/sidebar.module';
 >>>>>>> origin/luisfer
 
 @NgModule({
@@ -16,7 +20,8 @@ import { SidebarModule } from './component/patient/sidebar/sidebar.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DoctorModule
+    DoctorModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
