@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+h1.head{
+    margin-top: 1.8em;
+    margin-bottom: 1em;
+}
+
+.container{
+    padding: 0 5em;
+}
+
+.gap-up {
+    margin-top: 1em;
+}
+
+.gap-down {
+    margin-bottom: 1em;
+}

@@ -9,6 +9,10 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [SidebarComponent, ProfileComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ProfileComponent,
+    SidebarComponent
   ]
 })
 export class PatientModule { }
