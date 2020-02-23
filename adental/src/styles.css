@@ -16,3 +16,23 @@ h1.head{
 .gap-down {
     margin-bottom: 1em;
 }
+
+.shadow{
+    -webkit-box-shadow: 4px 9px 30px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 9px 30px -2px rgba(0,0,0,0.75);
+box-shadow: 4px 9px 30px -2px rgba(0,0,0,0.75);
+}
+
+.round{
+    border-radius: 30px;
+    padding: 3% 5%;
+}
+
+select.round{
+    padding: .8em 1.7em;
+    border: 0px;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}

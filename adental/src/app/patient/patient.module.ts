@@ -13,7 +13,8 @@ import { AppointmentsComponent } from './appointments/appointments.component';
   ],
   exports: [
     ProfileComponent,
-    SidebarComponent
+    SidebarComponent,
+    AppointmentsComponent
   ]
 })
 export class PatientModule { }
