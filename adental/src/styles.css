@@ -50,3 +50,34 @@ input:focus, textarea:focus, select:focus{
 .input-style{
   border-style: none!important;
 }
+
+.align_center{
+  display: block;
+  margin: auto 0;
+  vertical-align:middle;
+}
+
+.card{
+  border-radius: 40px;
+  -webkit-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+  box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+  padding: 1em 3em;
+}
+
+.data{
+  border-bottom: 1px solid black;
+  padding: 3px 0;
+}
+
+.button{
+  min-height: 2.5em;
+}
+
+.button.ok{
+  background: linear-gradient(to bottom, rgba(11,132,213,1) 0%, rgba(12,169,127,1) 100%);
+}
+
+.white_color{
+  color: white;
+}
