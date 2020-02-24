@@ -7,6 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  nombre='Reichel';
+  apellido='Larez';
+  user='Reichel.larez@correo.unimet.edu.ve'
+
+  getNombre(){
+    return this.nombre;
+  }
+
+  getApellido(){
+    return this.apellido
+  }
+
+  getUser(){
+    return this.user
+  }
+
   constructor() { }
 
   ngOnInit() {

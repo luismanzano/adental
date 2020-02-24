@@ -1,0 +1,70 @@
+.card{
+    border-radius: 40px;
+    -webkit-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+    padding: 1em 3em;
+}
+
+.data{
+    border-bottom: 1px solid lightgrey;
+    padding: 3px 0;
+    margin-left: 2em;
+    margin-top: 1rem;
+}
+
+.container-doctor{
+    margin-left: 20em;
+}
+
+#pago{
+    margin-top: 3em;
+}
+input{
+    margin-top: 1.5em;
+}
+.metodosPago{
+    margin-left: 3em;
+}
+#zelle{
+ margin-left: 5em;
+}
+#efectivo{
+    margin-left: 7.92em;
+}
+
+.bloque{
+    margin-top: 3em ;
+}
+.dias .md-col-5{
+    margin-top: 2em;
+    margin-left: 0;
+    padding: 4em;
+    padding-bottom: 1em;
+    padding-top:0;
+}
+#lunes{
+    padding-left: 2.8em;
+}
+#primero{
+    margin-left: 0;
+}
+
+#miercoles{
+    padding-left: 3.5em;
+}
+#jueves{
+    padding-left: 3.5em;
+}
+.disponibilidad button{
+    font-size: small;
+    width: 8em;
+    margin-left: 1em;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+.disponibilidad .md-col-5{
+    margin-left: 4em;
+}
+

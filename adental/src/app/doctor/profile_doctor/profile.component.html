@@ -1,0 +1,78 @@
+
+
+<app-sidebar-doctor></app-sidebar-doctor>
+<div class="container-doctor">
+    <div class="row">
+    <div class="md-col-3">
+    <h1 class="head">Mi Perfil</h1>
+    </div>
+    </div>
+    <div class="datos">
+        <div class="row">
+            <div class="md-col-3">
+            <p class="data">Nombre: <span id="nombre">{{getNombre()}}</span></p>
+            <p class="data">Apellido: <span id="apellido">{{getApellido()}}</span> </p>
+            <p class="data">Username: <span id="user">{{getUser()}}</span></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="md-col-3">
+            <h5 id= "pago">Métodos de Pago:</h5>
+        </div>
+    </div>
+
+    <div class="metodosPago">
+    <div class="row">
+       <div class="md-col-5">
+        <input type="radio" name ="transferencia" value="1"> Transferencia
+       </div>
+       <div class="md-col-5">
+        <input type="radio" name="zelle" value="1" id="zelle"> Zelle
+       </div>
+    </div>
+       <div class="row">
+       <div class="md-col-5">
+           <input type="radio" name="paypall" value="1"> PayPall
+       </div>
+       <div class="md-col-5">
+        <input type="radio" name="efectivo" value="1" id="efectivo" > Efectivo
+       </div>
+    </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="md-col-3">
+            <h5 class="bloque">Bloques de Trabajo:</h5>
+        </div>
+    </div>
+<div class="shadow round">
+   <div class="dias">
+    <div class="row">
+        <div class="md-col-5" id="lunes">Lunes</div>
+        <div class="md-col-5">Martes</div>
+        <div class="md-col-5" id="miercoles">Miércoles</div>
+        <div class="md-col-5" id="jueves">Jueves</div>
+        <div class="md-col-5" id="viernes">Viernes</div>
+    </div>
+   </div> 
+
+   <div class="disponibilidad">
+    <div class="row">
+        <div class="md-col-5" id="primero">
+            <button>Disponible</button>
+        </div>
+        <div class="md-col-5"><button>Disponible</button></div>
+        <div class="md-col-5"><button>No Disponible</button></div>
+        <div class="md-col-5"><button>Disponible</button></div>
+        <div class="md-col-5"><button>No Disponible</button></div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    
+
