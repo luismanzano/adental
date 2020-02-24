@@ -26,45 +26,34 @@ input{
 .metodosPago{
     margin-left: 3em;
 }
-#zelle{
- margin-left: 5em;
-}
-#efectivo{
-    margin-left: 7.92em;
-}
+
 
 .bloque{
     margin-top: 3em ;
-}
-.dias .md-col-5{
-    margin-top: 2em;
-    margin-left: 0;
-    padding: 4em;
-    padding-bottom: 1em;
-    padding-top:0;
-}
-#lunes{
-    padding-left: 2.8em;
-}
-#primero{
-    margin-left: 0;
+    margin-bottom: 2em;
 }
 
-#miercoles{
-    padding-left: 3.5em;
-}
-#jueves{
-    padding-left: 3.5em;
-}
 .disponibilidad button{
     font-size: small;
-    width: 8em;
     margin-left: 1em;
     margin-top: 1em;
     border-radius: 1em;
 }
 
-.disponibilidad .md-col-5{
-    margin-left: 4em;
+.dias{
+    margin-left: 2em;
 }
 
+#miercoles{
+    margin-left: 0.5em;
+}
+#viernes{
+    margin-left: 1em;
+}
+#x{
+    margin-top: 3em;
+}
+
+#bloque-trabajo{
+    width: 60em;
+}

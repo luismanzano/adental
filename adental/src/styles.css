@@ -68,3 +68,18 @@ input:focus, textarea:focus, select:focus{
     border-bottom-width: 1px;
 }
 
+.button{
+    min-height: 2.5em;
+  }
+  
+  .button.ok{
+    background: linear-gradient(to bottom, rgba(11,132,213,1) 0%, rgba(12,169,127,1) 100%);
+  }
+  
+  .white_color{
+    color: white;
+  }
+
+  .container-doctor{
+    margin-left: 20em;
+}
