@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f5bad1a2-083a-4ce7-a55a-778140379005" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adental/src/app/patient/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/patient/sidebar/sidebar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/patient/patient.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/patient/patient.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582477930092</updated>
       <workItem from="1582477934601" duration="1732000" />
-      <workItem from="1582563845540" duration="10803000" />
+      <workItem from="1582563845540" duration="11793000" />
     </task>
     <servers />
   </component>
