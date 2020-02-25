@@ -51,39 +51,39 @@ input:focus, textarea:focus, select:focus{
   border-style: none!important;
 }
 
-  .button.ok{
-    background: linear-gradient(to bottom, rgba(11,132,213,1) 0%, rgba(12,169,127,1) 100%);
-  }
+.button.ok{
+  background: linear-gradient(to bottom, rgba(11,132,213,1) 0%, rgba(12,169,127,1) 100%);
+}
   
-  .button.cancel{
-    background: rgb(200,174,1);
-    background: linear-gradient(to bottom, rgba(200,174,1,1) 0%, rgba(197,65,6,1) 100%);
-  }
+.button.cancel{
+  background: rgb(200,174,1);
+  background: linear-gradient(to bottom, rgba(200,174,1,1) 0%, rgba(197,65,6,1) 100%);
+}
   
-  .white_color{
-    color: white;
-  }
+.white_color{
+  color: white;
+}
   
-  .green_color{
-    color: #0BA783;
-  }
+.green_color{
+  color: #0BA783;
+}
   
-  .red_color{
-    color: #A71B0B;
-  }
+.red_color{
+  color: #A71B0B;
+}
 
-  #boton{
-    width: 10em;
-    margin-top: 1em;
-    padding: 0.5em;
-  }
+#boton{
+  width: 10em;
+  margin-top: 1em;
+  padding: 0.5em;
+}
 
-  #usuario{
+#usuario{
   width: 1.2em;
   margin-left: 1em;
-  }
+}
 
-  .data{
-    border-bottom: 1px solid black;
-    padding: 3px 0;
-  }
+.data{
+  border-bottom: 1px solid black;
+  padding: 3px 0;
+}
