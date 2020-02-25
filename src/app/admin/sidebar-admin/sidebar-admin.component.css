@@ -30,3 +30,8 @@ img.logo{
 .sidebar .menu:hover{
     text-decoration: underline;
 }
+
+.cerrar-sesion{
+    margin-top: 18em;
+    margin-left: 0;
+}

@@ -83,3 +83,7 @@ input:focus, textarea:focus, select:focus{
   margin-left: 1em;
   }
 
+  .data{
+    border-bottom: 1px solid black;
+    padding: 3px 0;
+  }
