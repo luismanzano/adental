@@ -17,7 +17,8 @@ import { PaymentComponent } from './payment/payment.component';
     ProfileComponent,
     SidebarComponent,
     AppointmentsComponent,
-    BillsComponent
+    BillsComponent,
+    PaymentComponent
   ]
 })
 export class PatientModule { }
