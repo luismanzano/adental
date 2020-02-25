@@ -1,0 +1,29 @@
+.container-doctor{
+    margin-left: 20em;
+}
+
+#tipo{
+    margin-top: 2em;
+}
+
+#boton{
+    width: 10em;
+    margin-top: 1em;
+    padding: 0.5em;
+}
+
+.datos{
+    margin-top: 3em;
+}
+
+.datos input{
+    margin-top: 0.3em;
+    padding-bottom: 0;
+    width: 18em;
+}
+
+#guardar{
+    margin-top: 2em;
+    margin-left: 25em;
+}
+

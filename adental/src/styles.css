@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+h1.head{
+    margin-top: 1.8em;
+    margin-bottom: 1em;
+}
+
+.container{
+    padding: 0 5em;
+}
+
+.gap-up {
+    margin-top: 1em;
+}
+
+.gap-down {
+    margin-bottom: 1em;
+}
+
+.shadow{
+    -webkit-box-shadow: 4px 9px 30px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 9px 30px -2px rgba(0,0,0,0.75);
+box-shadow: 4px 9px 30px -2px rgba(0,0,0,0.75);
+}
+
+.round{
+    border-radius: 30px;
+    padding: 3% 5%;
+}
+
+.border_bottom{
+  border-bottom: 1px solid black;
+  padding: .4em;
+}
+
+.border_right{
+  border-right: 1px solid black;
+  padding: .4em;
+}
+
+
+.border_left{
+  border-left: 1px solid black;
+  padding: .4em;
+}
+input[type='date'].round{
+  border-radius: 30px;
+  padding: 5% 7%;
+}
+
+select.round{
+    padding: .8em 1.7em;
+    border: 0px;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.input-style{
+  border-style: none!important;
+}
+
+.input-style{
+    border-bottom: 1px solid black;
+    padding: .4em;
+}
+
+#usuario{
+    width: 1.2em;
+    margin-left: 1em;
+}
+
+.sinborde{
+    border-color: black;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom-width: 1px;
+}
+
+.button{
+    min-height: 2.5em;
+  }
+  
+  .button.ok{
+    background: linear-gradient(to bottom, rgba(11,132,213,1) 0%, rgba(12,169,127,1) 100%);
+  }
+  
+  .white_color{
+    color: white;
+  }
+
+  .container-doctor{
+    margin-left: 20em;
+}
+
+.cerrar-sesion{
+  margin-top: 18em;
+  margin-left: 0;
+}

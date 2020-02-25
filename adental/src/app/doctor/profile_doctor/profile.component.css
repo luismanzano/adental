@@ -1,0 +1,59 @@
+.card{
+    border-radius: 40px;
+    -webkit-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
+    padding: 1em 3em;
+}
+
+.data{
+    border-bottom: 1px solid lightgrey;
+    padding: 3px 0;
+    margin-left: 2em;
+    margin-top: 1rem;
+}
+
+.container-doctor{
+    margin-left: 20em;
+}
+
+#pago{
+    margin-top: 3em;
+}
+input{
+    margin-top: 1.5em;
+}
+.metodosPago{
+    margin-left: 3em;
+}
+
+
+.bloque{
+    margin-top: 3em ;
+    margin-bottom: 2em;
+}
+
+.disponibilidad button{
+    font-size: small;
+    margin-left: 1em;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+.dias{
+    margin-left: 2em;
+}
+
+#miercoles{
+    margin-left: 0.5em;
+}
+#viernes{
+    margin-left: 1em;
+}
+#x{
+    margin-top: 3em;
+}
+
+#bloque-trabajo{
+    width: 60em;
+}

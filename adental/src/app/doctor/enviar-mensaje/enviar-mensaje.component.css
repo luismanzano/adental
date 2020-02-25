@@ -1,0 +1,39 @@
+#mensaje-predeterminado{
+    margin-top: 1em;
+}
+#agregar_mensaje{
+    width: max-content;
+    font-size: 0.7em;
+    margin-left: 19em;
+    margin-top: 3em;
+}
+
+#predeterminado{
+    margin-top: 2em;
+    width: 34.3em;
+    height: 2em;
+    background-color: white;
+}
+
+#mensaje-personalizado{
+    margin-top: 3em;
+}
+
+#personalizado{
+    margin-top: 2em;
+    text-align: justify;
+    border: 0;
+}
+
+#enviar{
+    width: max-content;
+    margin-left: 35em;
+    margin-top: 3em;
+
+}
+#enviar{
+    width: 7em;
+}
+.x{
+    margin-top: 10em;
+}

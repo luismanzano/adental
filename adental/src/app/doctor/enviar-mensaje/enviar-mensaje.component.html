@@ -1,0 +1,53 @@
+<app-sidebar-doctor></app-sidebar-doctor>
+<div class="container-doctor">
+    <div class="row">
+        <div class="col-md-7">
+        <h1 class="head">Enviar Mensaje a {{getNombre()}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <h5 id="mensaje-predeterminado">Mensaje Predeterminado:</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <select class="shadow round" name="predeterminado" id="predeterminado">
+                <option value="0" > Eliga su mensaje</option>
+                <option value="1">Mensaje Predeterminado 1</option>
+                <option value="2">Mensaje Predeterminado 2</option>
+                <option value="3">Mensaje Predeterminado 3</option>
+                <option value="4">Mensaje Predeterminado 4</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button id="agregar_mensaje" class="button button ok shadow round white_color">Agregar Mensaje</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h5 id="mensaje-personalizado">Mensaje Personalizado:</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <textarea name="" id="personalizado" cols="61" rows="6" class="round shadow"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div id="enviar" class="button round button ok shadow text-center align_center white_color off-set-10">
+                <span>Enviar</span>
+            </div>
+        </div>
+    </div>
+    <div class="row x">
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</div>
