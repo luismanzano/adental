@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DoctorModule } from './doctor/doctor.module';
 import { PatientModule } from './patient/patient.module';
-import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
-import { AdminModule } from './admin/admin.module';
+import { AdminModule2 } from './admin2/admin.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    UsuariosAdminComponent,
+
 
   ],
   imports: [
@@ -18,7 +18,7 @@ import { AdminModule } from './admin/admin.module';
     AppRoutingModule,
     DoctorModule,
     PatientModule,
-    AdminModule
+    AdminModule2
   ],
   providers: [],
   bootstrap: [AppComponent]

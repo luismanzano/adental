@@ -17,4 +17,4 @@ import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.componen
     UsuariosAdminComponent
   ]
 })
-export class AdminModule { }
+export class AdminModule2 { }
