@@ -1,10 +1,3 @@
-.card{
-    border-radius: 40px;
-    -webkit-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
-    box-shadow: 2px 4px 10px -2px rgba(0,0,0,0.75);
-    padding: 1em 3em;
-}
 
 .data{
     border-bottom: 1px solid lightgrey;
@@ -13,9 +6,6 @@
     margin-top: 1rem;
 }
 
-.container-doctor{
-    margin-left: 20em;
-}
 
 #pago{
     margin-top: 3em;

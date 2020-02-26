@@ -93,8 +93,9 @@ input:focus, textarea:focus, select:focus{
 }
 
 .cerrar-sesion{
-  margin-top: 18em;
-  margin-left: 0;
+  bottom: 1.5em;
+  position: absolute;
+  display: block;
 }
 
 
