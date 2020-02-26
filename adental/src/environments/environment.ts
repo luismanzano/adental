@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   firebase:{
     apiKey: "AIzaSyBgsUDVwI3N73Ny_SEBNOInJIJyCrM0w5Q",
-    authDomain: "adental-69c48.firebaseapp.com",
+    authDomain: 'adental-69c48.firebaseapp.com',
     databaseURL: "https://adental-69c48.firebaseio.com",
     projectId: "adental-69c48",
     storageBucket: "adental-69c48.appspot.com",
