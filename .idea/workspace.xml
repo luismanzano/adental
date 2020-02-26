@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f5bad1a2-083a-4ce7-a55a-778140379005" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adental/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adental/src/app/doctor/enviar-mensaje/enviar-mensaje.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/doctor/enviar-mensaje/enviar-mensaje.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adental/src/app/doctor/enviar-mensaje/enviar-mensaje.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/doctor/enviar-mensaje/enviar-mensaje.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/component/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/component/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/component/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/component/home/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
