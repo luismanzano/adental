@@ -10,6 +10,11 @@ import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.componen
   declarations: [SidebarAdminComponent, EstadisticasAdminComponent, UsuariosAdminComponent],
   imports: [
     CommonModule
+  ],
+  exports:[
+    SidebarAdminComponent,
+    EstadisticasAdminComponent,
+    UsuariosAdminComponent
   ]
 })
 export class AdminModule { }

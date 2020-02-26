@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DoctorModule } from './doctor/doctor.module';
 import { PatientModule } from './patient/patient.module';
 import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
+import { AdminModule } from './admin/admin.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.componen
     BrowserModule,
     AppRoutingModule,
     DoctorModule,
-    PatientModule
+    PatientModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
