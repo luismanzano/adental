@@ -1,77 +1,84 @@
-
-<app-sidebar-doctor></app-sidebar-doctor>
-<div class="container">
-    <div class="row">
-    <div class="col-md-3">
-    <h1 class="head">Mi Perfil</h1>
+<div class="row">
+    <div class="col-md-2">
+        <app-sidebar-doctor></app-sidebar-doctor>
     </div>
-    </div>
-    <div class="datos">
-        <div class="row">
-            <div class="col-md-6">
-            <p class="data">Nombre: <span id="nombre">{{getNombre()}}</span></p>
-            <p class="data">Apellido: <span id="apellido">{{getApellido()}}</span> </p>
-            <p class="data">Username: <span id="user">{{getUser()}}</span></p>
+    <div class="col-md-10">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-3">
+            <h1 class="head">Mi Perfil</h1>
             </div>
-        </div>
+            </div>
+            <div class="datos">
+                <div class="row">
+                    <div class="col-md-6">
+                    <p class="data">Nombre: <span id="nombre">{{getNombre()}}</span></p>
+                    <p class="data">Apellido: <span id="apellido">{{getApellido()}}</span> </p>
+                    <p class="data">Username: <span id="user">{{getUser()}}</span></p>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="row">
+                <div class="col-md-3">
+                    <h5 id= "pago">Métodos de Pago:</h5>
+                </div>
+            </div>
+        
+            <div class="metodosPago">
+            <div class="row">
+               <div class="col-md-3">
+                <input type="radio" name ="transferencia" value="1"> Transferencia
+               </div>
+               <div class="col-md-3">
+                <input type="radio" name="zelle" value="1" id="zelle"> Zelle
+               </div>
+            </div>
+               <div class="row">
+               <div class="col-md-3">
+                   <input type="radio" name="paypal" value="1"> PayPal
+               </div>
+               <div class="col-md-3">
+                <input type="radio" name="efectivo" value="1" id="efectivo" > Efectivo
+               </div>
+            </div>
+            </div>
+        
+        
+            <div class="row">
+                <div class="col-md-3">
+                    <h5 class="bloque">Bloques de Trabajo:</h5>
+                </div>
+            </div>
+        
+           <div class="dias">
+            <div class="row">
+                <div class="col-md-2" id="lunes">Lunes</div>
+                <div class="col-md-2">Martes</div>
+                <div class="col-md-2" id="miercoles">Miércoles</div>
+                <div class="col-md-2" id="jueves">Jueves</div>
+                <div class="col-md-2" id="viernes">Viernes</div>
+            </div>
+           </div>
+        
+           <div class="disponibilidad">
+            <div class="row">
+                <div class="col-md-2" id="primero">
+                    <button>Disponible</button>
+                </div>
+                <div class="col-md-2"><button>Disponible</button></div>
+                <div class="col-md-2"><button>No Disponible</button></div>
+                <div class="col-md-2"><button>Disponible</button></div>
+                <div class="col-md-2"><button>No Disponible</button></div>
+            </div>
+            </div>
+            <div id="x"></div>
+            </div>
+        
     </div>
+</div>
 
-
-    <div class="row">
-        <div class="col-md-3">
-            <h5 id= "pago">Métodos de Pago:</h5>
-        </div>
-    </div>
-
-    <div class="metodosPago">
-    <div class="row">
-       <div class="col-md-3">
-        <input type="radio" name ="transferencia" value="1"> Transferencia
-       </div>
-       <div class="col-md-3">
-        <input type="radio" name="zelle" value="1" id="zelle"> Zelle
-       </div>
-    </div>
-       <div class="row">
-       <div class="col-md-3">
-           <input type="radio" name="paypal" value="1"> PayPal
-       </div>
-       <div class="col-md-3">
-        <input type="radio" name="efectivo" value="1" id="efectivo" > Efectivo
-       </div>
-    </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-3">
-            <h5 class="bloque">Bloques de Trabajo:</h5>
-        </div>
-    </div>
-
-   <div class="dias">
-    <div class="row">
-        <div class="col-md-2" id="lunes">Lunes</div>
-        <div class="col-md-2">Martes</div>
-        <div class="col-md-2" id="miercoles">Miércoles</div>
-        <div class="col-md-2" id="jueves">Jueves</div>
-        <div class="col-md-2" id="viernes">Viernes</div>
-    </div>
-   </div>
-
-   <div class="disponibilidad">
-    <div class="row">
-        <div class="col-md-2" id="primero">
-            <button>Disponible</button>
-        </div>
-        <div class="col-md-2"><button>Disponible</button></div>
-        <div class="col-md-2"><button>No Disponible</button></div>
-        <div class="col-md-2"><button>Disponible</button></div>
-        <div class="col-md-2"><button>No Disponible</button></div>
-    </div>
-    </div>
-    <div id="x"></div>
-    </div>
 
 
 
