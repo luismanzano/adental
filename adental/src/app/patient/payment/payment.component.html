@@ -1,26 +1,36 @@
-
 <div class="row">
-  <div class="col-md-3">
-    <p class="data"><b>Monto que Debe: </b> 9999</p>
+  <div class="col-md-2">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-3">
+        <p class="data"><b>Monto que Debe: </b> 9999</p>
+      </div>
+    </div>
+    
+    
+    <div class="metodosPago">
+      <div class="row">
+        <div class="col-md-3">
+          <input type="radio" name ="transferencia" value="1"> Transferencia
+        </div>
+        <div class="col-md-3">
+          <input type="radio" name="zelle" value="1" id="zelle"> Zelle
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <input type="radio" name="paypal" value="1"> PayPall
+        </div>
+        <div class="col-md-3">
+          <input type="radio" name="efectivo" value="1" id="efectivo" > Efectivo
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
 
 
-<div class="metodosPago">
-  <div class="row">
-    <div class="col-md-3">
-      <input type="radio" name ="transferencia" value="1"> Transferencia
-    </div>
-    <div class="col-md-3">
-      <input type="radio" name="zelle" value="1" id="zelle"> Zelle
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <input type="radio" name="paypal" value="1"> PayPall
-    </div>
-    <div class="col-md-3">
-      <input type="radio" name="efectivo" value="1" id="efectivo" > Efectivo
-    </div>
-  </div>
-</div>
+
