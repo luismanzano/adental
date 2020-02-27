@@ -5,9 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adental/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/adental/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adental/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/adental/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adental/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adental/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/component/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/component/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adental/src/app/component/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/component/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/component/home/home.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/component/home/home.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adental/src/app/core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/core/services/auth.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

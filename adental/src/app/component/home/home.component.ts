@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+
+
 import { AuthService} from '../../core/services/auth.service';
 
 @Component({
@@ -22,9 +24,17 @@ export class HomeComponent implements OnInit {
   login() {
     this.authService.login(this.user, this.password)
       .then(() => {
-        alert("Ususario Logeado")
+        alert("Usuario Logeado")
       })
       .catch(() => alert("No se logeo"));
+  }
+
+  createUser() {
+    this.authService.createUser(this.user, this.password)
+      .then(() => {
+        alert("Usuario Creado")
+      })
+      .catch(() => alert("Usuario No Creado"));
   }
 
 }

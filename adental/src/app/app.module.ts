@@ -2,7 +2,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule} from "@angular/forms";
 
 import {AngularFireModule} from '@angular/fire' ;
 import {AngularFireDatabaseModule} from "@angular/fire/database";
@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DoctorModule } from './doctor/doctor.module';
 import { PatientModule } from './patient/patient.module';
+import {HomeModule} from "./component/home/home.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,9 @@ import { PatientModule } from './patient/patient.module';
     PatientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
