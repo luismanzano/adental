@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private form : FormsModule
+    private form: FormsModule
   ) { }
 
   ngOnInit() {
@@ -25,11 +25,12 @@ export class HomeComponent implements OnInit {
   login() {
     this.authService.login(this.user, this.password)
       .then(() => {
-        alert("Usuario Logeado")
+        alert("Usuario Logeado");
+        this.router.navigate(['/nuevo-usuario']);
       })
       .catch(() => alert("No se logeo"));
   }
-
+/*
   createUser() {
     this.authService.createUser(this.user, this.password)
       .then(() => {
@@ -37,5 +38,5 @@ export class HomeComponent implements OnInit {
       })
       .catch(() => alert('Usuario No Creado'));
   }
-
+*/
 }

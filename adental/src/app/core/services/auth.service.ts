@@ -14,12 +14,16 @@ export class AuthService {
     private firestore: AngularFirestore
   ) { }
 
-  createUser(email: string, password: string) {
-    return this.af.auth.createUserWithEmailAndPassword(email, password)
+  createUser(email: string, pass: string, nombre: string, apellido: string) {
+    return this.af.auth.createUserWithEmailAndPassword(email, pass)
       .then(cred => {
         console.log(cred.user);
         return this.firestore.collection('users').doc(cred.user.uid).set({
-          username: email
+          username: email,
+          password: pass,
+          name: nombre,
+          lastname: apellido
+
         });
       });
   }
