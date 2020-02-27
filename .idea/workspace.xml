@@ -4,6 +4,13 @@
     <list default="true" id="f5bad1a2-083a-4ce7-a55a-778140379005" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<
+      <change beforePath="$PROJECT_DIR$/adental/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/component/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/component/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/app/core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/app/core/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adental/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adental/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
