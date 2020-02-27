@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
+import {environment} from '../environments/environment';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +42,10 @@ const rutas: Routes = [
     AppRoutingModule,
     DoctorModule,
     PatientModule,
-    RouterModule.forRoot(rutas)
+    RouterModule.forRoot(rutas),
+    AngularFireModule.initializeApp(environment.firebase), 
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
