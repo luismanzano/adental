@@ -15,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DoctorModule } from './doctor/doctor.module';
 import { PatientModule } from './patient/patient.module';
-<<<<<<< HEAD
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponentDoctor } from './doctor/profile_doctor/profile.component';
 import { EnviarMensajeComponent } from './doctor/enviar-mensaje/enviar-mensaje.component';
