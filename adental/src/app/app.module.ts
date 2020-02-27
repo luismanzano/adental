@@ -33,13 +33,21 @@ const rutas: Routes = [
   {path: 'citas', component:AppointmentsComponent},
   {path: 'consultas', component:BillsComponent},
   {path: 'pagos', component:PaymentComponent},
-  {path:'perfil-paciente', component:ProfileComponent}
+  {path:'perfil-paciente', component:ProfileComponent},
+  {path: 'estadisticas', component: EstadisticasAdminComponent},
+  {path: 'nuevo-usuario', component:UsuariosAdminComponent}
+
 
 
 ]
+import { AdminModule2 } from './admin2/admin.module';
+import { EstadisticasAdminComponent } from './admin2/estadisticas-admin/estadisticas-admin.component';
+import { UsuariosAdminComponent } from './admin2/usuarios-admin/usuarios-admin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+
 
   ],
   imports: [
@@ -52,7 +60,8 @@ const rutas: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FormsModule,
-    HomeModule
+    HomeModule,
+    AdminModule2
   ],
   providers: [AngularFirestore, AngularFirestoreModule],
   bootstrap: [AppComponent]
