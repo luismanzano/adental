@@ -19,11 +19,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(){
+  login() {
     this.authService.login(this.user, this.password)
       .then(() => {
-        this.router.navigate(['/profile']);
-      });
+        alert("Ususario Logeado")
+      })
+      .catch(() => alert("No se logeo"));
   }
 
 }

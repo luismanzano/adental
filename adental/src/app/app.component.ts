@@ -11,6 +11,6 @@ export class AppComponent {
 
 
   constructor(public adentalDB: AngularFireDatabase){
-    
+
   }
 }

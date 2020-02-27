@@ -11,7 +11,7 @@ export class AuthService {
   ) { }
 
   createUser(email: string, password: string){
-    return this.af.auth.createUser(email, password);
+    let user = this.af.auth.createUser(email, password);
   }
 
   login(email: string, password: string){
