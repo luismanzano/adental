@@ -32,9 +32,9 @@ export class HomeComponent implements OnInit {
   createUser() {
     this.authService.createUser(this.user, this.password)
       .then(() => {
-        alert("Usuario Creado")
+        alert('Usuario Creado');
       })
-      .catch(() => alert("Usuario No Creado"));
+      .catch(() => alert('Usuario No Creado'));
   }
 
 }
