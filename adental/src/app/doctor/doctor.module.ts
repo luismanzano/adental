@@ -8,6 +8,8 @@ import { MisPacientesComponent } from './mis-pacientes/mis-pacientes.component';
 
 
 
+
+
 @NgModule({
   declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent],
   imports: [
@@ -18,7 +20,7 @@ import { MisPacientesComponent } from './mis-pacientes/mis-pacientes.component';
     SidebarDoctorComponent,
     NuevoPacienteComponent,
     EnviarMensajeComponent,
-    MisPacientesComponent
+    MisPacientesComponent,
   ]
 })
 export class DoctorModule { }

@@ -35,7 +35,9 @@ const rutas: Routes = [
   {path: 'pagos', component:PaymentComponent},
   {path:'perfil-paciente', component:ProfileComponent},
   {path: 'estadisticas', component: EstadisticasAdminComponent},
-  {path: 'nuevo-usuario', component:UsuariosAdminComponent}
+  {path: 'nuevo-usuario', component:UsuariosAdminComponent},
+  {path:'mis-pacientes', component:MisPacientesComponent},
+  
 
 
 
@@ -43,6 +45,9 @@ const rutas: Routes = [
 import { AdminModule2 } from './admin2/admin.module';
 import { EstadisticasAdminComponent } from './admin2/estadisticas-admin/estadisticas-admin.component';
 import { UsuariosAdminComponent } from './admin2/usuarios-admin/usuarios-admin.component';
+import { MisPacientesComponent } from './doctor/mis-pacientes/mis-pacientes.component';
+
+
 
 @NgModule({
   declarations: [

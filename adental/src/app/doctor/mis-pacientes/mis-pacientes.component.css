@@ -5,3 +5,12 @@
 .mis-pacientes{
     height: 30em;
 }
+
+.checkbox{
+    display: none;
+}
+
+.btn-label{
+    width: 20px;
+    margin-top:0.5em;
+}
