@@ -33,7 +33,7 @@ export class AuthService {
 
   }
 /*
-  user() {
+  theUser() {
     return this.af.auth.currentUser();
   }
 */
