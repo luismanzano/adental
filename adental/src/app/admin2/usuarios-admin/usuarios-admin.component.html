@@ -9,9 +9,9 @@
 
                 <h1 class="head">Crear Usuario</h1>
                 <h5 id="tipo">Tipo de Usuario</h5>
-                <button id ="boton" class="shadow round" ><span class="paciente">Paciente</span><img id ="usuario" src="assets/images/usuario.png" alt=""> </button>
-                <button id ="boton" class="shadow round" ><span class="paciente">Odontólogo</span><img id ="usuario" src="assets/images/usuario.png" alt=""> </button>
-                <button id ="boton" class="shadow round" ><span class="paciente">Administrador</span><img id ="usuario" src="assets/images/usuario.png" alt=""> </button>
+                <button id ="boton" class="shadow round" (click)="makePatient()"><span class="paciente">Paciente</span><img id ="usuario" src="assets/images/usuario.png" alt="" > </button>
+                <button id ="boton" class="shadow round" (click)="makeDoctor()"><span class="paciente">Odontólogo</span><img id ="usuario" src="assets/images/usuario.png" alt=""> </button>
+                <button id ="boton" class="shadow round"  (click)="makeAdmin()" ><span class="paciente">Administrador</span><img id ="usuario" src="assets/images/usuario.png" alt=""> </button>
 
                 </div>
             </div>
