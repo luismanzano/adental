@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-2">
+        <app-sidebar-doctor></app-sidebar-doctor>
+    </div>
+    <div class="col-md-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h1 class="head" id="consulta">Registrar Consulta</h1>
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="round shadow">
+                        <div class="row opcion opciones">
+                            <div class="col-md-3 offset-1 white_color" id="tratamiento" (click)="mostrarTratamiento()">Tratamientos</div>
+                            <div class="col-md-4 white_color" id="prox-tratamientos" (click)="mostrarProxTratamientos()">Próximos Tratamientos</div>
+                            <div class="col-md-3 white_color" id="recipe" (click)="mostrarRecipe()">Récipe</div>
+                            
+                        </div>
+                        <div *ngIf="recipe">
+                            <app-recipe></app-recipe>
+                        </div>
+                        <div *ngIf="tratamiento">
+                            <app-tratamiento></app-tratamiento>
+                        </div>
+                        <div *ngIf="proxTratamientos">
+                            <app-prox-tratamientos></app-prox-tratamientos>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="shadow button ok white_color offset-10 guardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

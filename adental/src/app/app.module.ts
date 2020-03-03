@@ -37,6 +37,7 @@ const rutas: Routes = [
   {path: 'estadisticas', component: EstadisticasAdminComponent},
   {path: 'nuevo-usuario', component:UsuariosAdminComponent},
   {path:'mis-pacientes', component:MisPacientesComponent},
+  {path:'registrar-consulta', component:RegistrarConsultaComponent}
   
 
 
@@ -46,6 +47,7 @@ import { AdminModule2 } from './admin2/admin.module';
 import { EstadisticasAdminComponent } from './admin2/estadisticas-admin/estadisticas-admin.component';
 import { UsuariosAdminComponent } from './admin2/usuarios-admin/usuarios-admin.component';
 import { MisPacientesComponent } from './doctor/mis-pacientes/mis-pacientes.component';
+import { RegistrarConsultaComponent } from './doctor/registrar-consulta/registrar-consulta.component';
 
 
 

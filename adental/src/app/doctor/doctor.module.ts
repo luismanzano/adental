@@ -5,13 +5,17 @@ import { SidebarDoctorComponent } from './sidebar-doctor/sidebar-doctor.componen
 import { NuevoPacienteComponent } from './nuevo-paciente/nuevo-paciente.component';
 import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
 import { MisPacientesComponent } from './mis-pacientes/mis-pacientes.component';
+import { RegistrarConsultaComponent } from './registrar-consulta/registrar-consulta.component';
+import { TratamientoComponent } from './tratamiento/tratamiento.component';
+import { ProxTratamientosComponent } from './prox-tratamientos/prox-tratamientos.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 
 
 
 @NgModule({
-  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent],
+  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent],
   imports: [
     CommonModule
   ],
@@ -21,6 +25,10 @@ import { MisPacientesComponent } from './mis-pacientes/mis-pacientes.component';
     NuevoPacienteComponent,
     EnviarMensajeComponent,
     MisPacientesComponent,
+    TratamientoComponent,
+    RegistrarConsultaComponent,
+    ProxTratamientosComponent,
+    RecipeComponent
   ]
 })
 export class DoctorModule { }

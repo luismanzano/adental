@@ -1,0 +1,43 @@
+.recipe{
+    border: 1px solid black;
+    height: 25em;
+}
+
+#logo{
+    width: 60%;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.col-md-6 div{
+    margin-top: 0.5em;
+}
+
+.col-md-6 input{
+    border-radius: 20px;
+    margin-left: 1em;
+}
+
+
+div textarea{
+    border: 0;
+    width: 100%;
+    height: 12em;
+}
+
+div p{
+    font-size: smaller;
+}
+.abajo{
+    position: absolute;
+    bottom: 3em;
+    width: 100%;
+}
+
+.firma p{
+    text-align: center;
+}
+
+.guardar button{
+    margin-top: 1em;
+}
