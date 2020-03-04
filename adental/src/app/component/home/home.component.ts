@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 
 import { AuthService} from '../../core/services/auth.service';
-import any = jasmine.any;
+//import any = jasmine.any;
 import { AngularFireAuth} from '@angular/fire/auth';
 
 
@@ -17,8 +17,6 @@ export class HomeComponent implements OnInit {
   password: any;
   id: any;
   userFromDB: any;
-  testVar: string;
-  testVar = 'SdA3Q143pzSKYH3MVXbBRJIn7A43';
 
   constructor(
     private router: Router,

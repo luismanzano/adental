@@ -7,15 +7,19 @@ import {Router} from "@angular/router";
 
 interface User {
   name: string;
+  lastname: string;
   username: string;
+  type: any;
   id: string;
 }
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  user: string;
   mainUser: User;
 
   constructor(
@@ -43,14 +47,10 @@ export class AuthService {
     this.af.auth.signInWithEmailAndPassword(email, password)
       .then((data) => {
         console.log(data);
-        this.mainUser = {
-          name: 'hola',
-          username: 'loquesea@gmail.com',
-          id: data.user.uid
-        };
-        console.log(this.mainUser)
+        this.user =  data.user.uid;
+        console.log(this.user)
         alert('Usuario Logeado');
-        this.redirectUser(this.mainUser.id);
+        this.redirectUser(this.user);
       })
       .catch(() => alert('No se logeo'));
 
@@ -59,15 +59,26 @@ export class AuthService {
 
   redirectUser(id: string) {
     alert('Esto esta funcionando');
-    this.userData(this.mainUser.id).subscribe( user => {
+    this.userData(this.user).subscribe( user => {
+
       console.log(user.data() );
+
+      this.mainUser = {
+        name: user.data().name,
+      lastname: user.data().lastname,
+      username: user.data().username,
+      type: user.data().type,
+      id: this.user
+      }
+
       // tslint:disable-next-line:triple-equals
       if (user.data().type == '0') {
         this.router.navigate(['/perfil-paciente']);
       }
       else if (user.data().type == '1') {
         this.router.navigate(['/perfil-doctor']);
-      } else {
+      }
+      else {
         this.router.navigate(['/nuevo-usuario']);
       }
     });
