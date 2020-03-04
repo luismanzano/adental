@@ -62,13 +62,15 @@ export class AuthService {
     this.userData(this.mainUser.id).subscribe( user => {
       console.log(user.data() );
       // tslint:disable-next-line:triple-equals
-      if (user.data().type == '2') {
+      if (user.data().type == '0') {
+        this.router.navigate(['/perfil-paciente']);
+      }
+      else if (user.data().type == '1') {
+        this.router.navigate(['/perfil-doctor']);
+      } else {
         this.router.navigate(['/nuevo-usuario']);
       }
-      //this.userFromDB = user.data();
     });
-
-    //console.log(this.userFromDB);
   }
 
 
