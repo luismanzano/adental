@@ -13,7 +13,6 @@ export class AuthService {
     private af: AngularFireAuth,
     private firestore: AngularFirestore
   ) { }
-
   createUser(email: string, pass: string, nombre: string, apellido: string) {
     return this.af.auth.createUserWithEmailAndPassword(email, pass)
       .then(cred => {
