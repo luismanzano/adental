@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../core/services/auth.service';
+import '../../../assets/smtp.js';
+
+
 
 @Component({
   selector: 'app-nuevo-paciente',
@@ -7,6 +10,10 @@ import { AuthService} from '../../core/services/auth.service';
   styleUrls: ['./nuevo-paciente.component.css']
 })
 export class NuevoPacienteComponent implements OnInit {
+
+
+   Email: any;
+
 
   paciente_nombre: string;
   paciente_apellido: string;
@@ -22,7 +29,8 @@ export class NuevoPacienteComponent implements OnInit {
 
   constructor(
     protected authService: AuthService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     alert(this.authService.mainUser.id);
@@ -30,7 +38,7 @@ export class NuevoPacienteComponent implements OnInit {
 
   guardarPaciente() {
     const that = this;
-    //alert(this.paciente_email);
+    // alert(this.paciente_email);
     this.paciente_email_saved = this.paciente_email;
     alert(this.paciente_email_saved);
     console.log(this.paciente_nombre);
@@ -44,49 +52,19 @@ export class NuevoPacienteComponent implements OnInit {
     console.log(this.authService.cred);
 
 
-   // this.authService.updateUser(this.authService.mainUser.id, {patients:.push(this.paciente_email)});
+    this.Email.send({
+      Host : 'smtp.elasticemail.com',
+    Username : 'udith.indrakantha@gmail.com',
+    Password : '5F575ADA25677A5648382C1AFABA783B64AD',
+    To : 'luis.fernando.manzano.alvarez@gmail.com',
+    From : `luisfmanzanoa@gmail.com`,
+      Subject : 'this.model.subject',
+      Body : 'jdjdjdjdjdj'
+  }).then( message => {alert(message);} );
 
- /*   this.authService.getUsers().subscribe((users: any) => {
-      console.log(users);
-
-      setTimeout(assignId, 1000);
-
-      function assignId() {
-        // tslint:disable-next-line:prefer-for-of
-        for (let i = 0; i <= users.length; i++) {
-          console.log('todos los correos ' + i);
-          console.log(users[i].payload.doc._document.proto.fields.username.stringValue);
-          //console.log('///////////')
-          //console.log('El correo del paciente')
-          //console.log(that.paciente_email);
-          if (that.paciente_email == users[i].payload.doc._document.proto.fields.username.stringValue ) {
-            alert('Email Encontrado');
-            console.log(users[i].payload.doc._document.proto.fields.username.stringValue);
-            console.log(that.paciente_email);
-
-          }
-        }
-      }
-
-      // TERMINAR EL CODIGO QUE COLOCA LOS ID EN LOS USUARIOS
-
-    });*/
+  }
 
 
-    }
+  }
 
-
-
-  // gOnInit() {
-  //   this.firestoreService.getCats().subscribe((catsSnapshot) => {
-  //     this.cats = [];
-  //     catsSnapshot.forEach((catData: any) => {
-  //       this.cats.push({
-  //         id: catData.payload.doc.id,
-  //         data: catData.payload.doc.data()
-  //       });
-  //     })
-  //   });
-  // }
-}
 
