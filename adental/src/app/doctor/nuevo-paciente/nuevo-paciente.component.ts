@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../core/services/auth.service';
 import '../../../assets/smtp.js';
 
+declare let Email: any;
 
 
 @Component({
@@ -11,8 +12,6 @@ import '../../../assets/smtp.js';
 })
 export class NuevoPacienteComponent implements OnInit {
 
-
-   Email: any;
 
 
   paciente_nombre: string;
@@ -34,6 +33,16 @@ export class NuevoPacienteComponent implements OnInit {
 
   ngOnInit() {
     alert(this.authService.mainUser.id);
+
+    Email.send({
+      Host : 'smtp.elasticemail.com',
+      Username : 'luisfmanzanoa@gmail.com',
+      Password : '5F575ADA25677A5648382C1AFABA783B64AD',
+      To : 'luis.fernando.manzano.alvarez@gmail.com',
+      From : `luisfmanzanoa@gmail.com`,
+      Subject : 'this.model.subject',
+      Body : 'jdjdjdjdjdj'
+    }).then( message => {alert('mensaje enviado'); } );
   }
 
   guardarPaciente() {
@@ -52,15 +61,6 @@ export class NuevoPacienteComponent implements OnInit {
     console.log(this.authService.cred);
 
 
-    this.Email.send({
-      Host : 'smtp.elasticemail.com',
-    Username : 'udith.indrakantha@gmail.com',
-    Password : '5F575ADA25677A5648382C1AFABA783B64AD',
-    To : 'luis.fernando.manzano.alvarez@gmail.com',
-    From : `luisfmanzanoa@gmail.com`,
-      Subject : 'this.model.subject',
-      Body : 'jdjdjdjdjdj'
-  }).then( message => {alert(message);} );
 
   }
 
