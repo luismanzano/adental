@@ -11,38 +11,43 @@
                 <button id ="boton" class="shadow round" disabled><span class="paciente">Paciente</span><img id ="usuario" src="assets/images/usuario.png" alt=""> </button>
                 </div>
             </div>
-        
+
                 <div class="datos">
                     <div class="row">
                         <div class="col-md-3">
-                                <input type="text" class="sinborde gap-down" id= "nombre" placeholder="Nombre">
+                                <input type="text" [(ngModel)]="paciente_nombre" class="sinborde gap-down" id= "nombre" placeholder="Nombre">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="sinborde gap-down" id= "apellido" placeholder="Apellido">
+                            <input type="text" [(ngModel)]="paciente_apellido" class="sinborde gap-down" id= "apellido" placeholder="Apellido">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="sinborde gap-down" id= "user" placeholder="Username">
+                            <input type="text" [(ngModel)]="paciente_email" class="sinborde gap-down" id= "user" placeholder="Username">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="text" class="sinborde gap-down" id= "ci" placeholder="C.I">
+                            <input type="text" [(ngModel)]="paciente_cedula" class="sinborde gap-down" id= "ci" placeholder="C.I">
                         </div>
                     </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <input type="text" [(ngModel)]="paciente_contrasena" class="sinborde gap-down" id= "password" placeholder="Contrasena">
+                    </div>
+                  </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <input type="date" class="sinborde gap-down" id= "fecha" placeholder="Fecha de Nacimiento" >
+                            <input type="date" [(ngModel)]="paciente_nacimiento" class="sinborde gap-down" id= "fecha" placeholder="Fecha de Nacimiento" >
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="row">
                     <div class="col-md-4">
-                        <button id="guardar" class="round shadow button button ok white_color">Guardar</button>
+                        <button id="guardar" class="round shadow button button ok white_color" (click)="guardarPaciente()">Guardar</button>
                     </div>
                 </div>
         </div>

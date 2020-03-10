@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule} from "@angular/forms";
+import { FormsModule} from '@angular/forms';
 import { AuthService} from '../../core/services/auth.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class UsuariosAdminComponent implements OnInit {
   private nombre: string;
   private apellido: string;
   private password: string;
+  private userType: any;
 
   constructor( private form: FormsModule, private authService: AuthService) { }
 
@@ -19,11 +20,33 @@ export class UsuariosAdminComponent implements OnInit {
   }
 
   createUser() {
-    this.authService.createUser(this.user, this.password, this.nombre, this.apellido)
+    this.authService.createUser(this.user, this.password, this.nombre, this.apellido, this.userType)
       .then(() => {
-        alert('Usuario Creado');
+        alert('Usuario Creado de tipo: ' + this.userType.toString());
       })
       .catch(() => alert('Usuario No Creado'));
   }
+
+  alertaRandom() {
+    alert('alertarandom');
+    console.log('alertrandom');
+  }
+
+  makePatient() {
+    this.userType = 0;
+    console.log("El tipo de usuario es " + this.userType);
+  }
+
+  makeDoctor() {
+    this.userType = 1;
+    console.log("El tipo de usuario es " + this.userType);
+  }
+
+  makeAdmin() {
+    this.userType = 2;
+    console.log("El tipo de usuario es " + this.userType);
+  }
+
+
 
 }

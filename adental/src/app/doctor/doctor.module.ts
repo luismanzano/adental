@@ -11,13 +11,17 @@ import { ProxTratamientosComponent } from './prox-tratamientos/prox-tratamientos
 import { RecipeComponent } from './recipe/recipe.component';
 
 
+import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FormsModule
   ],
   exports:[
     ProfileComponentDoctor,
