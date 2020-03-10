@@ -21,25 +21,28 @@ interface User {
 export class AuthService {
   user: string;
   mainUser: User;
-
+cred: string;
   constructor(
     private router: Router,
     public af: AngularFireAuth,
-    private firestore: AngularFirestore
+    public firestore: AngularFirestore
   ) { }
 
   createUser(email: string, pass: string, nombre: string, apellido: string, userType: string) {
     return this.af.auth.createUserWithEmailAndPassword(email, pass)
       .then(cred => {
         console.log(cred.user);
+        this.cred = cred.user.uid;
         return this.firestore.collection('users').doc(cred.user.uid).set({
           type: userType,
           username: email,
           password: pass,
           name: nombre,
-          lastname: apellido
+          lastname: apellido,
+          id: cred.user.uid.toString()
 
         });
+        alert('Usuario Creado');
       });
   }
   login(email: string, password: string) {
@@ -61,6 +64,7 @@ export class AuthService {
     alert('Esto esta funcionando');
     this.userData(this.user).subscribe( user => {
 
+      console.log('User Data' );
       console.log(user.data() );
 
       this.mainUser = {
@@ -68,8 +72,8 @@ export class AuthService {
       lastname: user.data().lastname,
       username: user.data().username,
       type: user.data().type,
-      id: this.user
-      }
+      id: user.data().id
+      };
 
       // tslint:disable-next-line:triple-equals
       if (user.data().type == '0') {
@@ -101,5 +105,13 @@ export class AuthService {
 
   logout() {
     return this.af.auth.signOut();
+  }
+
+  public getUsers() {
+    return this.firestore.collection('users').snapshotChanges();
+  }
+
+  public updateUser(documentId: string, data: any) {
+    return this.firestore.collection('users').doc(documentId).set(data);
   }
 }

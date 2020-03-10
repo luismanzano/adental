@@ -1,9 +1,10 @@
 <div class="col-md-2 sidebar">
     <img src="assets/images/logo7.png" class="logo" alt="">
 
-    <p class="menu"> <a href="">Mi Perfil</a> </p>
-    <p class="menu"><a href="">Mis Citas</a></p>
-    <p class="menu"><a href="">Mis Pacientes</a></p>
+    <p class="menu"> <a href="" [routerLink]="['/perfil-doctor']">Mi Perfil</a> </p>
+    <p class="menu"><a href="" [routerLink]="['/nuevo-paciente']">Mis Citas</a></p>
+    <p class="menu"><a href="" [routerLink]="['/mis-pacientes']">Mis Pacientes</a></p>
+    <p class="menu"><a href="" [routerLink]="['/nuevo-paciente']">Nuevo Paciente</a></p>
     <p class="cerrar-sesion menu"><a href="" (click)="logout()">Cerrar Sesión</a></p>
 </div>
 

@@ -5,13 +5,17 @@ import { SidebarDoctorComponent } from './sidebar-doctor/sidebar-doctor.componen
 import { NuevoPacienteComponent } from './nuevo-paciente/nuevo-paciente.component';
 import { EnviarMensajeComponent } from './enviar-mensaje/enviar-mensaje.component';
 import { MisPacientesComponent } from './mis-pacientes/mis-pacientes.component';
+import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FormsModule
   ],
   exports:[
     ProfileComponentDoctor,
