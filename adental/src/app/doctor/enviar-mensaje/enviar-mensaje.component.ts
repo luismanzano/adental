@@ -8,22 +8,22 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./enviar-mensaje.component.css']
 })
 export class EnviarMensajeComponent implements OnInit {
-  id: String;
-  private sub:any;
-  nombre:String;
-  last:String;
+  id: string;
+  private sub: any;
+  name: string;
+  last: string;
 
   constructor(private route:ActivatedRoute, public firestore: AngularFirestore) { }
 
   ngOnInit() {
     this.sub=this.route.params.subscribe(params => {
       this.id = params['id'];
-    })
+    });
 
     this.userData(this.id.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
-      this.last = usuario.data().lastname
-    })
+      this.last = usuario.data().lastname;
+    });
 
   }
 

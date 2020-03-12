@@ -26,20 +26,20 @@
             </div>
             <div *ngFor="let user of users">
               <div class="row tabla datos">
-                <div class="col-md-2">{{user.name}}</div>
-                <div class="col-md-2">{{user.lastname}}</div>
-                <div class="col-md-4">{{user.username}}</div>
+                <div class="col-md-2">{{user.payload.doc.data().name}}</div>
+                <div class="col-md-2">{{user.payload.doc.data().lastname}}</div>
+                <div class="col-md-4">{{user.payload.doc.data().username}}</div>
                 <div class="col-md-1">
-                  <button class="button cancel round shadow white_color"><img src="assets/images/block.svg" alt="Bloq"></button>
+                  <button class="button cancel round shadow white_color" (click)="deleteUser(user.payload.doc.data().id)"><img src="assets/images/block.svg" alt="Bloq"></button>
                 </div>
                 <div class="col-md-1">
-                  <button class="button ok round shadow white_color"><img src="assets/images/humanpictos.svg" alt=""></button>
+                  <button class="button ok round shadow white_color" (click)="changeUser(user.payload.doc.data().id, '1')"><img src="assets/images/humanpictos.svg" alt=""></button>
                 </div>
                 <div class="col-md-1">
-                  <button class="button ok round shadow white_color"><img src="assets/images/patient.svg" alt=""></button>
+                  <button class="button ok round shadow white_color" (click)="changeUser(user.payload.doc.data().id, '0')"><img src="assets/images/patient.svg" alt=""></button>
                 </div>
                 <div class="col-md-1">
-                  <button class="button ok round shadow white_color"><img src="assets/images/settings.svg" alt=""></button>
+                  <button class="button ok round shadow white_color" (click)="changeUser(user.payload.doc.data().id, '2')"><img src="assets/images/settings.svg" alt=""></button>
                 </div>
               </div>
               <div class="row">

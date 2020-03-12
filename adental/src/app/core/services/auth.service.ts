@@ -176,6 +176,25 @@ export class AuthService {
       });
   }
 
-  
-  
+  deleteUser(id: string) {
+    this.firestore.collection('users').doc(id).delete().then( succ => {
+      alert('Se creo exitosamente');
+    }).catch( err => {
+      console.log('Error');
+      console.log(err);
+    });
+  }
+
+  changeUser(id: string, newType: string) {
+    this.firestore.collection('users').doc(id).update({type: newType})
+      .then(succ => {
+        alert('El usuario ha sido actualizado');
+      }).catch( err => {
+        console.log(err);
+        alert('El usuario no se pudo actualizar. Revise su conexion');
+    });
+  }
+
+
+
 }
