@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="col-md-2">
+    <app-sidebar-admin></app-sidebar-admin>
+  </div>
+
+  <div class="col-md-10">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h1 class="head">Todos los Usuarios</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <div class="mis-pacientes round shadow">
+            <div class="row tabla border_bottom">
+              <div class="col-md-3">Nombre</div>
+              <div class="col-md-3">Apellido</div>
+              <div class="col-md-4">Correo</div>
+              <div class="col-md-1"></div>
+            </div>
+            <div *ngFor="let user of users">
+              <div class="row tabla datos">
+                <div class="col-md-3">{{user.name}}</div>
+                <div class="col-md-3">{{user.lastname}}</div>
+                <div class="col-md-4">{{user.username}}</div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+
