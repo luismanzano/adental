@@ -1,0 +1,55 @@
+
+<div class="row">
+  <div class="col-md-2">
+    <app-sidebar-admin></app-sidebar-admin>
+  </div>
+
+  <div class="col-md-10">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h1 class="head">Todos los Usuarios</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="try user-table round shadow">
+            <div class="row tabla border_bottom ">
+              <div class="col-md-2">Nombre</div>
+              <div class="col-md-2">Apellido</div>
+              <div class="col-md-4">Correo</div>
+              <div class="col-md-1">Bloq.</div>
+              <div class="col-md-1 text-center">Doc.</div>
+              <div class="col-md-1 text-center">Pac.</div>
+              <div class="col-md-1 text-center">Adm.</div>
+            </div>
+            <div *ngFor="let user of users">
+              <div class="row tabla datos">
+                <div class="col-md-2">{{user.payload.doc.data().name}}</div>
+                <div class="col-md-2">{{user.payload.doc.data().lastname}}</div>
+                <div class="col-md-4">{{user.payload.doc.data().username}}</div>
+                <div class="col-md-1">
+                  <button class="button cancel round shadow white_color" (click)="deleteUser(user.payload.doc.data().id)"><img src="assets/images/block.svg" alt="Bloq"></button>
+                </div>
+                <div class="col-md-1">
+                  <button class="button ok round shadow white_color" (click)="changeUser(user.payload.doc.data().id, '1')"><img src="assets/images/humanpictos.svg" alt=""></button>
+                </div>
+                <div class="col-md-1">
+                  <button class="button ok round shadow white_color" (click)="changeUser(user.payload.doc.data().id, '0')"><img src="assets/images/patient.svg" alt=""></button>
+                </div>
+                <div class="col-md-1">
+                  <button class="button ok round shadow white_color" (click)="changeUser(user.payload.doc.data().id, '2')"><img src="assets/images/settings.svg" alt=""></button>
+                </div>
+              </div>
+              <div class="row">
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+

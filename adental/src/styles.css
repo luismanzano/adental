@@ -147,3 +147,9 @@ input:focus, textarea:focus, select:focus{
 .red_color{
   color: #A71B0B;
 }
+
+.try div:nth-child(even) .row{
+  background-color: #e6e6e6!important;
+  padding: .12em 0;
+  vertical-align: middle;
+}

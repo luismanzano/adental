@@ -37,10 +37,11 @@ const rutas: Routes = [
   {path:'perfil-paciente', component:ProfileComponent},
   {path: 'estadisticas', component: EstadisticasAdminComponent},
   {path: 'nuevo-usuario', component:UsuariosAdminComponent},
+  {path: 'todos-usuarios', component:AllUsersComponent},
   {path:'mis-pacientes', component:MisPacientesComponent},
   {path:'registrar-consulta/:id', component:RegistrarConsultaComponent},
   {path: 'paciente-perfil/:id', component:PerfilPacienteComponent}
-  
+
 ]
 import { AdminModule2 } from './admin2/admin.module';
 import { EstadisticasAdminComponent } from './admin2/estadisticas-admin/estadisticas-admin.component';
@@ -48,6 +49,7 @@ import { UsuariosAdminComponent } from './admin2/usuarios-admin/usuarios-admin.c
 import { MisPacientesComponent } from './doctor/mis-pacientes/mis-pacientes.component';
 import { RegistrarConsultaComponent } from './doctor/registrar-consulta/registrar-consulta.component';
 import { PerfilPacienteComponent } from './doctor/perfil-paciente/perfil-paciente.component';
+import {AllUsersComponent} from "./admin2/all-users/all-users.component";
 
 
 @NgModule({

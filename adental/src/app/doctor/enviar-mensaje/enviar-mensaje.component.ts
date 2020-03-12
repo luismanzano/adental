@@ -9,20 +9,20 @@ import { auth } from 'firebase';
   styleUrls: ['./enviar-mensaje.component.css']
 })
 export class EnviarMensajeComponent implements OnInit {
-  id: String;
+  id: string;
   private sub:any;
-  nombre:String;
-  last:String;
-  textPerzonalizado: String;
-  textPredeterminado: String;
-  email: String;
+  name:string;
+  last:string;
+  textPerzonalizado: string;
+  textPredeterminado: string;
+  email: string;
 
   constructor(private route:ActivatedRoute, public firestore: AngularFirestore) { }
 
   ngOnInit() {
     this.sub=this.route.params.subscribe(params => {
       this.id = params['id'];
-    })
+    });
 
     this.userData(this.id.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
