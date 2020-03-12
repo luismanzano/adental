@@ -13,19 +13,37 @@
       </div>
 
       <div class="row">
-        <div class="col-md-10">
-          <div class="mis-pacientes round shadow">
-            <div class="row tabla border_bottom">
-              <div class="col-md-3">Nombre</div>
-              <div class="col-md-3">Apellido</div>
+        <div class="col-md-12">
+          <div class="try user-table round shadow">
+            <div class="row tabla border_bottom ">
+              <div class="col-md-2">Nombre</div>
+              <div class="col-md-2">Apellido</div>
               <div class="col-md-4">Correo</div>
-              <div class="col-md-1"></div>
+              <div class="col-md-1">Bloq.</div>
+              <div class="col-md-1 text-center">Doc.</div>
+              <div class="col-md-1 text-center">Pac.</div>
+              <div class="col-md-1 text-center">Adm.</div>
             </div>
             <div *ngFor="let user of users">
               <div class="row tabla datos">
-                <div class="col-md-3">{{user.name}}</div>
-                <div class="col-md-3">{{user.lastname}}</div>
+                <div class="col-md-2">{{user.name}}</div>
+                <div class="col-md-2">{{user.lastname}}</div>
                 <div class="col-md-4">{{user.username}}</div>
+                <div class="col-md-1">
+                  <button class="button cancel round shadow white_color"><img src="assets/images/block.svg" alt="Bloq"></button>
+                </div>
+                <div class="col-md-1">
+                  <button class="button ok round shadow white_color"><img src="assets/images/humanpictos.svg" alt=""></button>
+                </div>
+                <div class="col-md-1">
+                  <button class="button ok round shadow white_color"><img src="assets/images/patient.svg" alt=""></button>
+                </div>
+                <div class="col-md-1">
+                  <button class="button ok round shadow white_color"><img src="assets/images/settings.svg" alt=""></button>
+                </div>
+              </div>
+              <div class="row">
+
               </div>
             </div>
 
