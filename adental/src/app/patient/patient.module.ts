@@ -6,6 +6,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { BillsComponent } from './bills/bills.component';
 import { PaymentComponent } from './payment/payment.component';
 import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -13,7 +14,8 @@ import {RouterModule} from "@angular/router";
   declarations: [SidebarComponent, ProfileComponent, AppointmentsComponent, BillsComponent, PaymentComponent],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        FormsModule
     ],
   exports: [
     ProfileComponent,

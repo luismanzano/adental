@@ -21,6 +21,22 @@
 
             <div class="row">
                 <div class="col-md-3">
+                    <button class="button ok shadow cambiarContra white_color" (click)="activarCambiarContra()">Cambiar Cotraseña</button>
+                </div>
+                <div class="col-md-3 offset-3">
+                    <div *ngIf="activar">
+                        <input type="text" [(ngModel)]="contrasena" class="sinborde nueva" id= "contrasena" placeholder="Nueva Contraseña">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div *ngIf="activar">
+                        <button class="button ok shadow cambiar white_color" (click)="cambiarContra()">Cambiar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
                    <h5 class="gap-up gap-down">Historial</h5>
                 </div>
             </div>
