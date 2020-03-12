@@ -5,14 +5,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { BillsComponent } from './bills/bills.component';
 import { PaymentComponent } from './payment/payment.component';
+import {RouterModule} from "@angular/router";
 
 
 
 @NgModule({
   declarations: [SidebarComponent, ProfileComponent, AppointmentsComponent, BillsComponent, PaymentComponent],
-  imports: [
-    CommonModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule
+    ],
   exports: [
     ProfileComponent,
     SidebarComponent,

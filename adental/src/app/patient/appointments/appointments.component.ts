@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-appointments',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppointmentsComponent implements OnInit {
 
-  constructor() { }
+  doctores = [];
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authService.getUsers().subscribe((users: any) => {
+      for (let i = 0; i <= users.length; i++) {
+       // console.log(users[i].payload.doc.data());
+        if (users[i].payload.doc.data().type == '1') {
+          console.log(users[i].payload.doc.data().name);
+          this.doctores.push(users[i].payload.doc.data());
+        }
+      }
+    });
   }
 
 }
