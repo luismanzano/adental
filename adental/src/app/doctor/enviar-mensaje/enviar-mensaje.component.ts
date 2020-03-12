@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'app-enviar-mensaje',
@@ -12,6 +13,9 @@ export class EnviarMensajeComponent implements OnInit {
   private sub:any;
   nombre:String;
   last:String;
+  textPerzonalizado: String;
+  textPredeterminado: String;
+  email: String;
 
   constructor(private route:ActivatedRoute, public firestore: AngularFirestore) { }
 
@@ -22,13 +26,34 @@ export class EnviarMensajeComponent implements OnInit {
 
     this.userData(this.id.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
-      this.last = usuario.data().lastname
+      this.last = usuario.data().lastname;
+      this.email = usuario.data().username;
     })
 
   }
 
   userData(data: string) {
     return this.firestore.collection('users').doc(data).get();
+
+  }
+
+  recuperarTexto(tipo:boolean){
+    if (tipo){
+      this.sendEmail(this.email.toString(),this.textPerzonalizado.toString());
+    } else{
+      this.sendEmail(this.email.toString(),this.textPredeterminado.toString());
+    }
+    
+  }
+
+  sendEmail(to: string, text: string) {
+    console.log('prueba');
+    let data = {
+      email: to,
+      message: text
+    }
+    console.log('Mensaje')
+    return this.firestore.collection('submissions').add(data);
 
   }
 
