@@ -142,8 +142,8 @@ export class AuthService {
   savePatient(idP: String){
     console.log('Probando save Patient');
     console.log(idP);
-    var doctorRef = this.firestore.collection("users").doc(idP.toString());
-        doctorRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion("Y874AtlglXRjOkUdz52GdLbkD8g1")
+    var pacienteRef = this.firestore.collection("users").doc(idP.toString());
+        pacienteRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion("Y874AtlglXRjOkUdz52GdLbkD8g1")
         })
         .then(function() {
            console.log("Document successfully updated!");
@@ -153,8 +153,8 @@ export class AuthService {
          console.error("Error updating document: ", error);
       });
 
-      var pacienteRef = this.firestore.collection("users").doc("Y874AtlglXRjOkUdz52GdLbkD8g1");
-        pacienteRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion(idP)
+      var doctorRef = this.firestore.collection("users").doc("Y874AtlglXRjOkUdz52GdLbkD8g1");
+        doctorRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion(idP)
         })
         .then(function() {
            console.log("Document successfully updated!");
