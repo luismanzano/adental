@@ -45,6 +45,17 @@ cred: string;
         alert('Usuario Creado');
       });
   }
+
+  sendEmail(to: string, text: string) {
+    let data = {
+      email: to,
+      message: text
+    }
+
+    return this.firestore.collection('submissions').add(data);
+
+  }
+
   login(email: string, password: string) {
     // return this.af.auth.signInWithEmailAndPassword(email, password);
     this.af.auth.signInWithEmailAndPassword(email, password)

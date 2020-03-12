@@ -21,6 +21,9 @@ export class NuevoPacienteComponent implements OnInit {
   paciente_cedula: string;
   paciente_nacimiento: string;
   paciente_contrasena: string;
+
+
+  mensaje: string;
   pacienteCreado: string;
 
   doctorActual: any;
@@ -60,8 +63,16 @@ export class NuevoPacienteComponent implements OnInit {
     console.log('cred');
     console.log(this.authService.cred);
 
+    this.sendEmail();
 
+  }
 
+  sendEmail() {
+    this.mensaje = '<h2>Se le ha creado un nuevo usuario en Adolf Dental Care</h2> <br> ' +
+      'Nombre: ' + this.paciente_nombre + ' Apellido: ' + this.paciente_apellido +
+      '<br> ' + 'Su usuario es: ' + this.paciente_email + '<br>'
+    + 'Su contraseña es: ' + this.paciente_contrasena + '<br>' + 'RECUERDE CAMBIAR SU CONTRASEÑA UNA VEZ INICIE SU PRIMERA SESION';
+    this.authService.sendEmail(this.paciente_email, this.mensaje );
   }
 
 

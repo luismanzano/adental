@@ -26,8 +26,8 @@ exports.sendEmailNotification = functions.firestore.document('submissions/{docId
     from:'adental@adental.com',
     to: `${data.email}`,
     subject: 'El usuario ha sido creado',
-    text: `${data.email}`,
-    html: `${data.email}`,
+    text: `${data.message}`,
+    html: `${data.message}`,
   }).then(res => console.log('El mensaje fue enviado con exito')).catch(err => console.log(err));
 })
 
