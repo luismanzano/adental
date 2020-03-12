@@ -34,7 +34,7 @@ export class AllUsersComponent implements OnInit {
     this.authService.deleteUser(id);
   }
 
-  changeUser(id: string, newType: string) {
+  changeUsers(id: string, newType: string) {
     this.authService.changeUser(id, newType);
   }
 

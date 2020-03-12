@@ -10,17 +10,17 @@ import { auth } from 'firebase';
 })
 export class EnviarMensajeComponent implements OnInit {
   id: string;
-  private sub:any;
-  name:string;
-  last:string;
+  private sub: any;
+  name: string;
+  last: string;
   textPerzonalizado: string;
   textPredeterminado: string;
   email: string;
 
-  constructor(private route:ActivatedRoute, public firestore: AngularFirestore) { }
+  constructor(private route: ActivatedRoute, public firestore: AngularFirestore) { }
 
   ngOnInit() {
-    this.sub=this.route.params.subscribe(params => {
+    this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
     });
 
@@ -28,7 +28,7 @@ export class EnviarMensajeComponent implements OnInit {
       this.name = usuario.data().name;
       this.last = usuario.data().lastname;
       this.email = usuario.data().username;
-    })
+    });
 
   }
 
@@ -38,12 +38,12 @@ export class EnviarMensajeComponent implements OnInit {
   }
 
   recuperarTexto(tipo:boolean){
-    if (tipo){
-      this.sendEmail(this.email.toString(),this.textPerzonalizado.toString());
-    } else{
-      this.sendEmail(this.email.toString(),this.textPredeterminado.toString());
+    if (tipo) {
+      this.sendEmail(this.email.toString(), this.textPerzonalizado.toString());
+    } else {
+      this.sendEmail(this.email.toString(), this.textPredeterminado.toString());
     }
-    
+
   }
 
   sendEmail(to: string, text: string) {

@@ -37,7 +37,7 @@ const rutas: Routes = [
   {path:'perfil-paciente', component:ProfileComponent},
   {path: 'estadisticas', component: EstadisticasAdminComponent},
   {path: 'nuevo-usuario', component:UsuariosAdminComponent},
-  {path: 'todos-usuarios', component:AllUsersComponent},
+  {path: 'usuarios', component:AllUsersComponent},
   {path:'mis-pacientes', component:MisPacientesComponent},
   {path:'registrar-consulta/:id', component:RegistrarConsultaComponent},
   {path: 'paciente-perfil/:id', component:PerfilPacienteComponent}

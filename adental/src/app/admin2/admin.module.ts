@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
 import { EstadisticasAdminComponent } from './estadisticas-admin/estadisticas-admin.component';
 import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
-import { FormsModule} from "@angular/forms";
+import { FormsModule} from '@angular/forms';
 import { AllUsersComponent } from './all-users/all-users.component';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -15,10 +15,11 @@ import {RouterModule} from "@angular/router";
     FormsModule,
     RouterModule
   ],
-  exports:[
+  exports: [
     SidebarAdminComponent,
     EstadisticasAdminComponent,
-    UsuariosAdminComponent
+    UsuariosAdminComponent,
+    AllUsersComponent
   ]
 })
 export class AdminModule2 { }
