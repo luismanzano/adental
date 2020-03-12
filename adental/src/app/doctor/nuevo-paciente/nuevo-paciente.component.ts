@@ -39,7 +39,7 @@ export class NuevoPacienteComponent implements OnInit {
     console.log(this.paciente_cedula);
     console.log(this.paciente_nacimiento);
     console.log(this.paciente_contrasena);
-    this.authService.createUser(this.paciente_email, this.paciente_contrasena, this.paciente_nombre, this.paciente_apellido, '0');
+    this.authService.createPatient(this.paciente_email, this.paciente_contrasena, this.paciente_nombre, this.paciente_apellido, '0', true);
     console.log('cred');
     console.log(this.authService.cred);
 

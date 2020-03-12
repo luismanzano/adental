@@ -13,11 +13,12 @@ import { RecipeComponent } from './recipe/recipe.component';
 
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.component';
 
 
 
 @NgModule({
-  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent],
+  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent, PerfilPacienteComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -32,7 +33,8 @@ import {FormsModule} from "@angular/forms";
     TratamientoComponent,
     RegistrarConsultaComponent,
     ProxTratamientosComponent,
-    RecipeComponent
+    RecipeComponent,
+    PerfilPacienteComponent
   ]
 })
 export class DoctorModule { }

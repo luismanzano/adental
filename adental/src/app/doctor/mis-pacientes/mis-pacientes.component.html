@@ -15,61 +15,26 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="mis-pacientes round shadow">
-                        <div class="row">
-                            <div class="col-md-11">
-                                <div class="row">
-                            <div class="col-md-3 border_bottom border_right border_left">Nombre</div>
-                            <div class="col-md-3 border_bottom border_right">Apellido</div>
-                            <div class="col-md-3 border_bottom border_right">Correo</div>
-                            <div class="col-md-3 border_bottom border_right">Cedula</div>
-                            </div>
+                        <div class="row tabla border_bottom">
+                            <div class="col-md-3">Nombre</div>
+                            <div class="col-md-3">Apellido</div>
+                            <div class="col-md-4">Correo</div>
+                            <div class="col-md-1"></div>
                         </div>
-                            <div class="col-md-1">
-                                <input type="checkbox" id="btn-nav" class="checkbox">
-                                <div class="opciones">
-                                    <label for="btn-nav" class="btn-label">
-
-                                    </label>
+                        <div *ngFor="let paciente of arregloPaciente">
+                            <div class="row tabla datos">
+                                <div class="col-md-3">{{paciente.name}}</div>
+                                <div class="col-md-3">{{paciente.lastname}}</div>
+                                <div class="col-md-4">{{paciente.username}}</div>
+                                <div class="col-md-1"> 
+                                    <a [routerLink]="['/paciente-perfil', paciente.id]">
+                                        <img class="btn-label" src="assets/images/ojito.png" alt="">
+                                    </a>
                                 </div>
                             </div>
-        
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-11">
-                                <div class="row">
-                            <div class="col-md-3 border_bottom border_right border_left">Reichel</div>
-                            <div class="col-md-3 border_bottom border_right">Larez</div>
-                            <div class="col-md-3 border_bottom border_right">Reichel.larez</div>
-                            <div class="col-md-3 border_bottom border_right">27.606.275</div>
-                            </div>
-                        </div>
-                            <div class="col-md-1">
-                                <a href=""><img class="btn-label" src="assets/images/ojito.png" alt=""></a>
-                            </div>
-        
-                        </div>
-                        <div class="row">
-                            <div class="col-md-11">
-                                <div class="row">
-                            <div class="col-md-3 border_bottom border_right border_left">Luis</div>
-                            <div class="col-md-3 border_bottom border_right">Manzano</div>
-                            <div class="col-md-3 border_bottom border_right">Luis.Manzano</div>
-                            <div class="col-md-3 border_bottom border_right">27.606.275</div>
-                            </div>
-                        </div>
-                            <div class="col-md-1">
-                                <a href=""><img class="btn-label" src="assets/images/ojito.png" alt=""></a>
-                            </div>
-        
-                        </div>
-        
+                        
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

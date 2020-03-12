@@ -1,0 +1,21 @@
+.opciones{
+    position:fixed;
+    right: 2em;
+    border-radius: 20px;
+    z-index: 1000000;
+    width: 9em ;
+    text-align: center;
+}
+
+.opciones2{
+    position:fixed;
+    right: 12em;
+    border-radius: 20px;
+    z-index: 1000000;
+    width: 10em;
+    text-align: center;
+}
+
+.prueba{
+    margin-top: 20em;
+}

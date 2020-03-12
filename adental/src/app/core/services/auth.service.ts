@@ -4,6 +4,8 @@ import { AngularFireAuth} from '@angular/fire/auth';
 import { AngularFirestore} from '@angular/fire/firestore';
 import {} from '@angular/fire/database';
 import {Router} from "@angular/router";
+import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
+import * as firebase from 'firebase';
 
 interface User {
   name: string;
@@ -21,7 +23,11 @@ interface User {
 export class AuthService {
   user: string;
   mainUser: User;
-cred: string;
+  cred: string;
+  idDoctor: string;
+  idPatient: string;
+  doctorRef: any;
+  array: any[];
   constructor(
     private router: Router,
     public af: AngularFireAuth,
@@ -39,8 +45,8 @@ cred: string;
           password: pass,
           name: nombre,
           lastname: apellido,
-          id: cred.user.uid.toString()
-
+          id: cred.user.uid.toString(),
+          conection:[]
         });
         alert('Usuario Creado');
       });
@@ -114,4 +120,51 @@ cred: string;
   public updateUser(documentId: string, data: any) {
     return this.firestore.collection('users').doc(documentId).set(data);
   }
+
+  createPatient(email: string, pass: string, nombre: string, apellido: string, userType: string, guardar:boolean) {
+    return this.af.auth.createUserWithEmailAndPassword(email, pass)
+      .then(cred => {
+        console.log(cred.user);
+        this.cred = cred.user.uid;
+         this.firestore.collection('users').doc(cred.user.uid).set({
+          type: userType,
+          username: email,
+          password: pass,
+          name: nombre,
+          lastname: apellido,
+          id: cred.user.uid.toString(),
+          conection:[],
+        });
+        console.log(cred.user.uid);
+        this.savePatient(cred.user.uid);
+      })
+  }
+  savePatient(idP: String){
+    console.log('Probando save Patient');
+    console.log(idP);
+    var doctorRef = this.firestore.collection("users").doc(idP.toString());
+        doctorRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion("Y874AtlglXRjOkUdz52GdLbkD8g1")
+        })
+        .then(function() {
+           console.log("Document successfully updated!");
+      })
+      .catch(function(error) {
+        //The document probably doesn't exist.
+         console.error("Error updating document: ", error);
+      });
+
+      var pacienteRef = this.firestore.collection("users").doc("Y874AtlglXRjOkUdz52GdLbkD8g1");
+        pacienteRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion(idP)
+        })
+        .then(function() {
+           console.log("Document successfully updated!");
+      })
+      .catch(function(error) {
+        //The document probably doesn't exist.
+         console.error("Error updating document: ", error);
+      });
+  }
+
+  
+  
 }

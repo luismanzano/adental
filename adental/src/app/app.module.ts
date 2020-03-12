@@ -28,7 +28,7 @@ import {AngularFirestore, AngularFirestoreModule} from "@angular/fire/firestore"
 
 const rutas: Routes = [
   {path: 'perfil-doctor', component:ProfileComponentDoctor},
-  {path: 'enviar-mensaje', component:EnviarMensajeComponent},
+  {path: 'enviar-mensaje/:id', component:EnviarMensajeComponent},
   {path:'nuevo-paciente', component:NuevoPacienteComponent},
   {path: 'citas', component:AppointmentsComponent},
   {path: 'mis-pacientes', component:MisPacientesComponent},
@@ -38,17 +38,16 @@ const rutas: Routes = [
   {path: 'estadisticas', component: EstadisticasAdminComponent},
   {path: 'nuevo-usuario', component:UsuariosAdminComponent},
   {path:'mis-pacientes', component:MisPacientesComponent},
-  {path:'registrar-consulta', component:RegistrarConsultaComponent}
+  {path:'registrar-consulta/:id', component:RegistrarConsultaComponent},
+  {path: 'paciente-perfil/:id', component:PerfilPacienteComponent}
   
-
-
-
 ]
 import { AdminModule2 } from './admin2/admin.module';
 import { EstadisticasAdminComponent } from './admin2/estadisticas-admin/estadisticas-admin.component';
 import { UsuariosAdminComponent } from './admin2/usuarios-admin/usuarios-admin.component';
 import { MisPacientesComponent } from './doctor/mis-pacientes/mis-pacientes.component';
 import { RegistrarConsultaComponent } from './doctor/registrar-consulta/registrar-consulta.component';
+import { PerfilPacienteComponent } from './doctor/perfil-paciente/perfil-paciente.component';
 
 
 @NgModule({
