@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ADental"
+    }
+  },
+  "defaultProject": "ADental",
+  "cli": {
+    "analytics": false
+  }
 }

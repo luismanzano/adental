@@ -13,11 +13,11 @@ export class ProfileComponent implements OnInit {
 
   mainUser = this.authService.mainUser;
   activar: boolean;
-  contrasena: String;
-  id: String;
+  contrasena: string;
+  idP: string;
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     public firestore: AngularFirestore
   ) {}
 
@@ -29,12 +29,13 @@ export class ProfileComponent implements OnInit {
       this.activar = false;
     } else{
       this.activar = true;
-    } 
+    }
   }
 
-  cambiarContra(){
-    this.id = this.mainUser.id
-    var paciente = this.firestore.collection('users').doc(this.id.toString());
+  cambiarContra() {
+    this.idP = this.mainUser.id
+    console.log(this.idP);
+    var paciente = this.firestore.collection('users').doc(this.idP.toString());
     var user = firebase.auth().currentUser;
     paciente.update({
       password: this.contrasena
