@@ -46,6 +46,7 @@ export class AuthService {
           name: nombre,
           lastname: apellido,
           id: cred.user.uid.toString(),
+          blocks: [],
           conection: []
         });
         alert('Usuario Creado');
