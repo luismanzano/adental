@@ -54,25 +54,38 @@
 
            <div class="dias">
             <div class="row">
-                <div class="col-md-2" id="lunes">Lunes</div>
-                <div class="col-md-2">Martes</div>
-                <div class="col-md-2" id="miercoles">Miércoles</div>
-                <div class="col-md-2" id="jueves">Jueves</div>
-                <div class="col-md-2" id="viernes">Viernes</div>
+                <div class="col-md-2 disponibilidad" id="lunes">
+                <div class="row">Lunes</div>
+                  <div class="row"><button (click)="workBlock(1, true)">Disponible</button></div>
+                  <div class="row"><button (click)="workBlock(1, false)">No disponible</button></div>
+                </div>
+
+              <div class="col-md-2 disponibilidad" id="martes">
+                <div class="row">Martes</div>
+                <div class="row"><button (click)="workBlock(2, true)">Disponible</button></div>
+                <div class="row"><button (click)="workBlock(2, false)">No disponible</button></div>
+              </div>
+
+              <div class="col-md-2 disponibilidad" id="miercoles">
+                <div class="row">Miercoles</div>
+                <div class="row"><button (click)="workBlock(3, true)">Disponible</button></div>
+                <div class="row"><button (click)="workBlock(3, false)">No disponible</button></div>
+              </div>
+
+              <div class="col-md-2 disponibilidad" id="jueves">
+                <div class="row">Jueves</div>
+                <div class="row"><button (click)="workBlock(4, true)">Disponible</button></div>
+                <div class="row"><button (click)="workBlock(4, false)">No disponible</button></div>
+              </div>
+
+
+              <div class="col-md-2 disponibilidad" id="viernes">
+                <div class="row">Viernes</div>
+                <div class="row"><button (click)="workBlock(5, true)">Disponible</button></div>
+                <div class="row"><button (click)="workBlock(5, false)">No disponible</button></div>
+              </div>
             </div>
            </div>
-
-           <div class="disponibilidad">
-            <div class="row">
-                <div class="col-md-2" id="primero">
-                    <button>Disponible</button>
-                </div>
-                <div class="col-md-2"><button>Disponible</button></div>
-                <div class="col-md-2"><button>No Disponible</button></div>
-                <div class="col-md-2"><button>Disponible</button></div>
-                <div class="col-md-2"><button>No Disponible</button></div>
-            </div>
-            </div>
             <div id="x"></div>
             </div>
     </div>

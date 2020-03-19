@@ -17,4 +17,13 @@ export class ProfileComponentDoctor implements OnInit {
   ngOnInit() {
   }
 
+  workBlock(day: number, avl: boolean) {
+
+
+    this.authService.saveBlock(this.mainUser.id, day, avl);
+
+
+    alert('Esta funcionando el workblock ' + day);
+  }
+
 }

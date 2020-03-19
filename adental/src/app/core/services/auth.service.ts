@@ -3,7 +3,7 @@ import { AngularFireAuth} from '@angular/fire/auth';
 // import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFirestore} from '@angular/fire/firestore';
 import {} from '@angular/fire/database';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 import * as firebase from 'firebase';
 
@@ -46,17 +46,17 @@ export class AuthService {
           name: nombre,
           lastname: apellido,
           id: cred.user.uid.toString(),
-          conection:[]
+          conection: []
         });
         alert('Usuario Creado');
       });
   }
 
   sendEmail(to: string, text: string) {
-    let data = {
+    const data = {
       email: to,
       message: text
-    }
+    };
 
     return this.firestore.collection('submissions').add(data);
 
@@ -68,7 +68,7 @@ export class AuthService {
       .then((data) => {
         console.log(data);
         this.user =  data.user.uid;
-        console.log(this.user)
+        console.log(this.user);
         alert('Usuario Logeado');
         this.redirectUser(this.user);
       })
@@ -95,11 +95,9 @@ export class AuthService {
       // tslint:disable-next-line:triple-equals
       if (user.data().type == '0') {
         this.router.navigate(['/perfil-paciente']);
-      }
-      else if (user.data().type == '1') {
+      } else if (user.data().type == '1') {
         this.router.navigate(['/perfil-doctor']);
-      }
-      else {
+      } else {
         this.router.navigate(['/nuevo-usuario']);
       }
     });
@@ -132,48 +130,80 @@ export class AuthService {
     return this.firestore.collection('users').doc(documentId).set(data);
   }
 
-  createPatient(email: string, pass: string, nombre: string, apellido: string, userType: string, guardar:boolean) {
+  createPatient(email: string, pass: string, nombre: string, apellido: string, userType: string, guardar: boolean) {
     return this.af.auth.createUserWithEmailAndPassword(email, pass)
       .then(cred => {
         console.log(cred.user);
         this.cred = cred.user.uid;
-         this.firestore.collection('users').doc(cred.user.uid).set({
+        this.firestore.collection('users').doc(cred.user.uid).set({
           type: userType,
           username: email,
           password: pass,
           name: nombre,
           lastname: apellido,
           id: cred.user.uid.toString(),
-          conection:[],
+          conection: [],
         });
         console.log(cred.user.uid);
         this.savePatient(cred.user.uid);
-      })
+      });
   }
-  savePatient(idP: String){
+  savePatient(idP: string) {
     console.log('Probando save Patient');
     console.log(idP);
-    var pacienteRef = this.firestore.collection("users").doc(idP.toString());
-        pacienteRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion("Y874AtlglXRjOkUdz52GdLbkD8g1")
+    const pacienteRef = this.firestore.collection('users').doc(idP.toString());
+    pacienteRef.update({ conection: firebase.firestore.FieldValue.arrayUnion('Y874AtlglXRjOkUdz52GdLbkD8g1')
         })
         .then(function() {
-           console.log("Document successfully updated!");
+           console.log('Document successfully updated!');
       })
       .catch(function(error) {
-        //The document probably doesn't exist.
-         console.error("Error updating document: ", error);
+        // The document probably doesn't exist.
+         console.error('Error updating document: ', error);
       });
 
-      var doctorRef = this.firestore.collection("users").doc("Y874AtlglXRjOkUdz52GdLbkD8g1");
-        doctorRef.update({ "conection": firebase.firestore.FieldValue.arrayUnion(idP)
+    const doctorRef = this.firestore.collection('users').doc('Y874AtlglXRjOkUdz52GdLbkD8g1');
+    doctorRef.update({ conection: firebase.firestore.FieldValue.arrayUnion(idP)
         })
         .then(function() {
-           console.log("Document successfully updated!");
+           console.log('Document successfully updated!');
       })
       .catch(function(error) {
-        //The document probably doesn't exist.
-         console.error("Error updating document: ", error);
+        // The document probably doesn't exist.
+         console.error('Error updating document: ', error);
       });
+  }
+
+  saveBlock(idD: string, day: number, avl: boolean) {
+    const arrEqual = day - 1;
+    console.log('Probando saveBlock');
+    console.log('idP');
+    console.log('avl ' + avl);
+
+    let pre_blocks = [];
+
+    this.firestore.collection('users').doc(idD).get().subscribe(info => {
+      console.log('La info a conseguir es');
+      console.log(info);
+
+      pre_blocks = info.data().blocks;
+
+      console.log(pre_blocks);
+
+      pre_blocks[arrEqual] = avl;
+
+      console.log(pre_blocks);
+
+      this.firestore.collection('users').doc(idD).update({blocks: pre_blocks})
+        .then(succ => {
+          alert('El bloque de trabajo ha sido actualizado');
+        }).catch( err => {
+        console.log(err);
+        alert('No se pudo actualizar el bloque. Revise su conexion');
+      });
+    });
+
+
   }
 
   deleteUser(id: string) {
@@ -194,6 +224,16 @@ export class AuthService {
         alert('El usuario no se pudo actualizar. Revise su conexion');
     });
   }
+
+  // updateUser(id: string, attr: string, attrContent: string) {
+  //   this.firestore.collection('users').doc(id).update({attr: attrContent})
+  //     .then(succ => {
+  //       alert('El usuario ha sido actualizado');
+  //     }).catch( err => {
+  //     console.log(err);
+  //     alert('El usuario no se pudo actualizar. Revise su conexion');
+  //   });
+  // }
 
 
 
