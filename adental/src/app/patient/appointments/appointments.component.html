@@ -37,15 +37,15 @@
 
 
           <div class="col-md-4 offset-4">
-            <div class="button cancel round shadow text-center align_center white_color">
+            <button class="button cancel round shadow text-center align_center white_color">
               <span>Cancelar</span>
-            </div>
+            </button>
           </div>
 
       <div class="col-md-4">
-        <div class="button ok round shadow text-center align_center white_color">
+        <button class="button ok round shadow text-center align_center white_color">
           <span>Modificar</span>
-        </div>
+        </button>
       </div>
 
 
@@ -67,29 +67,30 @@
         <div class="row gap-down">
             <div class="col-md-7 gap-down">
                 <div class="row">
-                    <div class="col-md-4">
-                        <select name="docs" id="docs" class="round shadow">
+
+                  <div class="col-md-4">
+                        <select name="docs" id="docs" class="round shadow" [(ngModel)]="chosenDoctor" (change)="searchDates()">
                           <option value="">Elija un doctor</option>
                           <ng-container *ngFor="let doctor of doctores">
-                            <option value="">{{doctor.name + ' ' + doctor.lastname}}</option>
+                            <option [ngValue]="doctor.id">{{doctor.name + ' ' + doctor.lastname}}</option>
 
                           </ng-container>
 
                         </select>
                     </div>
 
-                    <div class="col-md-2"></div>
+                  <div class="col-md-2"></div>
 
-                    <div class="col-md-4">
-                        <input type="date" class="round shadow input-style" placeholder="Elija la fecha" name="" id="">
-                    </div>
+                  <div class="col-md-4">
+                    <input type="date" [(ngModel)]="chosenDate" (change)="searchDates()" class="round shadow input-style" placeholder="Elija la fecha" name="" id="">
+                  </div>
 
                 </div>
             </div>
         </div>
 
 
-      <div class="row">
+      <div class="row" *ngIf="display; else notWork">
         <div class="col-md-8">
 
           <div class="round shadow appointment-picker gap-up">
@@ -155,6 +156,10 @@
 
         </div>
       </div>
+
+      <ng-template #notWork>
+        <h4>Su doctor no trabaja este dia de la semana</h4>
+      </ng-template>
 
 
 

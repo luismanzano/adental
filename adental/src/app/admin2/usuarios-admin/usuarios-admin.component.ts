@@ -7,12 +7,16 @@ import { AuthService} from '../../core/services/auth.service';
   templateUrl: './usuarios-admin.component.html',
   styleUrls: ['./usuarios-admin.component.css']
 })
+
+
 export class UsuariosAdminComponent implements OnInit {
   private user: string;
   private nombre: string;
   private apellido: string;
   private password: string;
   private userType: any;
+
+
 
   constructor( private form: FormsModule, private authService: AuthService) { }
 
