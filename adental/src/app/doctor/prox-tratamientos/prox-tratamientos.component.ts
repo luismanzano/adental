@@ -14,6 +14,7 @@ export class ProxTratamientosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.nextTreatments = this.consulta.nextTreatments
   }
 
   guardarProxTratamiento(){

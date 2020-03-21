@@ -20,7 +20,8 @@ export class TratamientoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   
+   this.treatment=this.consulta.treatment;
+   this.toPay=this.consulta.toPay;
   }
 
   guardarTratamiento(){

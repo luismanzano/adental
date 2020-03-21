@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   name: string;
   last: string;
   username: string;
+  idConsulta: string;
   private sub: any;
 
   constructor(
@@ -36,7 +37,16 @@ export class ProfileComponent implements OnInit {
     this.userData(this.idP.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
       this.last = usuario.data().lastname;
-      this.username = usuario.data().username;
+      this.username=usuario.data().username;
+      var length = usuario.data().history.length;
+      for(var i=0; i<length; i++){
+        this.idConsulta=usuario.data().history[i].toString();
+        this.userDataConsulta(this.idConsulta).subscribe(consulta =>{
+          var day = consulta.data().createdAt.toDate().getDate();
+          console.log(day);
+          this.arregloConsulta.push(consulta.data())
+        });
+      }
     })
   }
 
@@ -60,5 +70,9 @@ export class ProfileComponent implements OnInit {
 
   userData(data: string) {
     return this.firestore.collection('users').doc(data).get();
+  }
+
+  userDataConsulta(data: string) {
+    return this.firestore.collection('consultas').doc(data).get();
   }
 }

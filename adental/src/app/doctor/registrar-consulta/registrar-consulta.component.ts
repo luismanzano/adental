@@ -3,7 +3,10 @@ import {ActivatedRoute} from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Timestamp } from 'rxjs';
+import { TratamientoComponent } from '../tratamiento/tratamiento.component';
+import { ProxTratamientosComponent } from '../prox-tratamientos/prox-tratamientos.component';
+import { RecipeComponent } from '../recipe/recipe.component';
+
 
 
 @Component({
@@ -34,7 +37,7 @@ export class RegistrarConsultaComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     public firestore: AngularFirestore, 
-    private authService: AuthService
+    private authService: AuthService,
     
     ) { }
 
@@ -54,7 +57,6 @@ export class RegistrarConsultaComponent implements OnInit {
       this.recipe = true;
       this.tratamiento=false;
       this.proxTratamientos=false;
-     
   }
 
   mostrarTratamiento():void{
@@ -88,6 +90,11 @@ export class RegistrarConsultaComponent implements OnInit {
       this.saveConsulta();
     })
     .catch(error=>console.log("Error"));
+
+    this.treatment='';
+    this.nextTreatments='';
+    this.recipeText='';
+    this.toPay = 0;
   }
 
   saveConsulta(){
