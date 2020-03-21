@@ -13,6 +13,9 @@ export class PerfilPacienteComponent implements OnInit {
   nombre: string;
   last: any;
   email: string;
+  arregloConsulta = [];
+  idConsulta: string
+  montoDebe: number;
   private sub: any;
   constructor(private route: ActivatedRoute,
     public firestore: AngularFirestore) { }
@@ -20,16 +23,22 @@ export class PerfilPacienteComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params=>{
       this.id = params['id'];
-      console.log(this.id)
     })
 
     this.userData(this.id).subscribe(usuario => {
-      console.log(usuario.data());
       this.nombre = usuario.data().name;
       this.last = usuario.data().lastname;
       this.email = usuario.data().username;
+      var length = usuario.data().history.length;
+      for(var i=0; i<length; i++){
+        this.idConsulta=usuario.data().history[i].toString();
+        this.userDataConsulta(this.idConsulta).subscribe(consulta =>{
+          var day = consulta.data().createdAt.toDate().getDate();
+          console.log(day);
+          this.arregloConsulta.push(consulta.data())
+        });
+      }
     })
-    console.log(this.id)
   }
 
   userData(data: string) {
@@ -37,5 +46,22 @@ export class PerfilPacienteComponent implements OnInit {
 
   }
 
+  userDataConsulta(data: string) {
+    return this.firestore.collection('consultas').doc(data).get();
+
+  }
+
 
 }
+
+
+//this.userData("Y874AtlglXRjOkUdz52GdLbkD8g1").subscribe(user =>{
+  //var length = user.data().conection.length;
+  //for(var i=0; i < length; i++){
+    //this.idPaciente=user.data().conection[i].toString();
+    //this.userData(this.idPaciente).subscribe(usuario => {
+      //this.arregloPaciente.push(usuario.data())
+   // });
+ // }  
+//}) 
+//console.log(this.arregloPaciente); 

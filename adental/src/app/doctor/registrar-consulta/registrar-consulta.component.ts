@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { Timestamp } from 'rxjs';
+
 
 @Component({
   selector: 'app-registrar-consulta',
@@ -11,16 +15,28 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 
 export class RegistrarConsultaComponent implements OnInit {
-  id: String;
-  name: String;
-  last: String;
+  
+
+  id: string;
+  name: string;
+  last: string;
   private sub: any;
   recipe:Boolean;
   tratamiento:Boolean;
   proxTratamientos:Boolean;
+  treatment: string;
+  nextTreatments: string;
+  recipeText: string;
+  toPay: number;
+  idConsulta: string;
+  
+
 
   constructor(private route: ActivatedRoute,
-    public firestore: AngularFirestore ) { }
+    public firestore: AngularFirestore, 
+    private authService: AuthService
+    
+    ) { }
 
   ngOnInit() {
     this.sub=this.route.params.subscribe(params => {
@@ -29,7 +45,7 @@ export class RegistrarConsultaComponent implements OnInit {
 
     this.userData(this.id.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
-      this.last = usuario.data().lastname
+      this.last = usuario.data().lastname;
     })
 
   }
@@ -38,6 +54,7 @@ export class RegistrarConsultaComponent implements OnInit {
       this.recipe = true;
       this.tratamiento=false;
       this.proxTratamientos=false;
+     
   }
 
   mostrarTratamiento():void{
@@ -55,5 +72,34 @@ export class RegistrarConsultaComponent implements OnInit {
   userData(data: string) {
     return this.firestore.collection('users').doc(data).get();
 
+  }
+
+  registrarConsulta(){
+    this.firestore.collection("consultas").add({
+      tratamiento: this.treatment,
+      proxTratamiento: this.nextTreatments,
+      recipe: this.recipeText,
+      montoPago: this.toPay,
+      createdAt: new Date(),
+      status: false
+      
+    }).then(docRef=>{
+      this.idConsulta=docRef.id;
+      this.saveConsulta();
+    })
+    .catch(error=>console.log("Error"));
+  }
+
+  saveConsulta(){
+    const pacienteRef = this.firestore.collection('users').doc(this.id.toString());
+    pacienteRef.update({ history: firebase.firestore.FieldValue.arrayUnion(this.idConsulta.toString())
+        })
+        .then(function() {
+           console.log('Document successfully updated!');
+      })
+      .catch(function(error) {
+        // The document probably doesn't exist.
+         console.error('Error updating document: ', error);
+      });
   }
 }

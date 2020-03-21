@@ -6,6 +6,7 @@ import {} from '@angular/fire/database';
 import {Router} from '@angular/router';
 import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 import * as firebase from 'firebase';
+import { TratamientoComponent } from 'src/app/doctor/tratamiento/tratamiento.component';
 
 interface User {
   name: string;
@@ -28,6 +29,8 @@ export class AuthService {
   idPatient: string;
   doctorRef: any;
   array: any[];
+  idConsulta: string;
+  
   constructor(
     private router: Router,
     public af: AngularFireAuth,
@@ -98,7 +101,8 @@ export class AuthService {
 
       // tslint:disable-next-line:triple-equals
       if (user.data().type == '0') {
-        this.router.navigate(['/perfil-paciente']);
+        console.log(user.data().id);
+        this.router.navigate(['/perfil-paciente', user.data().id]);
       } else if (user.data().type == '1') {
         this.router.navigate(['/perfil-doctor']);
       } else {
@@ -147,6 +151,9 @@ export class AuthService {
           lastname: apellido,
           id: cred.user.uid.toString(),
           conection: [],
+          nextAppointment: '',
+          nextAppointments:[],
+          history: []
         });
         console.log(cred.user.uid);
         this.savePatient(cred.user.uid);
@@ -229,6 +236,9 @@ export class AuthService {
     });
   }
 
+
+  }
+
   // updateUser(id: string, attr: string, attrContent: string) {
   //   this.firestore.collection('users').doc(id).update({attr: attrContent})
   //     .then(succ => {
@@ -241,4 +251,4 @@ export class AuthService {
 
 
 
-}
+

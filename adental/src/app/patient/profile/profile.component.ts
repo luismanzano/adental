@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../core/services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -15,13 +16,28 @@ export class ProfileComponent implements OnInit {
   activar: boolean;
   contrasena: string;
   idP: string;
+  arregloConsulta = [];
+  name: string;
+  last: string;
+  username: string;
+  private sub: any;
 
   constructor(
     private authService: AuthService,
-    public firestore: AngularFirestore
+    public firestore: AngularFirestore,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params=>{
+      this.idP = params['id'];
+    })
+    
+    this.userData(this.idP.toString()).subscribe(usuario => {
+      this.name = usuario.data().name;
+      this.last = usuario.data().lastname;
+      this.username = usuario.data().username;
+    })
   }
 
   activarCambiarContra(){
@@ -33,7 +49,6 @@ export class ProfileComponent implements OnInit {
   }
 
   cambiarContra() {
-    this.idP = this.mainUser.id
     console.log(this.idP);
     var paciente = this.firestore.collection('users').doc(this.idP.toString());
     var user = firebase.auth().currentUser;
@@ -41,5 +56,9 @@ export class ProfileComponent implements OnInit {
       password: this.contrasena
     })
     user.updatePassword(this.contrasena.toString());
+  }
+
+  userData(data: string) {
+    return this.firestore.collection('users').doc(data).get();
   }
 }

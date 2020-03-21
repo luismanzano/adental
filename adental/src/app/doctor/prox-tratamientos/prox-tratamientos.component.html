@@ -5,6 +5,11 @@
 </div>
 <div class="row">
         <div class="col-md-12">
-            <textarea name="prox-tratamiento" id="prox-tratamiento" cols="" rows="14" class="round shadow"></textarea>
+            <textarea [(ngModel)]="nextTreatments" name="prox-tratamiento" id="prox-tratamiento" cols="" rows="14" class="round shadow"></textarea>
         </div>
+</div>
+<div class="row">
+    <div class="col-md-2 offset-10">
+        <button class="button ok white_color shadow guardar round gap-up" (click)="guardarProxTratamiento()">Guardar</button>
+    </div>
 </div>

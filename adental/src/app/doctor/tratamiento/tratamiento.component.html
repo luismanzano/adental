@@ -3,11 +3,17 @@
        <p>Tratamiento:</p> 
     </div>
     <div class="col-md-6">
-        Monto a Pagar: <input type="number" class="pago" id="pagar"> 
+        Monto a Pagar: <input [(ngModel)]="toPay" type="number" class="sinborde" id="pagar"> 
     </div>
 </div>
 <div class="row">
         <div class="col-md-12">
-            <textarea name="tratamiento" id="tratamiento" cols="" rows="14" class="round shadow"></textarea>
+            <textarea [(ngModel)]="treatment" name="tratamiento" id="tratamiento" cols="" rows="14" class="round shadow"></textarea>
         </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 offset-10">
+        <button class="button ok white_color shadow guardar" (click)="guardarTratamiento()">Guardar</button>
+    </div>
 </div>

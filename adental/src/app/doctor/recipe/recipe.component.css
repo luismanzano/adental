@@ -14,7 +14,6 @@
 }
 
 .col-md-6 input{
-    border-radius: 20px;
     margin-left: 1em;
 }
 
@@ -38,6 +37,4 @@ div p{
     text-align: center;
 }
 
-.guardar button{
-    margin-top: 1em;
-}
+

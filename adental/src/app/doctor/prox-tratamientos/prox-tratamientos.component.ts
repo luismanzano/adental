@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrarConsultaComponent } from '../registrar-consulta/registrar-consulta.component';
 
 @Component({
   selector: 'app-prox-tratamientos',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProxTratamientosComponent implements OnInit {
 
-  constructor() { }
+  nextTreatments: string;
+  constructor(
+    private consulta: RegistrarConsultaComponent
+  ) { }
 
   ngOnInit() {
   }
 
+  guardarProxTratamiento(){
+    this.consulta.nextTreatments=this.nextTreatments;
+  }
 }
