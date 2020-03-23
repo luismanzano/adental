@@ -20,8 +20,9 @@
 
 div textarea{
     border: 0;
-    width: 100%;
+    width: 80%;
     height: 12em;
+    margin-left: 2em;
 }
 
 

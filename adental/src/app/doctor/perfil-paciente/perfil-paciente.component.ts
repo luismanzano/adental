@@ -63,7 +63,6 @@ export class PerfilPacienteComponent implements OnInit {
   }
 
   irConsulta(consulta: any){
-
     console.log(consulta);
   this.router.navigate(['/consulta', consulta]);
   }

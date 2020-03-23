@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../core/services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     public firestore: AngularFirestore,
     private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -50,6 +51,11 @@ export class ProfileComponent implements OnInit {
         });
       }
     })
+  }
+
+  irConsulta(consulta: any){
+    console.log(consulta);
+    this.router.navigate(['/consulta', consulta]);
   }
 
   activarCambiarContra(){

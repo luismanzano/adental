@@ -45,8 +45,6 @@ export class VerConsultaComponent implements OnInit {
       this.toPay = consulta.data().montoPago
       this.fecha = consulta.data().createdAt
     })
-
-    this.tratamiento=true;
   }
 
  
