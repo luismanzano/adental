@@ -40,7 +40,10 @@ const rutas: Routes = [
   {path: 'usuarios', component:AllUsersComponent},
   {path:'mis-pacientes', component:MisPacientesComponent},
   {path:'registrar-consulta/:id', component:RegistrarConsultaComponent},
-  {path: 'paciente-perfil/:id', component:PerfilPacienteComponent}
+  {path: 'paciente-perfil/:id', component:PerfilPacienteComponent},
+  {path: 'consulta/:id', component: VerConsultaComponent}
+  
+
 
 ]
 import { AdminModule2 } from './admin2/admin.module';
@@ -50,11 +53,15 @@ import { MisPacientesComponent } from './doctor/mis-pacientes/mis-pacientes.comp
 import { RegistrarConsultaComponent } from './doctor/registrar-consulta/registrar-consulta.component';
 import { PerfilPacienteComponent } from './doctor/perfil-paciente/perfil-paciente.component';
 import {AllUsersComponent} from "./admin2/all-users/all-users.component";
+import { VerConsultaComponent } from './doctor/ver-consulta/ver-consulta.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
 
 
   ],
@@ -69,7 +76,7 @@ import {AllUsersComponent} from "./admin2/all-users/all-users.component";
     AngularFireAuthModule,
     FormsModule,
     HomeModule,
-    AdminModule2
+    AdminModule2,
   ],
   providers: [AngularFirestore, AngularFirestoreModule],
   bootstrap: [AppComponent]

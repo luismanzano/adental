@@ -9,7 +9,7 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-2">Nombre: </div>
-                            <div class="col-md-4"> <input [(ngModel)]="nombre" class="sinborde"type="text"></div>
+                            <div class="col-md-4"> <input class="sinborde"type="text"></div>
                         </div>
                         <div class="row">
                             <div class="col-md-2">C.I.:</div>
@@ -19,18 +19,9 @@
                 </div>
             </div>
                 <div>
-                    <textarea [(ngModel)]="recipeText" name="recipeinfo" id="recipeinfo" cols="" rows=""></textarea>
+                    <textarea [(ngModel)]="recipeText" name="recipeinfo" id="recipeinfo" cols="" rows="" readonly></textarea>
                 </div>       
         </div>
     </div>
-    
-    
-    <div class="row offset-8">
-        <div class="col-md-4">
-            <button class="round shadow button ok white_color gap-up">Imprimir</button>
-        </div>
-        <div class="col-md-4">
-            <button class="button ok white_color shadow round gap-up" (click)="guardarRecipe()">Guardar</button>
-        </div>
-    </div>
 </div>
+

@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { VerConsultaComponent } from '../ver-consulta/ver-consulta.component';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-perfil-paciente',
@@ -16,9 +19,15 @@ export class PerfilPacienteComponent implements OnInit {
   arregloConsulta = [];
   idConsulta: string
   montoDebe: number;
+  consultaId: string;
+  consulta: any;
+  prueba: number;
+
+  db = firebase.firestore();
   private sub: any;
   constructor(private route: ActivatedRoute,
-    public firestore: AngularFirestore) { }
+    public firestore: AngularFirestore,
+    private router: Router) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params=>{
@@ -34,22 +43,31 @@ export class PerfilPacienteComponent implements OnInit {
         this.idConsulta=usuario.data().history[i].toString();
         this.userDataConsulta(this.idConsulta).subscribe(consulta =>{
           var day = consulta.data().createdAt.toDate().getDate();
-          console.log(day);
           this.arregloConsulta.push(consulta.data())
         });
       }
     })
   }
 
+  iteracion(){
+    this.prueba=+this.prueba
+  }
+
   userData(data: string) {
     return this.firestore.collection('users').doc(data).get();
-
   }
 
   userDataConsulta(data: string) {
     return this.firestore.collection('consultas').doc(data).get();
 
   }
+
+  irConsulta(consulta: any){
+
+    console.log(consulta);
+  this.router.navigate(['/consulta', consulta]);
+  }
+
 
 
 }

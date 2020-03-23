@@ -34,6 +34,8 @@ export class ProfileComponent implements OnInit {
       this.idP = params['id'];
     })
     
+    this.authService.idLogeado=this.idP;
+
     this.userData(this.idP.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
       this.last = usuario.data().lastname;

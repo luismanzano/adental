@@ -42,6 +42,9 @@ export class RegistrarConsultaComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+
+    this.tratamiento=true;
+
     this.sub=this.route.params.subscribe(params => {
       this.id = params['id'];
     })
@@ -83,10 +86,12 @@ export class RegistrarConsultaComponent implements OnInit {
       recipe: this.recipeText,
       montoPago: this.toPay,
       createdAt: new Date(),
-      status: false
+      status: false,
+      idConsulta: 'Prueba',
       
     }).then(docRef=>{
       this.idConsulta=docRef.id;
+      this.cambiarId();
       this.saveConsulta();
     })
     .catch(error=>console.log("Error"));
@@ -95,6 +100,14 @@ export class RegistrarConsultaComponent implements OnInit {
     this.nextTreatments='';
     this.recipeText='';
     this.toPay = 0;
+  }
+
+  cambiarId(){
+    console.log("funciona");
+    console.log(this.idConsulta, "hola");
+   const consultaRef= this.firestore.collection('consultas').doc(this.idConsulta).update({
+      idConsulta: this.idConsulta.toString()
+    });
   }
 
   saveConsulta(){

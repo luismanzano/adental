@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegistrarConsultaComponent } from '../registrar-consulta/registrar-consulta.component';
 import { AuthService } from 'src/app/core/services/auth.service';
 
+
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -11,7 +12,9 @@ export class RecipeComponent implements OnInit {
 
   recipeText: string;
   idP: string;
-  name: string;
+  nombre: string;
+  name:string
+  last: string
 
   
   constructor(
@@ -22,12 +25,16 @@ export class RecipeComponent implements OnInit {
   ngOnInit() {
     this.recipeText=this.consulta.recipeText;
     this.idP=this.consulta.id
-    console.log(this.idP);
+
 
     this.authService.userData(this.idP).subscribe(usuario=>{
-      this.name=usuario.data().name;
-      console.log(this.name)
+      this.nombre=usuario.data().name;
+      this.nombre = this.nombre + ' ' + usuario.data().lastname;
     })
+
+    
+
+
   }
 
   guardarRecipe(){

@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-2">
+        <app-sidebar-doctor></app-sidebar-doctor>
+    </div>
+    <div class="col-md-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1 class="head" id="consulta">Consulta {{fecha.toDate().getDate()}}/{{fecha.toDate().getMonth()+1}}/{{fecha.toDate().getFullYear()}}</h1>
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="round shadow">
+                        <div class="row opcion opciones">
+                            <div class="col-md-3 offset-1 white_color" id="tratamiento" (click)="mostrarTratamiento()">Tratamientos</div>
+                            <div class="col-md-4 white_color" id="prox-tratamientos" (click)="mostrarProxTratamientos()">Próximos Tratamientos</div>
+                            <div class="col-md-3 white_color" id="recipe" (click)="mostrarRecipe()">Récipe</div> 
+                        </div>
+                        <div *ngIf="tratamiento">
+                            <app-ver-tratamiento></app-ver-tratamiento>
+                        </div>
+                        <div *ngIf="proxTratamiento">
+                            <app-ver-prox-tratamiento></app-ver-prox-tratamiento>
+                        </div>
+                        <div *ngIf="recipe">
+                            <app-ver-recipe></app-ver-recipe>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

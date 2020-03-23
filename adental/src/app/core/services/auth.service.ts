@@ -30,6 +30,7 @@ export class AuthService {
   doctorRef: any;
   array: any[];
   idConsulta: string;
+  idLogeado: string;
   
   constructor(
     private router: Router,

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 //import { ConsoleReporter } from 'jasmine';
 import { RegistrarConsultaComponent } from '../registrar-consulta/registrar-consulta.component';
+import { PerfilPacienteComponent } from '../perfil-paciente/perfil-paciente.component';
 
 @Component({
   selector: 'app-tratamiento',
@@ -16,7 +17,7 @@ export class TratamientoComponent implements OnInit {
   toPay: number;
 
   constructor(
-    private consulta: RegistrarConsultaComponent
+    private consulta: RegistrarConsultaComponent,
   ) { }
 
   ngOnInit() {

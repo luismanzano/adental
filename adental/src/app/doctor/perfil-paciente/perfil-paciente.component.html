@@ -44,12 +44,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-10">
-                                    {{consulta.tratamiento}}
+                                    {{consulta.tratamiento}} 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-2 offset-10">
-                                    <button class="button ok shadow round gap-up white_color">Ver Mas</button>
+                                    
+                                    <button class="button ok shadow round gap-up white_color" (click)="irConsulta(consulta.idConsulta)">Ver Mas</button>
                                 </div>
                             </div>
                         </div>
