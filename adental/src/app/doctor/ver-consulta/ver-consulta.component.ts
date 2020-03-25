@@ -21,6 +21,7 @@ export class VerConsultaComponent implements OnInit {
   nextTreatment: string;
   recipeText: string;
   fecha: any;
+  pagar: Boolean;
 
 
 
@@ -34,6 +35,9 @@ export class VerConsultaComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.pagar=true;
+
     this.sub = this.route.params.subscribe(params=>{
       this.idConsulta=params['id'];
     })

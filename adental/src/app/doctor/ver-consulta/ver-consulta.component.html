@@ -13,7 +13,7 @@
 
             <div class="row">
                 <div class="col-md-11">
-                    <div class="round shadow">
+                    <div class="round shadow gap-down">
                         <div class="row opcion opciones">
                             <div class="col-md-3 offset-1 white_color" id="tratamiento" (click)="mostrarTratamiento()">Tratamientos</div>
                             <div class="col-md-4 white_color" id="prox-tratamientos" (click)="mostrarProxTratamientos()">Próximos Tratamientos</div>
@@ -27,6 +27,13 @@
                         </div>
                         <div *ngIf="recipe">
                             <app-ver-recipe></app-ver-recipe>
+                        </div>
+                        <div *ngIf="pagar">
+                            <div class="row">
+                                <div class="col-md-2 offset-10">
+                                    <button class="round shadow button ok white_color gap-up">Pagar</button>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>
