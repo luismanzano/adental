@@ -14,17 +14,18 @@ import { RecipeComponent } from './recipe/recipe.component';
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.component';
+import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-doctor.component';
 
 
 
 @NgModule({
-  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent, PerfilPacienteComponent],
+  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent, PerfilPacienteComponent, AppointmentsDoctorComponent],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule
   ],
-  exports:[
+  exports: [
     ProfileComponentDoctor,
     SidebarDoctorComponent,
     NuevoPacienteComponent,
@@ -34,7 +35,8 @@ import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.compo
     RegistrarConsultaComponent,
     ProxTratamientosComponent,
     RecipeComponent,
-    PerfilPacienteComponent
+    PerfilPacienteComponent,
+    AppointmentsDoctorComponent
   ]
 })
 export class DoctorModule { }

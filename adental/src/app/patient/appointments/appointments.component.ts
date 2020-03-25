@@ -30,7 +30,7 @@ export class AppointmentsComponent implements OnInit {
   display = false;
   day = new Date(this.chosenDate);
   book = false;
-
+  modify = false;
   citaActual: any;
   doctor: string;
   fecha: string;
@@ -107,6 +107,7 @@ export class AppointmentsComponent implements OnInit {
           console.log(appo[i].date);
           console.log(this.chosenDate);
           const toConvert = new Date(appo[i].date);
+          const cancel = appo[i].cancelled;
           console.log('dya');
           console.log(toConvert);
 
@@ -129,7 +130,7 @@ export class AppointmentsComponent implements OnInit {
           console.log(year);
           console.log(chosenYear);
 
-          if (chosenDay.toString() === day.toString() && chosenMonth.toString() === month.toString() && chosenYear.toString() === year.toString() ) {
+          if (chosenDay.toString() === day.toString() && chosenMonth.toString() === month.toString() && chosenYear.toString() === year.toString() && cancel === false) {
             console.log(appo[i].timeblock);
             this.availableBlocks[appo[i].timeblock] = false;
             console.log(this.availableBlocks);
@@ -168,12 +169,18 @@ export class AppointmentsComponent implements OnInit {
       });
       this.authService.firestore.collection('users').doc(this.chosenDoctor).update({appos: firebase.firestore.FieldValue.arrayUnion(succ.id)});
 
+      this.searchDates();
+      this.display = false;
+      this.checkAppo();
+
     }).catch(err => {
       alert('Ha ocurrido un error chequee su conexion ' + err);
     });
 
 
     this.searchDates();
+    this.display = false;
+    this.checkAppo();
   }
 
 
@@ -224,10 +231,35 @@ export class AppointmentsComponent implements OnInit {
           appos: FieldValue.arrayRemove(this.citaActual),
           cancels: FieldValue.increment(1)
         }).then( xxx => console.log('Cancelada de doctor'));
+        this.ngOnInit();
       });
+
   }
 
   test(i) {
     alert('prubando' + i);
+  }
+
+  toggleMod() {
+    if (this.modify) {
+      this.modify = false;
+    } else {
+      this.modify = true;
+    }
+
+    this.authService.firestore.collection('citas').doc(this.citaActual).get().subscribe( sub => {
+      this.chosenDoctor = sub.data().doctor;
+    });
+  }
+
+  modCita(index: any) {
+    this.authService.firestore.collection('citas').doc(this.citaActual).update({
+      date: this.chosenDate,
+      timeblock: index
+    }).then( succ => {
+      alert('Se ha modificado con exito');
+    }).catch( err  => alert('Hubo un error, intente mas tarde'));
+    this.ngOnInit();
+
   }
 }
