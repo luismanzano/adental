@@ -12,23 +12,23 @@
         </div>
       </div>
 
-
+<ng-container *ngIf="book; else unBooked">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 gap-down">
                <h4 class="gap-up">Su Proxima Cita</h4>
                 <div class="row">
                     <div class="col-md-6">
-                        <p><b>23 de febrero del 2020</b> </p>
+                        <p><b>Fecha: </b>{{fecha}} </p>
                     </div>
 
                     <div class="col-md-6">
-                        <p><b>Doctor: </b> Christian Guillen </p>
+                        <p><b>Doctor: </b> {{doctor}} </p>
                     </div>
                 </div>
 
             </div>
-        </div>
 
+        </div>
 
 
       <div class="row">
@@ -37,13 +37,13 @@
 
 
           <div class="col-md-4 offset-4">
-            <button class="button cancel round shadow text-center align_center white_color">
+            <button class="button cancel round shadow text-center align_center white_color" (click)="cancelAppo()">
               <span>Cancelar</span>
             </button>
           </div>
 
       <div class="col-md-4">
-        <button class="button ok round shadow text-center align_center white_color">
+        <button class="button ok round shadow text-center align_center white_color" (click)="modifyAppo()">
           <span>Modificar</span>
         </button>
       </div>
@@ -55,11 +55,13 @@
         </div>
 
       </div>
+  <h6>No puede agendar mas citas si tiene una pendiente</h6>
+</ng-container>
 
-
-
+<ng-template #unBooked>
         <div class="row">
             <div class="col-md-7 gap-down">
+                <h4 class="gap-down">No tiene citas pendientes</h4>
                 <h4 class="gap-up">Agendar Cita</h4>
             </div>
         </div>
@@ -95,63 +97,41 @@
 
           <div class="round shadow appointment-picker gap-up">
 
+            <ng-container *ngFor="let block of availableBlocks; let i = index">
 
-              <div class="row gap-down">
+
+              <div class="row gap-down" *ngIf="block; else unavailable">
                 <div class="col-md-2 text-center align_center">
-                  <span class="text-center">2</span>
+                  <span class="text-center">{{i + 8}}:00</span>
                 </div>
                 <div class="col-md-7 border_bottom green_color">
                   Disponible
                 </div>
                 <div class="col-md-3 align_center">
-                  <div class="button ok round shadow text-center align_center">
+                  <button class="button ok round shadow text-center align_center" (click)="booking(i)">
                     <span class="white_color text-center">Agendar</span>
+                  </button>
+                </div>
+              </div>
+
+              <ng-template #unavailable>
+                <div class="row gap-down">
+                  <div class="col-md-2 text-center align_center">
+                    <span class="text-center">{{i+8}}:00</span>
+                  </div>
+                  <div class="col-md-7 border_bottom red_color">
+                    No Disponible
+                  </div>
+                  <div class="col-md-3 align_center">
                   </div>
                 </div>
-              </div>
-
-            <div class="row gap-down">
-              <div class="col-md-2 text-center align_center">
-                <span class="text-center">2</span>
-              </div>
-              <div class="col-md-7 border_bottom green_color">
-                Disponible
-              </div>
-              <div class="col-md-3 align_center">
-                <div class="button ok round shadow text-center align_center">
-                  <span class="white_color text-center">Agendar</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="row gap-down">
-              <div class="col-md-2 text-center align_center">
-                <span class="text-center">2</span>
-              </div>
-              <div class="col-md-7 border_bottom green_color">
-                Disponible
-              </div>
-              <div class="col-md-3 align_center">
-                <div class="button ok round shadow text-center align_center">
-                  <span class="white_color text-center">Agendar</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="row gap-down">
-              <div class="col-md-2 text-center align_center">
-                <span class="text-center">2</span>
-              </div>
-              <div class="col-md-7 border_bottom red_color">
-                No Disponible
-              </div>
-              <div class="col-md-3 align_center">
-              </div>
-            </div>
+              </ng-template>
 
 
 
 
+
+            </ng-container>
           </div>
 
         </div>
@@ -163,7 +143,7 @@
 
 
 
-
+</ng-template>
         </div>
 
   </div>

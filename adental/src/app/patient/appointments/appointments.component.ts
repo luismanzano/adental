@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../core/services/auth.service';
+import * as firebase from 'firebase';
+import FieldValue = firebase.firestore.FieldValue;
 
 
 interface Cita {
   doctor: string;
   patient: string;
   date: Date;
-  timeBlock: number;
+  timeblock: number;
   confirmed: boolean;
   cancelled: boolean;
 }
@@ -20,17 +22,25 @@ interface Cita {
 
 export class AppointmentsComponent implements OnInit {
 
+  mainUser = this.authService.mainUser;
+
   doctores = [];
   chosenDoctor: string;
   chosenDate = new Date('2020-19-3');
   display = false;
   day = new Date(this.chosenDate);
+  book = false;
+
+  citaActual: any;
+  doctor: string;
+  fecha: string;
 
   appointments = [];
 
   availableBlocks = [
     true, true, true, true, true, true, true, true, true, true
-  ]
+  ];
+  private horario: any;
 
   constructor(
     private authService: AuthService
@@ -46,6 +56,12 @@ export class AppointmentsComponent implements OnInit {
         }
       }
     });
+
+    console.log(this.book);
+
+    this.checkAppo();
+
+    console.log(this.book);
   }
 
   searchDates() {
@@ -67,7 +83,7 @@ export class AppointmentsComponent implements OnInit {
         } else {
           this.display = true;
           console.log('Llega a getAllAppointments');
-          this.getAllAppointments2();
+          this.getAllAppointments();
         }
       }
     }
@@ -78,24 +94,7 @@ export class AppointmentsComponent implements OnInit {
 
 
   }
-
   getAllAppointments() {
-    this.authService.firestore.collection('citas').valueChanges().subscribe( (appo: any) => {
-      console.log('appo');
-      console.log(appo.length);
-      for (let i = 0; i <= appo.length; i++) {
-        this.appointments.push(appo[i].payload.doc.data());
-        console.log('////////;');
-        console.log(appo[i].payload.doc.data());
-        console.log(this.appointments[i]);
-        console.log('quien va primero');
-      }
-    });
-
-
-  }
-
-  getAllAppointments2() {
     this.authService.firestore.collection('citas').valueChanges().subscribe( (appo: any) => {
       console.log('appo');
       console.log(appo);
@@ -112,7 +111,7 @@ export class AppointmentsComponent implements OnInit {
           console.log(toConvert);
 
           console.log('local');
-          const toConvert2 = new Date(this.chosenDate)
+          const toConvert2 = new Date(this.chosenDate);
           console.log(toConvert2);
 
           const day = toConvert.getDay();
@@ -139,5 +138,96 @@ export class AppointmentsComponent implements OnInit {
         }
 
       }
-    });  }
+    });
+  }
+
+  booking(hour: any) {
+    alert('probando');
+    const hora = hour;
+    const cita: Cita = {
+      date : this.chosenDate,
+      cancelled: false,
+      confirmed: false,
+      doctor: this.chosenDoctor.toString(),
+      patient: this.mainUser.id,
+      timeblock: hora.toString()
+    };
+    console.log(cita);
+    this.authService.firestore.collection('citas').add({
+      date : this.chosenDate,
+      cancelled: false,
+      confirmed: false,
+      doctor: this.chosenDoctor.toString(),
+      patient: this.mainUser.id,
+      timeblock: hora.toString()
+    }).then( succ => {
+      alert('Se ha agendado la cita exitosamente');
+      this.authService.firestore.collection('users').doc(this.mainUser.id).update({
+        nextAppo: succ.id,
+        booked: true
+      });
+      this.authService.firestore.collection('users').doc(this.chosenDoctor).update({appos: firebase.firestore.FieldValue.arrayUnion(succ.id)});
+
+    }).catch(err => {
+      alert('Ha ocurrido un error chequee su conexion ' + err);
+    });
+
+
+    this.searchDates();
+  }
+
+
+  checkAppo() {
+    this.authService.getUser(this.mainUser.id).subscribe(user => {
+      console.log(user.data());
+      if (user.data().booked === true) {
+        this.book = true;
+        console.log(user.data().booked);
+        this.citaActual =  user.data().nextAppo;
+        console.log('Cita Acutal');
+        console.log(this.citaActual);
+        this.authService.firestore.collection('citas').doc(this.citaActual).get().subscribe(cita => {
+          console.log(cita);
+          console.log(cita.data());
+          this.fecha = cita.data().date;
+          this.horario = Number(cita.data().timeblock) + 8;
+
+          this.authService.getUser(cita.data().doctor).subscribe( doctor => {
+            this.doctor = doctor.data().name + ' ' + doctor.data().lastname;
+          });
+        });
+      } else {
+        this.book = false;
+      }
+    });
+  }
+
+  modifyAppo() {
+
+  }
+
+  cancelAppo() {
+    let doctor: string;
+    let citas: string;
+    this.authService.firestore.collection('citas').doc(this.citaActual).get().subscribe(cita => {
+      doctor = cita.data().doctor;
+    });
+    this.authService.firestore.collection('citas').doc(this.citaActual).update({cancelled: true})
+      .then( cancel => {
+        console.log('Ya cancelado esta en true');
+        this.authService.firestore.collection('users').doc(this.mainUser.id).update({
+          booked: false,
+          nextAppo: ''
+        }).then(pac => console.log('Cancelada en el paciente'));
+
+        this.authService.firestore.collection('users').doc(doctor).update({
+          appos: FieldValue.arrayRemove(this.citaActual),
+          cancels: FieldValue.increment(1)
+        }).then( xxx => console.log('Cancelada de doctor'));
+      });
+  }
+
+  test(i) {
+    alert('prubando' + i);
+  }
 }

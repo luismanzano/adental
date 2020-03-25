@@ -122,12 +122,26 @@ export class AuthService {
 
   }
 
+  getCollection(collection: string) {
+    return this.firestore.collection(collection.toString()).get();
+
+  }
+
+  addToCollection(collection: string, data: any) {
+    return this.firestore.collection(collection).add(data);
+  }
+
   logout() {
     return this.af.auth.signOut();
   }
 
   public getUsers() {
     return this.firestore.collection('users').snapshotChanges();
+  }
+
+  public getUser(user: string) {
+    return this.firestore.collection('users').doc(user).get();
+
   }
 
   public updateUser(documentId: string, data: any) {
