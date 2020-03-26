@@ -32,6 +32,14 @@ export class RegistrarConsultaComponent implements OnInit {
   recipeText: string;
   toPay: number;
   idConsulta: string;
+  mainUser = {
+    name: '',
+  lastname: '',
+  username: '',
+  type: '',
+  id: ''
+  };
+  nombre: string;
   
 
 
@@ -43,6 +51,12 @@ export class RegistrarConsultaComponent implements OnInit {
 
   ngOnInit() {
 
+    this.mainUser.id = localStorage.getItem('id');
+    this.mainUser.name = localStorage.getItem('name');
+    this.mainUser.lastname = localStorage.getItem('lastname');
+    this.mainUser.username = localStorage.getItem('username');
+    this.mainUser.type = localStorage.getItem('type');
+
     this.tratamiento=true;
 
     this.sub=this.route.params.subscribe(params => {
@@ -52,8 +66,10 @@ export class RegistrarConsultaComponent implements OnInit {
     this.userData(this.id.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
       this.last = usuario.data().lastname;
+      this.nombre= this.name + ' ' + this.last;
     })
 
+  
   }
 
   mostrarRecipe():void{

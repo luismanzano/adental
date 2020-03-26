@@ -22,6 +22,7 @@ export class VerConsultaComponent implements OnInit {
   recipeText: string;
   fecha: any;
   pagar: Boolean;
+  
 
 
 
