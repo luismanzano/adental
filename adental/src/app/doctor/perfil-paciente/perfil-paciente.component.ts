@@ -73,13 +73,3 @@ export class PerfilPacienteComponent implements OnInit {
 }
 
 
-//this.userData("Y874AtlglXRjOkUdz52GdLbkD8g1").subscribe(user =>{
-  //var length = user.data().conection.length;
-  //for(var i=0; i < length; i++){
-    //this.idPaciente=user.data().conection[i].toString();
-    //this.userData(this.idPaciente).subscribe(usuario => {
-      //this.arregloPaciente.push(usuario.data())
-   // });
- // }  
-//}) 
-//console.log(this.arregloPaciente); 
