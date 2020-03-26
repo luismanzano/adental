@@ -24,38 +24,38 @@ import { BillsComponent } from './patient/bills/bills.component';
 import { PaymentComponent } from './patient/payment/payment.component';
 import { ProfileComponent } from './patient/profile/profile.component';
 import {HomeModule} from './component/home/home.module';
-import {AngularFirestore, AngularFirestoreModule} from "@angular/fire/firestore";
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 
 const rutas: Routes = [
-  {path: 'perfil-doctor', component:ProfileComponentDoctor},
-  {path: 'enviar-mensaje/:id', component:EnviarMensajeComponent},
-  {path:'nuevo-paciente', component:NuevoPacienteComponent},
-  {path: 'citas', component:AppointmentsComponent},
-  {path: 'mis-pacientes', component:MisPacientesComponent},
-  {path: 'consultas', component:BillsComponent},
-  {path: 'pagos', component:PaymentComponent},
-  {path:'perfil-paciente/:id', component:ProfileComponent},
+  {path: 'perfil-doctor', component: ProfileComponentDoctor},
+  {path: 'enviar-mensaje/:id', component: EnviarMensajeComponent},
+  {path: 'nuevo-paciente', component: NuevoPacienteComponent},
+  {path: 'citas', component: AppointmentsComponent},
+  {path: 'citas-doctor', component: AppointmentsDoctorComponent},
+  {path: 'mis-pacientes', component: MisPacientesComponent},
+  {path: 'consultas', component: BillsComponent},
+  {path: 'pagos', component: PaymentComponent},
+  {path: 'perfil-paciente/:id', component: ProfileComponent},
   {path: 'estadisticas', component: EstadisticasAdminComponent},
-  {path: 'nuevo-usuario', component:UsuariosAdminComponent},
-  {path: 'usuarios', component:AllUsersComponent},
-  {path:'mis-pacientes', component:MisPacientesComponent},
-  {path:'registrar-consulta/:id', component:RegistrarConsultaComponent},
-  {path: 'paciente-perfil/:id', component:PerfilPacienteComponent},
+  {path: 'nuevo-usuario', component: UsuariosAdminComponent},
+  {path: 'usuarios', component: AllUsersComponent},
+  {path: 'mis-pacientes', component: MisPacientesComponent},
+  {path: 'registrar-consulta/:id', component: RegistrarConsultaComponent},
+  {path: 'paciente-perfil/:id', component: PerfilPacienteComponent},
   {path: 'consulta/:id', component: VerConsultaComponent}
-  
 
 
-]
+
+];
 import { AdminModule2 } from './admin2/admin.module';
 import { EstadisticasAdminComponent } from './admin2/estadisticas-admin/estadisticas-admin.component';
 import { UsuariosAdminComponent } from './admin2/usuarios-admin/usuarios-admin.component';
 import { MisPacientesComponent } from './doctor/mis-pacientes/mis-pacientes.component';
 import { RegistrarConsultaComponent } from './doctor/registrar-consulta/registrar-consulta.component';
 import { PerfilPacienteComponent } from './doctor/perfil-paciente/perfil-paciente.component';
-import {AllUsersComponent} from "./admin2/all-users/all-users.component";
+import {AllUsersComponent} from './admin2/all-users/all-users.component';
 import { VerConsultaComponent } from './doctor/ver-consulta/ver-consulta.component';
-
-
+import {AppointmentsDoctorComponent} from './doctor/appointments-doctor/appointments-doctor.component';
 
 
 @NgModule({

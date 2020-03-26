@@ -18,21 +18,20 @@ import { VerTratamientoComponent } from './ver-tratamiento/ver-tratamiento.compo
 import { VerConsultaComponent } from './ver-consulta/ver-consulta.component';
 import { VerProxTratamientoComponent } from './ver-prox-tratamiento/ver-prox-tratamiento.component';
 import { VerRecipeComponent } from './ver-recipe/ver-recipe.component';
-
-
-
+import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-doctor.component';
 
 
 
 @NgModule({
-  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent, PerfilPacienteComponent, VerTratamientoComponent, VerConsultaComponent, VerProxTratamientoComponent, VerRecipeComponent],
+  // tslint:disable-next-line:max-line-length
+  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent, PerfilPacienteComponent, VerTratamientoComponent, VerConsultaComponent, VerProxTratamientoComponent, VerRecipeComponent, AppointmentsDoctorComponent],
+
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule,
-   
+    FormsModule
   ],
-  exports:[
+  exports: [
     ProfileComponentDoctor,
     SidebarDoctorComponent,
     NuevoPacienteComponent,
@@ -46,8 +45,8 @@ import { VerRecipeComponent } from './ver-recipe/ver-recipe.component';
     VerConsultaComponent,
     VerTratamientoComponent,
     VerProxTratamientoComponent,
-    VerRecipeComponent
-
+    VerRecipeComponent,
+    AppointmentsDoctorComponent
   ]
 })
 export class DoctorModule { }
