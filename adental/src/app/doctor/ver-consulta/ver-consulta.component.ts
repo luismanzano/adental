@@ -22,7 +22,13 @@ export class VerConsultaComponent implements OnInit {
   recipeText: string;
   fecha: any;
   pagar: Boolean;
-  
+  mainUser = {
+    name: '',
+  lastname: '',
+  username: '',
+  type: '',
+  id: ''
+  };
 
 
 
@@ -39,7 +45,13 @@ export class VerConsultaComponent implements OnInit {
 
   ngOnInit() {
 
-    this.pagar=true;
+
+    this.mainUser.id = localStorage.getItem('id');
+    this.mainUser.name = localStorage.getItem('name');
+    this.mainUser.lastname = localStorage.getItem('lastname');
+    this.mainUser.username = localStorage.getItem('username');
+    this.mainUser.type = localStorage.getItem('type');
+    
 
     this.sub = this.route.params.subscribe(params=>{
       this.idConsulta=params['id'];
@@ -51,7 +63,18 @@ export class VerConsultaComponent implements OnInit {
       this.recipeText = consulta.data().recipe
       this.toPay = consulta.data().montoPago
       this.fecha = consulta.data().createdAt
+      if(this.mainUser.type=='0'){
+        if(this.toPay!=0){
+          console.log('mostrar boton pagar')
+          this.pagar=true;
+        }
+      } else {
+        console.log('No mostrar boton pagar')
+        this.pagar=false;
+      }
     })
+
+    
   }
 
  
