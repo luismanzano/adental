@@ -63,6 +63,7 @@ export class RegistrarConsultaComponent implements OnInit {
   }
 
   mostrarTratamiento():void{
+
       this.recipe = false;
       this.tratamiento=true;
       this.proxTratamientos=false;

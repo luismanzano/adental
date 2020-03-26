@@ -45,8 +45,9 @@
 }
 
 
-div textarea{
+.recipeTextArea{
     border: 0;
+    height: 12em;
     width: 90%;
     margin-left: 2em;
 }

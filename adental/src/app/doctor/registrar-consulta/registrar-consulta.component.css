@@ -24,3 +24,38 @@
 .opciones div{
     margin-top: 0.5em;
 }
+
+.info{
+    width: 100%;
+    margin-top: 1em;
+   }
+
+.recipe{
+    border: 1px solid black;
+    height: 25em;
+}
+
+#logo{
+    width: 60%;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+.col-md-6 div{
+    margin-top: 0.5em;
+}
+
+.col-md-6 input{
+    margin-left: 1em;
+}
+
+.recipeTextArea{
+    border: 0;
+    height: 12em;
+    width: 90%;
+    margin-left: 2em;
+}
+
+   
+   
+
+   

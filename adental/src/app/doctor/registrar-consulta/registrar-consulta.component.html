@@ -21,13 +21,64 @@
                             
                         </div>
                         <div *ngIf="recipe">
-                            <app-recipe></app-recipe>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="recipe">
+                                        <div class="datos border_bottom">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img id="logo" src="assets/images/Logo1.png" alt="Logo">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-2">Nombre: </div>
+                                                        <div class="col-md-4"> <input [(ngModel)]="nombre" class="sinborde"type="text"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-2">C.I.:</div>
+                                                        <div class="col-md-4"> <input class="sinborde"type="text"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div>
+                                                <textarea [(ngModel)]="recipeText" name="recipeinfo" id="recipeinfo" cols="" rows="" class="recipeTextArea"></textarea>
+                                            </div>       
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 offset-10">
+                                        <button class="round shadow button ok white_color gap-up">Imprimir</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div *ngIf="tratamiento">
-                            <app-tratamiento></app-tratamiento>
+                            <div class="row">
+                                <div class="col-md-6">
+                                   <p>Tratamiento:</p> 
+                                </div>
+                                <div class="col-md-6">
+                                    Monto a Pagar: <input [(ngModel)]="toPay" type="number" class="sinborde" id="pagar"> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea [(ngModel)]="treatment" name="tratamiento" id="tratamiento" cols="" rows="14" class="round shadow info"></textarea>
+                                    </div>
+                            </div>
                         </div>
                         <div *ngIf="proxTratamientos">
-                            <app-prox-tratamientos></app-prox-tratamientos>
+                            <div class="row">
+                                <div class="col-md-6">
+                                   <p>Próximos Tratamientos:</p> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea [(ngModel)]="nextTreatments" name="prox-tratamiento" id="prox-tratamiento" cols="" rows="14" class="round shadow info"></textarea>
+                                    </div>
+                            </div>
                         </div>
 
                     </div>
