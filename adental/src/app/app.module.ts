@@ -33,7 +33,7 @@ const rutas: Routes = [
   {path: 'citas', component:AppointmentsComponent},
   {path: 'mis-pacientes', component:MisPacientesComponent},
   {path: 'consultas', component:BillsComponent},
-  {path: 'pagos', component:PaymentComponent},
+  {path: 'pagos/:id', component:PaymentComponent},
   {path:'perfil-paciente/:id', component:ProfileComponent},
   {path: 'estadisticas', component: EstadisticasAdminComponent},
   {path: 'nuevo-usuario', component:UsuariosAdminComponent},

@@ -67,6 +67,10 @@ export class PerfilPacienteComponent implements OnInit {
   this.router.navigate(['/consulta', consulta]);
   }
 
+  irPagar(consulta: string){
+    this.router.navigate(['/pagos', consulta]);
+  }
+
 
 
 }

@@ -237,6 +237,9 @@ export class AuthService {
     });
   }
 
+  consultaData(data: string) {
+    return this.firestore.collection('consultas').doc(data).get();
+  }
 
   }
 

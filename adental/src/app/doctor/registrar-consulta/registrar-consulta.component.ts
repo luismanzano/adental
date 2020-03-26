@@ -105,7 +105,7 @@ export class RegistrarConsultaComponent implements OnInit {
   cambiarId(){
     console.log("funciona");
     console.log(this.idConsulta, "hola");
-   const consultaRef= this.firestore.collection('consultas').doc(this.idConsulta).update({
+    this.firestore.collection('consultas').doc(this.idConsulta).update({
       idConsulta: this.idConsulta.toString()
     });
   }

@@ -20,22 +20,67 @@
                             <div class="col-md-3 white_color" id="recipe" (click)="mostrarRecipe()">Récipe</div> 
                         </div>
                         <div *ngIf="tratamiento">
-                            <app-ver-tratamiento></app-ver-tratamiento>
+                            <div class="row">
+                                <div class="col-md-6">
+                                   <p>Tratamiento:</p> 
+                                </div>
+                                <div class="col-md-6">
+                                    Monto a Pagar: <input [(ngModel)]="toPay" type="number" class="sinborde" id="pagar" readonly> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea [(ngModel)]="treatments" name="tratamiento" id="tratamiento" cols="" rows="14" class="round shadow info" readonly></textarea>
+                                    </div>
+                            </div>
                         </div>
                         <div *ngIf="proxTratamiento">
-                            <app-ver-prox-tratamiento></app-ver-prox-tratamiento>
+                            <div class="row">
+                                <div class="col-md-6">
+                                   <p>Próximos Tratamientos:</p> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea [(ngModel)]="nextTreatments" name="prox-tratamiento" id="prox-tratamiento" cols="" rows="14" class="round shadow info" readonly></textarea>
+                                    </div>
+                            </div>                            
                         </div>
                         <div *ngIf="recipe">
-                            <app-ver-recipe></app-ver-recipe>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="recipe">
+                                        <div class="datos border_bottom">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <img id="logo" src="assets/images/Logo1.png" alt="Logo">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-md-2">Nombre: </div>
+                                                        <div class="col-md-4"> <input class="sinborde"type="text"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-2">C.I.:</div>
+                                                        <div class="col-md-4"> <input class="sinborde"type="text"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div>
+                                                <textarea [(ngModel)]="recipeText" name="recipeinfo" id="recipeinfo" cols="" rows="8" readonly></textarea>
+                                            </div>       
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div *ngIf="pagar">
                             <div class="row">
                                 <div class="col-md-2 offset-10">
-                                    <button class="round shadow button ok white_color gap-up">Pagar</button>
+                                    <button class="round shadow button ok white_color gap-up" (click)="irPagar()">Pagar</button>
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
