@@ -97,7 +97,6 @@ export class AuthService {
 
 
   }
-
   redirectUser(id: string) {
     alert('Esto esta funcionando');
     this.userData(this.user).subscribe( user => {
@@ -262,6 +261,9 @@ export class AuthService {
     });
   }
 
+  consultaData(data: string) {
+    return this.firestore.collection('consultas').doc(data).get();
+  }
 
   }
 

@@ -42,7 +42,6 @@ export class PerfilPacienteComponent implements OnInit {
       for(var i=0; i<length; i++){
         this.idConsulta=usuario.data().history[i].toString();
         this.userDataConsulta(this.idConsulta).subscribe(consulta =>{
-          var day = consulta.data().createdAt.toDate().getDate();
           this.arregloConsulta.push(consulta.data())
         });
       }
@@ -65,6 +64,10 @@ export class PerfilPacienteComponent implements OnInit {
   irConsulta(consulta: any){
     console.log(consulta);
   this.router.navigate(['/consulta', consulta]);
+  }
+
+  irPagar(consulta: string){
+    this.router.navigate(['/pagos', consulta]);
   }
 
 

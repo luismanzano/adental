@@ -9,22 +9,21 @@ import { RegistrarConsultaComponent } from './registrar-consulta/registrar-consu
 import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { ProxTratamientosComponent } from './prox-tratamientos/prox-tratamientos.component';
 import { RecipeComponent } from './recipe/recipe.component';
-
-
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.component';
-import { VerTratamientoComponent } from './ver-tratamiento/ver-tratamiento.component';
 import { VerConsultaComponent } from './ver-consulta/ver-consulta.component';
-import { VerProxTratamientoComponent } from './ver-prox-tratamiento/ver-prox-tratamiento.component';
-import { VerRecipeComponent } from './ver-recipe/ver-recipe.component';
 import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-doctor.component';
+
+
+
+
 
 
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent, PerfilPacienteComponent, VerTratamientoComponent, VerConsultaComponent, VerProxTratamientoComponent, VerRecipeComponent, AppointmentsDoctorComponent],
+  declarations: [ProfileComponentDoctor, SidebarDoctorComponent, NuevoPacienteComponent, EnviarMensajeComponent, MisPacientesComponent, RegistrarConsultaComponent, TratamientoComponent, ProxTratamientosComponent, RecipeComponent, PerfilPacienteComponent, VerConsultaComponent, AppointmentsDoctorComponent],
 
   imports: [
     CommonModule,
@@ -43,9 +42,6 @@ import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-
     RecipeComponent,
     PerfilPacienteComponent,
     VerConsultaComponent,
-    VerTratamientoComponent,
-    VerProxTratamientoComponent,
-    VerRecipeComponent,
     AppointmentsDoctorComponent
   ]
 })

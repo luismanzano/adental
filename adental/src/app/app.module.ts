@@ -29,23 +29,19 @@ import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore'
 const rutas: Routes = [
   {path: 'perfil-doctor', component: ProfileComponentDoctor},
   {path: 'enviar-mensaje/:id', component: EnviarMensajeComponent},
-  {path: 'nuevo-paciente', component: NuevoPacienteComponent},
-  {path: 'citas', component: AppointmentsComponent},
   {path: 'citas-doctor', component: AppointmentsDoctorComponent},
-  {path: 'mis-pacientes', component: MisPacientesComponent},
-  {path: 'consultas', component: BillsComponent},
-  {path: 'pagos', component: PaymentComponent},
-  // {path: 'perfil-paciente/:id', component: ProfileComponent},
+  {path:'nuevo-paciente', component:NuevoPacienteComponent},
+  {path: 'citas', component:AppointmentsComponent},
+  {path: 'mis-pacientes', component:MisPacientesComponent},
+  {path: 'facturas', component:BillsComponent},
+  {path: 'pagos/:id', component:PaymentComponent},
+  {path:'perfil-paciente', component:ProfileComponent},
   {path: 'estadisticas', component: EstadisticasAdminComponent},
   {path: 'nuevo-usuario', component: UsuariosAdminComponent},
   {path: 'usuarios', component: AllUsersComponent},
-  {path: 'mis-pacientes', component: MisPacientesComponent},
   {path: 'registrar-consulta/:id', component: RegistrarConsultaComponent},
   {path: 'paciente-perfil/:id', component: PerfilPacienteComponent},
   {path: 'consulta/:id', component: VerConsultaComponent},
-  {path: 'perfil-paciente', component: ProfileComponent}
-
-
 
 ];
 import { AdminModule2 } from './admin2/admin.module';

@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router'
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
@@ -18,7 +18,7 @@ export class VerConsultaComponent implements OnInit {
   private sub: any;
   treatments: string;
   toPay: number;
-  nextTreatment: string;
+  nextTreatments: string;
   recipeText: string;
   fecha: any;
   pagar: Boolean;
@@ -28,6 +28,8 @@ export class VerConsultaComponent implements OnInit {
   constructor(
     private route : ActivatedRoute,
     public firestore: AngularFirestore,
+    private router: Router
+
   ) { 
 
   }
@@ -43,7 +45,7 @@ export class VerConsultaComponent implements OnInit {
     })
 
     this.consultaData(this.idConsulta).subscribe(consulta=>{
-      this.nextTreatment=consulta.data().proxTratamiento
+      this.nextTreatments=consulta.data().proxTratamiento
       this.treatments = consulta.data().tratamiento
       this.recipeText = consulta.data().recipe
       this.toPay = consulta.data().montoPago
@@ -74,6 +76,10 @@ mostrarRecipe():void{
 consultaData(data: string) {
   return this.firestore.collection('consultas').doc(data).get();
 
+}
+
+irPagar(){
+  this.router.navigate(['/pagos', this.idConsulta]);
 }
 
 }
