@@ -31,7 +31,7 @@ export class AuthService {
   array: any[];
   idConsulta: string;
   idLogeado: string;
-  
+
   constructor(
     private router: Router,
     public af: AngularFireAuth,
@@ -53,11 +53,25 @@ export class AuthService {
           blocks: [],
           conection: [],
           nextAppointment: '',
-          nextAppointments:[],
+          nextAppointments: [],
           history: []
         });
         alert('Usuario Creado');
       });
+  }
+
+  current() {
+    const usuario = firebase.auth().currentUser;
+
+    this.firestore.collection('users').doc(usuario.uid).valueChanges().subscribe((user: any) => {
+      this.mainUser.id = user.id;
+      this.mainUser.type = user.type;
+      this.mainUser.username = user.username;
+      this.mainUser.name = user.name;
+      this.mainUser.lastname = user.lastname;
+
+      console.log(this.mainUser);
+    });
   }
 
   sendEmail(to: string, text: string) {
@@ -103,7 +117,7 @@ export class AuthService {
       // tslint:disable-next-line:triple-equals
       if (user.data().type == '0') {
         console.log(user.data().id);
-        this.router.navigate(['/perfil-paciente', user.data().id]);
+        this.router.navigate(['/perfil-paciente']);
       } else if (user.data().type == '1') {
         this.router.navigate(['/perfil-doctor']);
       } else {
@@ -167,7 +181,7 @@ export class AuthService {
           id: cred.user.uid.toString(),
           conection: [],
           nextAppointment: '',
-          nextAppointments:[],
+          nextAppointments: [],
           history: []
         });
         console.log(cred.user.uid);

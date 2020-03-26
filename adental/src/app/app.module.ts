@@ -35,14 +35,15 @@ const rutas: Routes = [
   {path: 'mis-pacientes', component: MisPacientesComponent},
   {path: 'consultas', component: BillsComponent},
   {path: 'pagos', component: PaymentComponent},
-  {path: 'perfil-paciente/:id', component: ProfileComponent},
+  // {path: 'perfil-paciente/:id', component: ProfileComponent},
   {path: 'estadisticas', component: EstadisticasAdminComponent},
   {path: 'nuevo-usuario', component: UsuariosAdminComponent},
   {path: 'usuarios', component: AllUsersComponent},
   {path: 'mis-pacientes', component: MisPacientesComponent},
   {path: 'registrar-consulta/:id', component: RegistrarConsultaComponent},
   {path: 'paciente-perfil/:id', component: PerfilPacienteComponent},
-  {path: 'consulta/:id', component: VerConsultaComponent}
+  {path: 'consulta/:id', component: VerConsultaComponent},
+  {path: 'perfil-paciente', component: ProfileComponent}
 
 
 

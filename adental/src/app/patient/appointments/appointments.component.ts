@@ -62,6 +62,7 @@ export class AppointmentsComponent implements OnInit {
     this.checkAppo();
 
     console.log(this.book);
+    console.log(this.mainUser);
   }
 
   searchDates() {

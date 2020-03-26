@@ -31,20 +31,23 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params=>{
+    this.sub = this.route.params.subscribe(params => {
       this.idP = params['id'];
-    })
-    
-    this.authService.idLogeado=this.idP;
 
-    this.userData(this.idP.toString()).subscribe(usuario => {
+      this.authService.current();
+      console.log(this.mainUser);
+    })
+
+    this.authService.idLogeado = this.idP;
+
+    this.userData(this.mainUser.id.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
       this.last = usuario.data().lastname;
-      this.username=usuario.data().username;
+      this.username = usuario.data().username;
       var length = usuario.data().history.length;
-      for(var i=0; i<length; i++){
-        this.idConsulta=usuario.data().history[i].toString();
-        this.userDataConsulta(this.idConsulta).subscribe(consulta =>{
+      for(var i=0; i<length; i++) {
+        this.idConsulta = usuario.data().history[i].toString();
+        this.userDataConsulta(this.idConsulta).subscribe(consulta => {
           var day = consulta.data().createdAt.toDate().getDate();
           console.log(day);
           this.arregloConsulta.push(consulta.data())
