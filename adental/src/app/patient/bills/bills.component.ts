@@ -18,6 +18,13 @@ export class BillsComponent implements OnInit {
   mostrarNoPagas: Boolean;
   montoTotal: number;
   montoParcial: number;
+  mainUser = {
+    name: '',
+  lastname: '',
+  username: '',
+  type: '',
+  id: ''
+  };
   
 
   constructor(
@@ -26,6 +33,16 @@ export class BillsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.mainUser.id = localStorage.getItem('id');
+    this.mainUser.name = localStorage.getItem('name');
+    this.mainUser.lastname = localStorage.getItem('lastname');
+    this.mainUser.username = localStorage.getItem('username');
+    this.mainUser.type = localStorage.getItem('type');
+
+
+
+
    this.montoTotal=0;
    this.montoParcial=0;
    this.mostrarTodas();
@@ -45,7 +62,7 @@ export class BillsComponent implements OnInit {
     this.mostrar=false;
     this.arregloConsulta=[];
     console.log(this.arregloConsulta)
-    this.authService.userData('2KWsVcftHdZ52cxsALCq25EgJCH2').subscribe(user=>{
+    this.authService.userData(this.mainUser.id).subscribe(user=>{
       var length = user.data().history.length;
       for(var i=0; i<length; i++){
         this.idConsulta=user.data().history[i].toString();

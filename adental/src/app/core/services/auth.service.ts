@@ -84,7 +84,6 @@ export class AuthService {
 
 
   }
-
   redirectUser(id: string) {
     alert('Esto esta funcionando');
     this.userData(this.user).subscribe( user => {
@@ -92,18 +91,16 @@ export class AuthService {
       console.log('User Data' );
       console.log(user.data() );
 
-      this.mainUser = {
-        name: user.data().name,
-      lastname: user.data().lastname,
-      username: user.data().username,
-      type: user.data().type,
-      id: user.data().id
-      };
+      window.localStorage.setItem('name', user.data().name);
+      window.localStorage.setItem('lastname', user.data().lastname);
+      window.localStorage.setItem('username', user.data().username);
+      window.localStorage.setItem('type', user.data().type);
+      window.localStorage.setItem('id', user.data().id);
 
       // tslint:disable-next-line:triple-equals
       if (user.data().type == '0') {
         console.log(user.data().id);
-        this.router.navigate(['/perfil-paciente', user.data().id]);
+        this.router.navigate(['/perfil-paciente']);
       } else if (user.data().type == '1') {
         this.router.navigate(['/perfil-doctor']);
       } else {
