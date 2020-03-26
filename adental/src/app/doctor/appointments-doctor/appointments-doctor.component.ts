@@ -10,7 +10,13 @@ import FieldValue = firebase.firestore.FieldValue;
 })
 export class AppointmentsDoctorComponent implements OnInit {
 
-  mainUser = this.authService.mainUser;
+  mainUser = {
+    name: '',
+    lastname: '',
+    username: '',
+    type: '',
+    id: ''
+  };
   appointments = [];
   filtered: any[];
   gottenPatients = [];
@@ -21,7 +27,14 @@ export class AppointmentsDoctorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appointments = [];
+    this.mainUser.id = localStorage.getItem('id');
+    this.mainUser.name = localStorage.getItem('name');
+    this.mainUser.lastname = localStorage.getItem('lastname');
+    this.mainUser.username = localStorage.getItem('username');
+    this.mainUser.type = localStorage.getItem('type');
+    console.log(localStorage.getItem('id'));
+    console.log(this.mainUser.id);
+    console.log('QUE PASA CON ESTO'); this.appointments = [];
     this.gottenPatients = [];
     this.getAppointments();
     console.log('Se ejecuto el init');

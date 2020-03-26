@@ -8,13 +8,27 @@ import {AuthService} from '../../core/services/auth.service';
 })
 export class ProfileComponentDoctor implements OnInit {
 
-  mainUser = this.authService.mainUser;
+  mainUser = {
+    name: '',
+    lastname: '',
+    username: '',
+    type: '',
+    id: ''
+  };
 
   constructor(
     private authService: AuthService
   ) {}
 
   ngOnInit() {
+    this.mainUser.id = localStorage.getItem('id');
+    this.mainUser.name = localStorage.getItem('name');
+    this.mainUser.lastname = localStorage.getItem('lastname');
+    this.mainUser.username = localStorage.getItem('username');
+    this.mainUser.type = localStorage.getItem('type');
+    console.log(localStorage.getItem('id'));
+    console.log(this.mainUser.id);
+    console.log('QUE PASA CON ESTO');
   }
 
   workBlock(day: number, avl: boolean) {
