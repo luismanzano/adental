@@ -102,4 +102,8 @@ export class ProfileComponent implements OnInit {
   userDataConsulta(data: string) {
     return this.firestore.collection('consultas').doc(data).get();
   }
+
+  irPagar(consulta: string){
+    this.router.navigate(['/pagos', consulta]);
+  }
 }
