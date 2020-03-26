@@ -96,8 +96,6 @@ export class AppointmentsDoctorComponent implements OnInit {
       });
 
     });
-
-    this.ngOnInit();
   }
 
   confirmAppo(patient: string) {
