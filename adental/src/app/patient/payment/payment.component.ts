@@ -83,11 +83,15 @@ pagar(){
     consultaRef.update({
       status: true,
       montoPago:0
+    }).then(ref=>{
+      this.ngOnInit()
     })
   } else{
     this.total=this.montoPagar-this.montoIngresado;
     consultaRef.update({
       montoPago:this.total
+    }).then(ref=>{
+      this.ngOnInit()
     })
   }
 }
