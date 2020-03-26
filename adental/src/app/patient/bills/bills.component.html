@@ -9,69 +9,119 @@
           <h1 class="head">Mis Facturas</h1>
         </div>
       </div>
-    
-      <div class="row">
-        <div class="col-md-5">
-          <h5 class="gap-up gap-down">Ordenadas por mas recientes</h5>
+
+     <div class="row">
+       <div class="col-md-5">
+        <p class="data espacio"><b>Monto que Debe: </b> {{montoTotal}}</p>
+       </div>
+     </div>
+
+      <div class="row espacio">
+        <div class="col-md-12">
+            <select [(ngModel)]="filtro" class="shadow round" name="filtro" id="filtro">
+                <option value="0"> Todas </option>
+                <option value="1">Sin Pagar</option>
+                <option value="2">Pagadas</option>
+            </select>
+            <button class="button ok shadow white_color boton" (click)="filtrar()">Aplicar</button>
+        </div>
+    </div>
+
+    <div *ngIf="mostrar">
+      <div *ngFor="let consulta of arregloConsulta">
+        <div class="row gap-up gap-down separar">
+          <div class="col-md-10">
+            <div class="round shadow">
+            <div class="row">
+        <div class="col-md-4">
+          <p> <b>Monto que Debe: </b> {{consulta.montoPago}} </p>
+        </div>
+      
+        <div class="col-md-4 offset-4">
+          <p> <b> Fecha {{consulta.createdAt.toDate().getDate()}}/{{consulta.createdAt.toDate().getMonth()+1}}/{{consulta.createdAt.toDate().getFullYear()}} </b></p>
         </div>
       </div>
-    <!-- Inicio de la Tarjeta-->
-      <div class="row gap-up gap-down">
-        <div class="col-md-10">
-          <div class="round shadow">
-          <div class="row">
-      <div class="col-md-3">
-        <p> <b>Monto que Debe: </b> 999 </p>
-      </div>
-    
-      <div class="col-md-4 offset-5">
-        <p> <b> Fecha 14/04/1998 </b></p>
+              <div class="row">
+                <div class="col-md-12">  
+                  <div> <b>Tratamiento</b><br></div>
+                  <div id="tratamiento">{{consulta.tratamiento}}</div>
+                </div>
+              </div>
+              <div *ngIf="!consulta.status">
+                <div class="row">
+                  <div class="col-md-3 offset-10">
+                    <button class="button ok round shadow white_color" (click)="irPagar(consulta.idConsulta)">Pagar</button>
+                  </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-            <div class="row">
-              <div class="col-md-12">
-    
-                <b>Tratamiento</b><br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatibus vel nam sapiente consequuntur officia dolorum vero iusto hic
-              </div>
-              <div class="col-md-3 offset-9 gap-up">
-                <div class="button ok round shadow text-center align_center white_color">
-                  <span>Pagar</span>
+
+    <div *ngIf="mostrarPagas">
+      <div *ngFor="let consulta of arregloConsulta">
+        <div *ngIf="consulta.status">
+          <div class="row gap-up gap-down separar">
+            <div class="col-md-10">
+              <div class="round shadow">
+              <div class="row">
+          <div class="col-md-4">
+            <p> <b>Monto que Debe: </b> {{consulta.montoPago}} </p>
+          </div>
+        
+          <div class="col-md-4 offset-4">
+            <p> <b> Fecha {{consulta.createdAt.toDate().getDate()}}/{{consulta.createdAt.toDate().getMonth()+1}}/{{consulta.createdAt.toDate().getFullYear()}} </b></p>
+          </div>
+        </div>
+                <div class="row">
+                  <div class="col-md-12">  
+                    <div> <b>Tratamiento</b><br></div>
+                    <div id="tratamiento">{{consulta.tratamiento}}</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
-      <div class="row gap-up">
-        <div class="col-md-10">
-          <div class="round shadow">
-            <div class="row">
-              <div class="col-md-3">
-                <p> <b>Monto que Debe: </b> 999 </p>
-              </div>
-    
-              <div class="col-md-4 offset-5">
-                <p> <b> Fecha 14/04/1998 </b></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-    
-                <b>Tratamiento</b><br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatibus vel nam sapiente consequuntur officia dolorum vero iusto hic
-              </div>
-              <div class="col-md-3 offset-9 gap-up">
-                <div class="button ok round shadow text-center align_center white_color">
-                  <span>Pagar</span>
+    </div>
+
+    <div *ngIf="mostrarNoPagas">
+      <div *ngFor="let consulta of arregloConsulta">
+        <div *ngIf="!consulta.status">
+          <div class="row gap-up gap-down separar">
+            <div class="col-md-10">
+              <div class="round shadow">
+              <div class="row">
+          <div class="col-md-4">
+            <p> <b>Monto que Debe: </b> {{consulta.montoPago}} </p>
+          </div>
+        
+          <div class="col-md-4 offset-4">
+            <p> <b> Fecha {{consulta.createdAt.toDate().getDate()}}/{{consulta.createdAt.toDate().getMonth()+1}}/{{consulta.createdAt.toDate().getFullYear()}} </b></p>
+          </div>
+        </div>
+                <div class="row">
+                  <div class="col-md-12">  
+                    <div> <b>Tratamiento</b><br></div>
+                    <div id="tratamiento">{{consulta.tratamiento}}</div>
+                  </div>
                 </div>
+                  <div class="row">
+                    <div class="col-md-3 offset-10">
+                      <button class="button ok round shadow white_color" (click)="irPagar(consulta.idConsulta)">Pagar</button>
+                    </div>
+                  </div> 
               </div>
             </div>
           </div>
-        </div>
+        </div>   
       </div>
-    
+    </div>
+
+    <div class="espacio"></div>
     
     </div>
     
