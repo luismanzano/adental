@@ -61,18 +61,16 @@ export class AuthService {
   }
 
   current() {
-    const usuario = firebase.auth().currentUser;
-
-    this.firestore.collection('users').doc(usuario.uid).valueChanges().subscribe((user: any) => {
-      this.mainUser.id = user.id;
-      this.mainUser.type = user.type;
-      this.mainUser.username = user.username;
-      this.mainUser.name = user.name;
-      this.mainUser.lastname = user.lastname;
+      this.mainUser.id = window.localStorage.getItem('id');
+      this.mainUser.type = window.localStorage.getItem('type');
+      this.mainUser.username = window.localStorage.getItem('username');
+      this.mainUser.name = window.localStorage.getItem('name');
+      this.mainUser.lastname = window.localStorage.getItem('lastname');
 
       console.log(this.mainUser);
-    });
+      console.log(window.localStorage.getItem('id'));
   }
+
 
   sendEmail(to: string, text: string) {
     const data = {
@@ -93,6 +91,7 @@ export class AuthService {
         console.log(this.user);
         alert('Usuario Logeado');
         this.redirectUser(this.user);
+
       })
       .catch(() => alert('No se logeo'));
 
@@ -106,13 +105,11 @@ export class AuthService {
       console.log('User Data' );
       console.log(user.data() );
 
-      this.mainUser = {
-        name: user.data().name,
-      lastname: user.data().lastname,
-      username: user.data().username,
-      type: user.data().type,
-      id: user.data().id
-      };
+      window.localStorage.setItem('name', user.data().name);
+      window.localStorage.setItem('lastname', user.data().lastname);
+      window.localStorage.setItem('username', user.data().username);
+      window.localStorage.setItem('type', user.data().type);
+      window.localStorage.setItem('id', user.data().id);
 
       // tslint:disable-next-line:triple-equals
       if (user.data().type == '0') {

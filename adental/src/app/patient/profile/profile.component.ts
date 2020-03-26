@@ -3,6 +3,7 @@ import { AuthService} from '../../core/services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import {ActivatedRoute, Router} from '@angular/router';
+import {User} from "firebase";
 
 
 @Component({
@@ -10,9 +11,16 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
 
-  mainUser = this.authService.mainUser;
+  mainUser = {
+    name: '',
+  lastname: '',
+  username: '',
+  type: '',
+  id: ''
+  };
   activar: boolean;
   contrasena: string;
   idP: string;
@@ -31,11 +39,19 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    this.mainUser.id = localStorage.getItem('id');
+    this.mainUser.name = localStorage.getItem('name');
+    this.mainUser.lastname = localStorage.getItem('lastname');
+    this.mainUser.username = localStorage.getItem('username');
+    this.mainUser.type = localStorage.getItem('type');
+    console.log(localStorage.getItem('id'));
+    console.log(this.mainUser.id);
+    console.log('QUE PASA CON ESTO');
+
+
     this.sub = this.route.params.subscribe(params => {
       this.idP = params['id'];
-
-      this.authService.current();
-      console.log(this.mainUser);
     })
 
     this.authService.idLogeado = this.idP;
@@ -53,7 +69,7 @@ export class ProfileComponent implements OnInit {
           this.arregloConsulta.push(consulta.data())
         });
       }
-    })
+    });
   }
 
   irConsulta(consulta: any){

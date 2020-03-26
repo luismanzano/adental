@@ -22,7 +22,13 @@ interface Cita {
 
 export class AppointmentsComponent implements OnInit {
 
-  mainUser = this.authService.mainUser;
+  mainUser = {
+    name: '',
+    lastname: '',
+    username: '',
+    type: '',
+    id: ''
+  };
 
   doctores = [];
   chosenDoctor: string;
@@ -47,6 +53,14 @@ export class AppointmentsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.mainUser.id = localStorage.getItem('id');
+    this.mainUser.name = localStorage.getItem('name');
+    this.mainUser.lastname = localStorage.getItem('lastname');
+    this.mainUser.username = localStorage.getItem('username');
+    this.mainUser.type = localStorage.getItem('type');
+
+
     this.authService.getUsers().subscribe((users: any) => {
       for (let i = 0; i <= users.length; i++) {
        // console.log(users[i].payload.doc.data());
@@ -172,16 +186,11 @@ export class AppointmentsComponent implements OnInit {
 
       this.searchDates();
       this.display = false;
-      this.checkAppo();
+      this.ngOnInit();
 
     }).catch(err => {
       alert('Ha ocurrido un error chequee su conexion ' + err);
     });
-
-
-    this.searchDates();
-    this.display = false;
-    this.checkAppo();
   }
 
 
