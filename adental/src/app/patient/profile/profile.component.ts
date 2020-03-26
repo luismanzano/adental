@@ -29,6 +29,8 @@ export class ProfileComponent implements OnInit {
   last: string;
   username: string;
   idConsulta: string;
+  montoTotal: number;
+  montoParcial: number;
   private sub: any;
 
   constructor(
@@ -54,8 +56,9 @@ export class ProfileComponent implements OnInit {
       this.idP = params['id'];
     })
 
-    this.authService.idLogeado = this.idP;
-
+    this.montoTotal=0;
+    this.montoParcial=0;
+    
     this.userData(this.mainUser.id.toString()).subscribe(usuario => {
       this.name = usuario.data().name;
       this.last = usuario.data().lastname;
@@ -64,9 +67,9 @@ export class ProfileComponent implements OnInit {
       for(var i=0; i<length; i++) {
         this.idConsulta = usuario.data().history[i].toString();
         this.userDataConsulta(this.idConsulta).subscribe(consulta => {
-          var day = consulta.data().createdAt.toDate().getDate();
-          console.log(day);
-          this.arregloConsulta.push(consulta.data())
+          this.arregloConsulta.push(consulta.data());
+          this.montoParcial=consulta.data().montoPago
+          this.montoTotal=this.montoTotal+this.montoParcial;
         });
       }
     });
