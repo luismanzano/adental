@@ -73,6 +73,7 @@ export class AppointmentsDoctorComponent implements OnInit {
   }
 
   irConsulta(){
+    console.log(this.idP);
     this.router.navigate(['/registrar-consulta', this.idP]);
   }
 /*
