@@ -240,7 +240,7 @@ export class AppointmentsComponent implements OnInit {
         }).then(pac => {
           console.log('Cancelada en el paciente')
           location.reload()
-          
+
         });
 
         this.authService.firestore.collection('users').doc(doctor).update({
@@ -250,9 +250,9 @@ export class AppointmentsComponent implements OnInit {
           console.log('Cancelada')
           location.reload()
         });
-        
+
       });
-      
+
   }
 
   test(i) {
@@ -277,7 +277,7 @@ export class AppointmentsComponent implements OnInit {
       timeblock: index
     }).then( succ => {
       alert('Se ha modificado con exito');
-    }).catch( err  => alert('Hubo un error, intente mas tarde'));
+    }).then(() => location.reload()).catch( err  => alert('Hubo un error, intente mas tarde'));
     this.ngOnInit();
 
   }
