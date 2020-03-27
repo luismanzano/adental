@@ -20,25 +20,24 @@
       <div class="metodosPago">
         <div class="row">
           <div class="col-md-3">
-            <button class="opciones" (click)="irTransferencia()"><img class="imagen"
+            <button class="opciones" [hidden]="!mostrarTransferencia" (click)="irTransferencia()"><img class="imagen"
                                                                       src="assets/images/transferencia.png" alt="">
               Transferencia
             </button>
           </div>
           <div class="col-md-3">
-            <button class="opciones" (click)="irZelle()"><img class="imagen" src="assets/images/zelle.png" alt=""> Zelle
+            <button class="opciones" [hidden]="!mostrarZelle" (click)="irZelle()"><img class="imagen" src="assets/images/zelle.png" alt=""> Zelle
             </button>
           </div>
         </div>
         <div class="row">
           <div class="col-md-3">
-            <button class="opciones" (click)="irEfectivo()"><img class="imagen" src="assets/images/efectivo.png" alt="">
+            <button class="opciones" [disabled]="!mostrarEfectivo"  (click)="irEfectivo()"><img class="imagen" src="assets/images/efectivo.png" alt="">
               Efectivo
             </button>
           </div>
 
-          <div class="col-md-3" id="paypal-button-container">
-<!--            <button class="opciones"><img class="imagen" src="assets/images/paypal.png" alt="" (click)="irPaypal()">-->
+          <div [hidden]="!mostrarPaypal" class="col-md-3" id="paypal-button-container">
             <div #paypal></div>
           </div>
         </div>
@@ -144,7 +143,7 @@
       </div>
 
 
-      <div *ngIf="transferencia || zelle || paypal || efectivo">
+      <div *ngIf="transferencia || zelle || efectivo">
         <div class="row datos">
           <div class="col-md-2 offset-5">
             <button class="button ok round shadow white_color" (click)="pagar()">Pagar</button>
