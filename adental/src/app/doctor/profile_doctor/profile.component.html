@@ -51,6 +51,7 @@
                     </label>
                   </div>
                 </div>
+              </div>  
 
             <div class="row">
                 <div class="col-md-3">
@@ -58,42 +59,28 @@
                 </div>
             </div>
 
-           <div class="dias">
-            <div class="row">
-                <div class="col-md-2 disponibilidad" id="lunes">
-                <div class="row">Lunes</div>
-                  <div class="row"><button (click)="workBlock(1, true)">Disponible</button></div>
-                  <div class="row"><button (click)="workBlock(1, false)">No disponible</button></div>
+
+            <div class="bloques">
+              <div class="row">
+                <div class="col-md-2">
+                  <input type="checkbox" value="1" [checked]="lunes" (change)="bloqueChange($event)"> Lunes
                 </div>
-
-              <div class="col-md-2 disponibilidad" id="martes">
-                <div class="row">Martes</div>
-                <div class="row"><button (click)="workBlock(2, true)">Disponible</button></div>
-                <div class="row"><button (click)="workBlock(2, false)">No disponible</button></div>
-              </div>
-
-              <div class="col-md-2 disponibilidad" id="miercoles">
-                <div class="row">Miercoles</div>
-                <div class="row"><button (click)="workBlock(3, true)">Disponible</button></div>
-                <div class="row"><button (click)="workBlock(3, false)">No disponible</button></div>
-              </div>
-
-              <div class="col-md-2 disponibilidad" id="jueves">
-                <div class="row">Jueves</div>
-                <div class="row"><button (click)="workBlock(4, true)">Disponible</button></div>
-                <div class="row"><button (click)="workBlock(4, false)">No disponible</button></div>
-              </div>
-
-
-              <div class="col-md-2 disponibilidad" id="viernes">
-                <div class="row">Viernes</div>
-                <div class="row"><button (click)="workBlock(5, true)">Disponible</button></div>
-                <div class="row"><button (click)="workBlock(5, false)">No disponible</button></div>
+                <div class="col-md-2">
+                  <input type="checkbox" value="2" [checked]="martes" (change)="bloqueChange($event)"> Martes
+                </div>
+                <div class="col-md-2">
+                  <input type="checkbox" value="3" [checked]="miercoles" (change)="bloqueChange($event)"> Miercoles
+                </div>
+                <div class="col-md-2">
+                  <input type="checkbox" value="4" [checked]="jueves" (change)="bloqueChange($event)"> Jueves
+                </div>
+                <div class="col-md-2">
+                  <input type="checkbox" value="5" [checked]="viernes" (change)="bloqueChange($event)"> Viernes
+                </div>
               </div>
             </div>
-           </div>
             <div id="x"></div>
-            </div>
+            
     </div>
 </div>
 

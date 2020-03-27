@@ -28,6 +28,12 @@ export class ProfileComponentDoctor implements OnInit {
   zelle: Boolean;
   paypal: Boolean;
   efectivo: Boolean;
+  lunes: Boolean;
+  martes: Boolean;
+  miercoles: Boolean;
+  jueves: Boolean;
+  viernes: Boolean;
+
  
   constructor(
     private authService: AuthService,
@@ -49,24 +55,32 @@ export class ProfileComponentDoctor implements OnInit {
     console.log(this.mainUser.id);
     console.log('QUE PASA CON ESTO');
 
-    this.transferencia=false;
 
     this.authService.userData(this.mainUser.id).subscribe(user=>{
       this.transferencia=user.data().paymentMethod[0];
       this.zelle=user.data().paymentMethod[1];
       this.paypal=user.data().paymentMethod[2];
       this.efectivo=user.data().paymentMethod[3];
+      this.lunes=user.data().blocks[0];
+      this.martes=user.data().blocks[1];
+      this.miercoles=user.data().blocks[2];
+      this.jueves=user.data().blocks[3];
+      this.viernes=user.data().blocks[4];
+
     })
   }
 
   
-  workBlock(day: number, avl: boolean) {
 
 
-    this.authService.saveBlock(this.mainUser.id, day, avl);
-
-
-    alert('Esta funcionando el workblock ' + day);
+  bloqueChange(e){
+    if(e.target.checked){
+      console.log(e.target.value)
+      this.authService.saveBlock(this.mainUser.id, e.target.value, true)
+    } else{
+      console.log(e.target.value)
+      this.authService.saveBlock(this.mainUser.id, e.target.value, false)
+    }
   }
 
   onCheckboxChange(e){
