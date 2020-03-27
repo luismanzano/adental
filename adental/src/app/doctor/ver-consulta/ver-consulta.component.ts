@@ -24,6 +24,7 @@ export class VerConsultaComponent implements OnInit {
   recipeText: string;
   fecha: any;
   pagar: Boolean;
+  tipoNavBar: Boolean;
   nombre: string;
   imagenUrl: any;
   mainUser = {
@@ -49,7 +50,7 @@ export class VerConsultaComponent implements OnInit {
 
   ngOnInit() {
 
-
+    
     this.mainUser.id = localStorage.getItem('id');
     this.mainUser.name = localStorage.getItem('name');
     this.mainUser.lastname = localStorage.getItem('lastname');
@@ -69,6 +70,7 @@ export class VerConsultaComponent implements OnInit {
       this.fecha = consulta.data().createdAt
       this.imagenUrl = consulta.data().imagen
       if(this.mainUser.type=='0'){
+        this.tipoNavBar=true;
         if(this.toPay!=0){
           console.log('mostrar boton pagar')
           this.pagar=true;
@@ -76,6 +78,7 @@ export class VerConsultaComponent implements OnInit {
       } else {
         console.log('No mostrar boton pagar')
         this.pagar=false;
+        this.tipoNavBar=false;
       }
     })
 

@@ -53,12 +53,7 @@ export class PaymentComponent implements OnInit {
     this.paypal=false;
     this.efectivo=false;
     this.fechaT= null;
-    this.correo='';
-    this.banco='';
-    this.montoIngresado=null;
-    this.comprobante='';
-    this.titular='';
-
+  
 
 
     paypal.Buttons({

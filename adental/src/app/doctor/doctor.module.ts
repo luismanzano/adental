@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.component';
 import { VerConsultaComponent } from './ver-consulta/ver-consulta.component';
 import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-doctor.component';
+import { PatientModule } from '../patient/patient.module';
 
 
 
@@ -30,7 +31,8 @@ import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PatientModule
   ],
   exports: [
     ProfileComponentDoctor,
