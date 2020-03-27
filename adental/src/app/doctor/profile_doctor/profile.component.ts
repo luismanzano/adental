@@ -49,33 +49,13 @@ export class ProfileComponentDoctor implements OnInit {
     console.log(this.mainUser.id);
     console.log('QUE PASA CON ESTO');
 
+    this.transferencia=false;
+
     this.authService.userData(this.mainUser.id).subscribe(user=>{
-      this.metodoPago=user.data().paymentMethod
-      console.log(this.metodoPago[0])
-      if(this.metodoPago[0]==true){
-        this.transferencia=true;
-        console.log(this.transferencia)
-      } else{
-        this.transferencia=false;
-      }
-
-      if(this.metodoPago[1]==true){
-        this.zelle = true;
-      }else{
-        this.zelle = false;
-      }
-
-      if(this.metodoPago[2]==true){
-        this.paypal = true;
-      }else{
-        this.paypal = false;
-      }
-
-      if(this.metodoPago[3]==true){
-        this.efectivo = true;
-      }else{
-        this.efectivo = false;
-      }
+      this.transferencia=user.data().paymentMethod[0];
+      this.zelle=user.data().paymentMethod[1];
+      this.paypal=user.data().paymentMethod[2];
+      this.efectivo=user.data().paymentMethod[3];
     })
   }
 
