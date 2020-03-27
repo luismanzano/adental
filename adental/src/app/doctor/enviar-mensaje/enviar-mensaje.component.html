@@ -20,7 +20,7 @@
             </div>
         
         
-            <div class="row">
+            <div class="row gap-down">
                 <div class="col-md-8">
                     <select [(ngModel)]="textPredeterminado" class="shadow round" name="predeterminado" id="predeterminado">
                         <option value="0" > Eliga su mensaje</option>
@@ -32,9 +32,9 @@
             </div>
         
         
-            <div class="row">
-                <div class="col-md-3">
-                    <button id="agregar_mensaje" class="button button ok shadow round white_color" (click)="recuperarTexto(false)">Enviar</button>
+            <div class="row gap-up">
+                <div class="col-md-3 offset-3">
+                    <button id="agregar_mensaje" class="button ok shadow round white_color" (click)="recuperarTexto(false)">Enviar</button>
                 </div>
             </div>
         

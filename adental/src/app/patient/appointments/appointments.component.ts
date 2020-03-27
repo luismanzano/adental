@@ -190,6 +190,8 @@ export class AppointmentsComponent implements OnInit {
 
     }).catch(err => {
       alert('Ha ocurrido un error chequee su conexion ' + err);
+      this.ngOnInit();
+
     });
   }
 
@@ -235,15 +237,22 @@ export class AppointmentsComponent implements OnInit {
         this.authService.firestore.collection('users').doc(this.mainUser.id).update({
           booked: false,
           nextAppo: ''
-        }).then(pac => console.log('Cancelada en el paciente'));
+        }).then(pac => {
+          console.log('Cancelada en el paciente')
+          location.reload()
+          
+        });
 
         this.authService.firestore.collection('users').doc(doctor).update({
           appos: FieldValue.arrayRemove(this.citaActual),
           cancels: FieldValue.increment(1)
-        }).then( xxx => console.log('Cancelada de doctor'));
-        this.ngOnInit();
+        }).then( xxx => {
+          console.log('Cancelada')
+          location.reload()
+        });
+        
       });
-
+      
   }
 
   test(i) {

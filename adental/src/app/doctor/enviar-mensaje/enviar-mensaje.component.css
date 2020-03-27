@@ -6,12 +6,6 @@ textarea{
 #mensaje-predeterminado{
     margin-top: 1em;
 }
-#agregar_mensaje{
-    width: max-content;
-    font-size: 0.7em;
-    margin-left: 19em;
-    margin-top: 3em;
-}
 
 #predeterminado{
     margin-top: 2em;

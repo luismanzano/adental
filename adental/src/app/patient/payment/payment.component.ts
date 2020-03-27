@@ -24,7 +24,17 @@ export class PaymentComponent implements OnInit {
   mostrarTransferencia: Boolean;
   mostrarZelle: Boolean;
   mostrarPaypal: Boolean;
-  mostrarEfectivo
+  mostrarEfectivo: Boolean;
+  fechaT: Date;
+  comprobante: any;
+  banco: string;
+  titular: string;
+  correo: string;
+
+
+
+  
+
   private sub: any;
   @ViewChild('paypal', { static: true}) paypalElement: ElementRef;
 
@@ -126,9 +136,31 @@ export class PaymentComponent implements OnInit {
 
   }
 
-
   pagar() {
-    const consultaRef = this.firestore.collection('consultas').doc(this.idConsulta);
+
+    if(this.zelle==true){
+      if(this.fechaT==null||this.montoIngresado==null||this.montoIngresado==0||this.correo==''||this.correo==null){
+        alert("Existen campos sin rellenar")
+      } else{
+        this.hacerPago()
+      }
+    } else if(this.transferencia==true){
+      if(this.fechaT==null||this.montoIngresado==null||this.montoIngresado==0|| this.banco==''||this.titular==''||this.comprobante==''){
+        alert("Existen campos sin rellenar")
+      } else{
+        this.hacerPago()
+      }
+    } else if (this.efectivo==true){
+      if(this.montoIngresado==null||this.montoIngresado==0){
+        alert("Existen campos sin rellenar")
+      } else{
+        this.hacerPago()
+      }
+    }
+    }
+
+    hacerPago(){
+      const consultaRef = this.firestore.collection('consultas').doc(this.idConsulta);
     if (this.montoIngresado == this.montoPagar) {
       consultaRef.update({
         status: true,
@@ -145,6 +177,7 @@ export class PaymentComponent implements OnInit {
         this.ngOnInit()
       })
     }
-  }
+    }
+    
 
 }
