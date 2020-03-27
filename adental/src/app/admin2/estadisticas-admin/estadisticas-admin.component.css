@@ -8,3 +8,12 @@
     color: rgba(12,169,127,1);
     text-decoration: underline;
 }
+
+input{
+  width: 45px;
+  border-radius: 15px;
+}
+
+button{
+  display: inline-block;
+}

@@ -56,6 +56,7 @@ export class AuthService {
           nextAppointments: [],
           history: [],
           paymentMethod: [],
+          percentage: 0
         });
         alert('Usuario Creado');
       });
