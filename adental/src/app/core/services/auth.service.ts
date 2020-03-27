@@ -100,7 +100,6 @@ export class AuthService {
 
   }
   redirectUser(id: string) {
-    alert('Esto esta funcionando');
     this.userData(this.user).subscribe( user => {
 
       console.log('User Data' );
