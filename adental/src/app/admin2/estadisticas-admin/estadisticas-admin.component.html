@@ -1,66 +1,60 @@
 <div class="row">
-    <div class="col-md-2">
-        <app-sidebar-admin></app-sidebar-admin>
-    </div>
-    <div class="col-md-10">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 class="gap-down head">Estadisticas Generales</h1>
-                </div>
-            </div> 
-        
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <select name="predeterminado" id="predeterminado" class="round shadow">
-                                <option value="0">Doctor</option>
-                                <option value="1">Luis Manzano</option>
-                                <option value="1">Reichel Larez</option>
-                                <option value="1">Luis Gonzalez</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row">
-        
-                <div class="col-md-2">
-                    <p class ="data gap-up">Pacientes(Semana): 20</p>
-                </div>
-        
-                <div class="col-md-2">
-                    <p class ="data gap-up">Pacientes(Total): 180</p>
-                </div>
-        
-                <div class="col-md-2">
-                    <p class ="data gap-up">Citas Atendidas: 24</p>
-                </div>
-        
-                <div class="col-md-2">
-                    <p class ="data gap-up">Citas Perdidas: 2</p>
-                </div>
-        
-                <div class="col-md-2">
-                    <p class ="data gap-up">Monto Cobrado: 2.5K</p>
-                </div>
-        
-                <div class="col-md-2">
-                    <p class ="data gap-up">Porcentaje Clinico: 8%</p>
-                    <p class ="modificar">Modificar Porcentaje</p>
-                </div>
-                
-                <div class="col-md-2">
-                    <p class ="data gap-up">Monto Historico: 250.3K</p>
-                </div>
-        
-            </div>
-         
+  <div class="col-md-2">
+    <app-sidebar-admin></app-sidebar-admin>
+  </div>
+  <div class="col-md-10">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="gap-down head">Estadisticas Generales</h1>
         </div>
-        
+      </div>
+
+      <div class="row gap-down">
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-md-4">
+              <select name="docs" id="docs" class="round shadow" [(ngModel)]="chosenDoctor" (change)="getStats(chosenDoctor)">
+                <option value="">Elija un doctor</option>
+                <ng-container *ngFor="let doctor of doctores; let i = index">
+                  <option [ngValue]="doctor.id">{{doctor.name + ' ' + doctor.lastname}}</option>
+
+                </ng-container>
+
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row gap-up">
+
+        <div class="col-md-4">
+          <p class="data gap-up">Citas Confirmadas: {{confirmadas}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="data gap-up">Citas Perdidas: {{canceladas}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <p class="data gap-up">Pacientes: {{pacientes}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="data gap-up">Porcentaje: <input type="number" class="shadow" (change)="verificarPorcentaje()" [(ngModel)]="percentage">%</p>
+          <button class="button ok round shadow white_color" (click)="refreshPercentage()">Cambiar porcentaje</button>
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
 </div>
 
 
