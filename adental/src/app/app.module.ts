@@ -26,6 +26,7 @@ import { ProfileComponent } from './patient/profile/profile.component';
 import {HomeModule} from './component/home/home.module';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const rutas: Routes = [
   {path: 'perfil-doctor', component: ProfileComponentDoctor},
@@ -55,7 +56,6 @@ import {AllUsersComponent} from './admin2/all-users/all-users.component';
 import { VerConsultaComponent } from './doctor/ver-consulta/ver-consulta.component';
 import {AppointmentsDoctorComponent} from './doctor/appointments-doctor/appointments-doctor.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +75,8 @@ import {AppointmentsDoctorComponent} from './doctor/appointments-doctor/appointm
     FormsModule,
     HomeModule,
     AdminModule2,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    BrowserAnimationsModule
   ],
   providers: [AngularFirestore, AngularFirestoreModule],
   bootstrap: [AppComponent]
