@@ -22,6 +22,8 @@ export class PerfilPacienteComponent implements OnInit {
   consultaId: string;
   consulta: any;
   prueba: number;
+  montoTotal: number;
+  montoParcial: number
 
   db = firebase.firestore();
   private sub: any;
@@ -34,6 +36,9 @@ export class PerfilPacienteComponent implements OnInit {
       this.id = params['id'];
     })
 
+    this.montoTotal=0;
+    this.montoParcial=0;
+
     this.userData(this.id).subscribe(usuario => {
       this.nombre = usuario.data().name;
       this.last = usuario.data().lastname;
@@ -43,6 +48,8 @@ export class PerfilPacienteComponent implements OnInit {
         this.idConsulta=usuario.data().history[i].toString();
         this.userDataConsulta(this.idConsulta).subscribe(consulta =>{
           this.arregloConsulta.push(consulta.data())
+          this.montoParcial= consulta.data().montoPago;
+          this.montoTotal= this.montoTotal + this.montoParcial;
         });
       }
     })
