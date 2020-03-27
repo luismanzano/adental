@@ -36,7 +36,7 @@ export class VerConsultaComponent implements OnInit {
   };
 
 
-
+  
   constructor(
     private route : ActivatedRoute,
     public firestore: AngularFirestore,
@@ -61,6 +61,7 @@ export class VerConsultaComponent implements OnInit {
     this.sub = this.route.params.subscribe(params=>{
       this.idConsulta=params['id'];
     })
+    console.log('Probando git')
 
     this.consultaData(this.idConsulta).subscribe(consulta=>{
       this.nextTreatments=consulta.data().proxTratamiento
