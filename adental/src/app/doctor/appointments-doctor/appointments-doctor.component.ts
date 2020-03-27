@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../core/services/auth.service';
 import * as firebase from 'firebase';
 import FieldValue = firebase.firestore.FieldValue;
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointments-doctor',
@@ -20,9 +21,11 @@ export class AppointmentsDoctorComponent implements OnInit {
   appointments = [];
   filtered: any[];
   gottenPatients = [];
+  idP: string;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
   }
 
@@ -57,6 +60,7 @@ export class AppointmentsDoctorComponent implements OnInit {
 
             console.log('funcionando getPatients');
             console.log(cita.patient);
+            this.idP=cita.patient;
             this.authService.firestore.collection('users').doc(cita.patient).valueChanges().subscribe((pat: any) => {
               console.log(pat);
               this.gottenPatients.push(pat.name + ' ' + pat.lastname);
@@ -66,6 +70,10 @@ export class AppointmentsDoctorComponent implements OnInit {
           });
       }
     });
+  }
+
+  irConsulta(){
+    this.router.navigate(['/registrar-consulta', this.idP]);
   }
 /*
 

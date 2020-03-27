@@ -33,12 +33,18 @@
                       <div class="col-md-3">
                         <button class="button ok round shadow white_color" (click)="confirmAppo(appointment.patient)">Confirmar</button>
                       </div>
+                      <div class="col-md-6">
+                        <button class="button ok round shadow white_color" (click)="irConsulta()">Registrar Consulta</button>
+                      </div>
                     </div>
                   </div>
                   <div *ngIf="appointment.confirmed">
                     <div class="row">
                       <div class="col-md-3">
                         <button class="button cancel round shadow white_color" (click)="cancelAppo(appointment.patient)">Cancelar</button>
+                      </div>
+                      <div class="col-md-6">
+                        <button class="button ok round shadow white_color" (click)="irConsulta()">Registrar Consulta</button>
                       </div>
                     </div>
                   </div>
