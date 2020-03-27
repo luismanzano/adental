@@ -6,32 +6,41 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-        <h1 class="head">Pagar Consulta: {{fecha.toDate().getDate()}}/{{fecha.toDate().getMonth()+1}}/{{fecha.toDate().getFullYear()}}</h1>
+          <h1 class="head">Pagar Consulta: {{fecha.toDate().getDate()}}/{{fecha.toDate().getMonth() + 1}}
+            /{{fecha.toDate().getFullYear()}}</h1>
+        </div>
       </div>
-    </div>
 
       <div class="row">
         <div class="col-md-4">
-          <p class="data"> <b>Monto que debe: </b> {{montoPagar}} </p>
+          <p class="data"><b>Monto que debe: </b> {{montoPagar}} </p>
         </div>
       </div>
 
       <div class="metodosPago">
         <div class="row">
-           <div class="col-md-3">
-            <button class="opciones" (click)="irTransferencia()"> <img class="imagen" src="assets/images/transferencia.png" alt=""> Transferencia</button>
-           </div>
-           <div class="col-md-3">
-             <button class="opciones" (click)="irZelle()"> <img class="imagen" src="assets/images/zelle.png" alt=""> Zelle</button>
-           </div>
+          <div class="col-md-3">
+            <button class="opciones" (click)="irTransferencia()"><img class="imagen"
+                                                                      src="assets/images/transferencia.png" alt="">
+              Transferencia
+            </button>
+          </div>
+          <div class="col-md-3">
+            <button class="opciones" (click)="irZelle()"><img class="imagen" src="assets/images/zelle.png" alt=""> Zelle
+            </button>
+          </div>
         </div>
         <div class="row">
-           <div class="col-md-3">
-              <button class="opciones"> <img class="imagen" src="assets/images/paypal.png" alt=""> Paypal</button>
-           </div>
-           <div class="col-md-3">
-              <button class="opciones" (click)="irEfectivo()"> <img class="imagen" src="assets/images/efectivo.png" alt=""> Efectivo</button>
-           </div>
+          <div class="col-md-3">
+            <button class="opciones" (click)="irEfectivo()"><img class="imagen" src="assets/images/efectivo.png" alt="">
+              Efectivo
+            </button>
+          </div>
+
+          <div class="col-md-3" id="paypal-button-container">
+<!--            <button class="opciones"><img class="imagen" src="assets/images/paypal.png" alt="" (click)="irPaypal()">-->
+            <div #paypal></div>
+          </div>
         </div>
       </div>
 
@@ -40,12 +49,12 @@
           <div class="col-md-7">
             <div class="datos round shadow">
               <b><h5 class="gap-down">Datos de la cuenta a transferir:</h5></b>
-              <p class="gap-up"> <b>Nro de Cuenta:</b> 0105-0388-290388-05840-8</p>
-              <p> <b>Banco:</b> Mercantil</p>
-              <p> <b>Tipo de Cuenta:</b> Ahorro</p>
-              <p> <b>Nombre del Titular:</b> Adolf Dental Care</p>
-              <p> <b>Cedula:</b> 27.606.275</p>
-              <p> <b>Correo:</b> AdolfDentalCare20@gmail.com</p>
+              <p class="gap-up"><b>Nro de Cuenta:</b> 0105-0388-290388-05840-8</p>
+              <p><b>Banco:</b> Mercantil</p>
+              <p><b>Tipo de Cuenta:</b> Ahorro</p>
+              <p><b>Nombre del Titular:</b> Adolf Dental Care</p>
+              <p><b>Cedula:</b> 27.606.275</p>
+              <p><b>Correo:</b> AdolfDentalCare20@gmail.com</p>
             </div>
           </div>
         </div>
@@ -57,31 +66,33 @@
 
         <div class="row datos">
           <div class="col-md-12">
-              <input type="date" [(ngModel)]="fecha" class="sinborde gap-down" id= "fecha" placeholder="Fecha">
+            <input type="date" [(ngModel)]="fecha" class="sinborde gap-down" id="fecha" placeholder="Fecha">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-              <input type="text" [(ngModel)]="comprobante" class="sinborde gap-down" id= "comprobante" placeholder="Nro. Comprobante">
+            <input type="text" [(ngModel)]="comprobante" class="sinborde gap-down" id="comprobante"
+                   placeholder="Nro. Comprobante">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-              <input type="text" [(ngModel)]="banco" class="sinborde gap-down" id= "banco" placeholder="Banco">
+            <input type="text" [(ngModel)]="banco" class="sinborde gap-down" id="banco" placeholder="Banco">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-              <input type="text" [(ngModel)]="titular" class="sinborde gap-down" id= "titular" placeholder="Nombre del Titular">
+            <input type="text" [(ngModel)]="titular" class="sinborde gap-down" id="titular"
+                   placeholder="Nombre del Titular">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-              <input type="number" [(ngModel)]="montoIngresado" class="sinborde gap-down" id= "monto" placeholder="Monto">
+            <input type="number" [(ngModel)]="montoIngresado" class="sinborde gap-down" id="monto" placeholder="Monto">
           </div>
         </div>
       </div>
@@ -106,19 +117,20 @@
 
         <div class="row datos">
           <div class="col-md-12">
-              <input type="date" [(ngModel)]="fecha" class="sinborde gap-down" id= "fecha" placeholder="Fecha">
+            <input type="date" [(ngModel)]="fecha" class="sinborde gap-down" id="fecha" placeholder="Fecha">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-              <input type="text" [(ngModel)]="correo" class="sinborde gap-down" id= "correo" placeholder="Correo del Titular">
+            <input type="text" [(ngModel)]="correo" class="sinborde gap-down" id="correo"
+                   placeholder="Correo del Titular">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-              <input type="number" [(ngModel)]="montoIngresado" class="sinborde gap-down" id= "monto" placeholder="Monto">
+            <input type="number" [(ngModel)]="montoIngresado" class="sinborde gap-down" id="monto" placeholder="Monto">
           </div>
         </div>
       </div>
@@ -126,11 +138,10 @@
       <div *ngIf="efectivo">
         <div class="row datos">
           <div class="col-md-12">
-              <input type="number" [(ngModel)]="montoIngresado" class="sinborde gap-down" id= "monto" placeholder="Monto">
+            <input type="number" [(ngModel)]="montoIngresado" class="sinborde gap-down" id="monto" placeholder="Monto">
           </div>
         </div>
       </div>
-
 
 
       <div *ngIf="transferencia || zelle || paypal || efectivo">
@@ -140,7 +151,7 @@
           </div>
         </div>
 
-        <div class="datos"> </div>
+        <div class="datos"></div>
       </div>
     </div>
   </div>
