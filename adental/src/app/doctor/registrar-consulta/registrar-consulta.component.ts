@@ -40,6 +40,8 @@ export class RegistrarConsultaComponent implements OnInit {
   id: ''
   };
   nombre: string;
+  email: string;
+  text: string;
   
 
 
@@ -67,6 +69,7 @@ export class RegistrarConsultaComponent implements OnInit {
       this.name = usuario.data().name;
       this.last = usuario.data().lastname;
       this.nombre= this.name + ' ' + this.last;
+      this.email=usuario.data().username;
     })
 
   
@@ -105,18 +108,16 @@ export class RegistrarConsultaComponent implements OnInit {
       createdAt: new Date(),
       status: false,
       idConsulta: 'Prueba',
+      idDoctor: this.mainUser.id.toString()
       
     }).then(docRef=>{
       this.idConsulta=docRef.id;
       this.cambiarId();
       this.saveConsulta();
+      this.enviarFactura();
     })
     .catch(error=>console.log("Error"));
 
-    this.treatment='';
-    this.nextTreatments='';
-    this.recipeText='';
-    this.toPay = 0;
   }
 
   cambiarId(){
@@ -138,5 +139,22 @@ export class RegistrarConsultaComponent implements OnInit {
         // The document probably doesn't exist.
          console.error('Error updating document: ', error);
       });
+  }
+
+  enviarFactura(){
+    var date = new Date();
+    console.log(this.toPay)
+    console.log(this.treatment)
+    const fecha = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+    this.text = "Doctor: " + this.mainUser.name + ' ' + this.mainUser.lastname + 
+    '\n' + "Fecha: " + fecha.toString() +
+    '\n' + "Monto: " + this.toPay.toString() + 
+    '\n' + "Tratamiento: " + this.treatment.toString();
+    console.log(this.email);
+    this.authService.sendEmail(this.email, this.text);
+    this.treatment='';
+    this.nextTreatments='';
+    this.recipeText='';
+    this.toPay = 0;
   }
 }

@@ -20,6 +20,11 @@ export class PaymentComponent implements OnInit {
   fecha: any;
   montoIngresado: number;
   total: number;
+  idDoctor: string;
+  mostrarTransferencia: Boolean;
+  mostrarZelle: Boolean;
+  mostrarPaypal: Boolean;
+  mostrarEfectivo
   private sub: any;
   @ViewChild('paypal', { static: true}) paypalElement: ElementRef;
 
@@ -32,6 +37,12 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.transferencia=false;
+    this.zelle=false;
+    this.paypal=false;
+    this.efectivo=false;
+
 
     paypal.Buttons({
       createOrder: (data, actions) => {
@@ -69,12 +80,19 @@ export class PaymentComponent implements OnInit {
       this.montoPagar = consulta.data().montoPago
       this.fecha = consulta.data().createdAt
     })
+    this.auth.consultaData(this.idConsulta).subscribe(consulta=>{
+      this.montoPagar=consulta.data().montoPago
+      this.fecha=consulta.data().createdAt
+      this.idDoctor=consulta.data().idDoctor;
+      this.auth.userData(this.idDoctor).subscribe(user=>{
+        this.mostrarTransferencia=user.data().paymentMethod[0]
+        this.mostrarZelle=user.data().paymentMethod[1]
+        this.mostrarPaypal=user.data().paymentMethod[2]
+        this.mostrarEfectivo=user.data().paymentMethod[3]
 
+      })
+    })
 
-    this.transferencia = false;
-    this.zelle = false;
-    this.efectivo = false;
-    this.paypal = false;
   }
 
   irTransferencia() {
