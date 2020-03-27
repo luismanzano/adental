@@ -10,10 +10,11 @@ import { TratamientoComponent } from './tratamiento/tratamiento.component';
 import { ProxTratamientosComponent } from './prox-tratamientos/prox-tratamientos.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PerfilPacienteComponent } from './perfil-paciente/perfil-paciente.component';
 import { VerConsultaComponent } from './ver-consulta/ver-consulta.component';
 import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-doctor.component';
+
 
 
 
@@ -28,7 +29,8 @@ import { AppointmentsDoctorComponent } from './appointments-doctor/appointments-
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     ProfileComponentDoctor,

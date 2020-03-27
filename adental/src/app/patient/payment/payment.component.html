@@ -19,18 +19,18 @@
       <div class="metodosPago">
         <div class="row">
            <div class="col-md-3">
-            <button class="opciones" (click)="irTransferencia()"> <img class="imagen" src="assets/images/transferencia.png" alt=""> Transferencia</button>
+            <button class="opciones" (click)="irTransferencia()" [disabled]="!mostrarTransferencia"> <img class="imagen" src="assets/images/transferencia.png" alt=""> Transferencia</button>
            </div>
            <div class="col-md-3">
-             <button class="opciones" (click)="irZelle()"> <img class="imagen" src="assets/images/zelle.png" alt=""> Zelle</button>
+             <button class="opciones" [disabled]="!mostrarZelle" (click)="irZelle()"> <img class="imagen" src="assets/images/zelle.png" alt=""> Zelle</button>
            </div>
         </div>
         <div class="row">
            <div class="col-md-3">
-              <button class="opciones"> <img class="imagen" src="assets/images/paypal.png" alt=""> Paypal</button>
+              <button class="opciones" [hidden]="!mostrarPaypal"> <img class="imagen" src="assets/images/paypal.png" alt=""> Paypal</button>
            </div>
            <div class="col-md-3">
-              <button class="opciones" (click)="irEfectivo()"> <img class="imagen" src="assets/images/efectivo.png" alt=""> Efectivo</button>
+              <button class="opciones" [disabled]="!mostrarEfectivo" (click)="irEfectivo()"> <img class="imagen" src="assets/images/efectivo.png" alt=""> Efectivo</button>
            </div>
         </div>
       </div>

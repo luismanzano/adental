@@ -27,24 +27,30 @@
             </div>
 
             <div class="metodosPago">
-            <div class="row">
-               <div class="col-md-3">
-                <input type="radio" name ="transferencia" value="1"> Transferencia
-               </div>
-               <div class="col-md-3">
-                <input type="radio" name="zelle" value="1" id="zelle"> Zelle
-               </div>
-            </div>
-               <div class="row">
-               <div class="col-md-3">
-                   <input type="radio" name="paypal" value="1"> PayPal
-               </div>
-               <div class="col-md-3">
-                <input type="radio" name="efectivo" value="1" id="efectivo" > Efectivo
-               </div>
-            </div>
-            </div>
-
+                <div class="row">
+                  <div class="col-md-3">
+                    <label for="">
+                      <input type="checkbox"  value="0" (change)="onCheckboxChange($event)" [checked]="transferencia"> Transferencia
+                    </label>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="">
+                      <input type="checkbox" value="1"  [checked]="zelle" (change)="onCheckboxChange($event)" > Zelle
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <label for="">
+                      <input type="checkbox" value="2" [checked]="paypal" (change)="onCheckboxChange($event)"> PayPal
+                    </label>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="">
+                      <input type="checkbox" value="3" [checked]="efectivo" (change)="onCheckboxChange($event)"> Efectivo
+                    </label>
+                  </div>
+                </div>
 
             <div class="row">
                 <div class="col-md-3">
