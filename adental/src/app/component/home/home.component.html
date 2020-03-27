@@ -8,14 +8,14 @@
 </head>
 <body>
     <main>
-        <div class="fondo">
+        <div class="fondo shadow">
             <div>
                 <img id="logo" src="assets/images/Logo1.png" alt="Logo">
             </div>
             <div class="datos">
-                <input type="text" [(ngModel)]="user" class="form-control" id= "correo" placeholder="Correo Electrónico">
-                <input type="text" [(ngModel)]="password" class="form-control" id= "contraseña" placeholder="Contraseña">
-                <button id='iniciar' (click)="login()"> Iniciar Sesión </button>
+                <input type="text" [(ngModel)]="user" class="form-control round shadow" id= "correo" placeholder="Correo Electrónico">
+                <input type="text" [(ngModel)]="password" class="form-control round shadow" id= "contraseña" placeholder="Contraseña">
+                <button id='iniciar' (click)="login()" class="shadow"> Iniciar Sesión </button>
             </div>
         </div>
     </main>

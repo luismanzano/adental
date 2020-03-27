@@ -4,27 +4,28 @@ body{
     display: grid;
     align-items: center;
     top:0;
-    height: 45rem;
+    height: 100vh;
     margin: 0;
 }
 #logo{
     margin:auto;
     width: 22rem;
     margin-top: 2.5rem;
-    margin-left: 5rem;  
+    margin-left: 5rem;
 }
 
 .fondo{
-    position:fixed;
+    /*position:fixed;*/
     background-color: white;
     height: 30em;
     width: 32em;
-    margin-left: 23rem;
-    margin-top: 2rem;
-    border-radius: 1rem;
+    margin: 8rem auto 0;
+    /*margin-top: 2rem;*/
+    border-radius: 40px;
     align-items: center;
     display: block;
-    filter: drop-shadow(5px 5px 10px #444);
+  padding-top: 1em;
+    /*filter: drop-shadow(5px 5px 10px #444);*/
 }
 
 .datos{
@@ -36,8 +37,8 @@ body{
 }
 .form-control{
     padding: 0.9rem;
-    border-radius: 1.5rem;
-    border-color: #545454;
+    /*border-radius: 1.5rem;*/
+    /*border-color: #545454;*/
 }
 
 #iniciar{
