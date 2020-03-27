@@ -100,12 +100,12 @@ export class AppointmentsDoctorComponent implements OnInit {
         then(() => {
         this.authService.firestore.collection('citas').doc(cita.toString()).update({
           cancelled: true
-        }).then( () => console.log('Cancelled = true'));
+        }).then( () => {console.log('Cancelled = true')});
       }).then( () => {
         this.authService.firestore.collection('users').doc(patient).update({
           booked: false,
           nextAppo: ''
-        });
+        }).then(() => location.reload());
       });
 
     });
@@ -121,7 +121,7 @@ export class AppointmentsDoctorComponent implements OnInit {
         confirmed: true
       }).then( () => console.log('Cancelled = true')).then( () => {
         this.authService.sendEmail(email, 'Su cita ha sido confirmada');
-        });
+        }).then( () => location.reload());
     });
   }
 
