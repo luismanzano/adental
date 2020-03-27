@@ -92,7 +92,6 @@ export class AuthService {
         console.log(data);
         this.user =  data.user.uid;
         console.log(this.user);
-        alert('Usuario Logeado');
         this.redirectUser(this.user);
 
       })
@@ -101,7 +100,6 @@ export class AuthService {
 
   }
   redirectUser(id: string) {
-    alert('Esto esta funcionando');
     this.userData(this.user).subscribe( user => {
 
       console.log('User Data' );
