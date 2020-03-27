@@ -25,6 +25,7 @@ import { PaymentComponent } from './patient/payment/payment.component';
 import { ProfileComponent } from './patient/profile/profile.component';
 import {HomeModule} from './component/home/home.module';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 const rutas: Routes = [
   {path: 'perfil-doctor', component: ProfileComponentDoctor},
@@ -74,6 +75,7 @@ import {AppointmentsDoctorComponent} from './doctor/appointments-doctor/appointm
     FormsModule,
     HomeModule,
     AdminModule2,
+    AngularFireStorageModule
   ],
   providers: [AngularFirestore, AngularFirestoreModule],
   bootstrap: [AppComponent]

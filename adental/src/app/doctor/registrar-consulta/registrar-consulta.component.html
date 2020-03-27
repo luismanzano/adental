@@ -15,9 +15,10 @@
                 <div class="col-md-11">
                     <div class="round shadow">
                         <div class="row opcion opciones">
-                            <div class="col-md-3 offset-1 white_color" id="tratamiento" (click)="mostrarTratamiento()">Tratamientos</div>
+                            <div class="col-md-3 white_color" id="tratamiento" (click)="mostrarTratamiento()">Tratamientos</div>
                             <div class="col-md-4 white_color" id="prox-tratamientos" (click)="mostrarProxTratamientos()">Próximos Tratamientos</div>
-                            <div class="col-md-3 white_color" id="recipe" (click)="mostrarRecipe()">Récipe</div>
+                            <div class="col-md-2 white_color" id="recipe" (click)="mostrarRecipe()">Récipe</div>
+                            <div class="col-md-3 white_color" id="imagen" (click)="mostrarImagen()">Imagen</div>
                             
                         </div>
                         <div *ngIf="recipe">
@@ -79,6 +80,32 @@
                                         <textarea [(ngModel)]="nextTreatments" name="prox-tratamiento" id="prox-tratamiento" cols="" rows="14" class="round shadow info"></textarea>
                                     </div>
                             </div>
+                        </div>
+
+                        <div *ngIf="imagen">
+                            <div class="row gap-down">
+                                <div class="col-md-6">
+                                    <p>Agregar una Imagen:</p> 
+                                 </div>
+                            </div>
+                            <div class="row gap-down gap-up espacio">
+                                <div class="col-md-6 offset-">
+                                    <div class="custom-file">
+                                        <input class="custom-file-input" type="file" accept=".png, .jpg" (change)="onUpload($event)" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Selecciona una Imagen</label>
+                                      </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row gap-up">
+                                <div class="col-md-12">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar"[style.width]="uploadPercent + '%'"></div>
+                                    </div>
+                                </div>
+                            </div>  
+                            
                         </div>
 
                     </div>

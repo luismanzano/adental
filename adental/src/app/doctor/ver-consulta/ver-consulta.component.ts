@@ -13,6 +13,7 @@ export class VerConsultaComponent implements OnInit {
 
   tratamiento: Boolean;
   proxTratamiento: Boolean;
+  imagen:Boolean;
   recipe: Boolean;
   idConsulta: string;
   private sub: any;
@@ -22,6 +23,7 @@ export class VerConsultaComponent implements OnInit {
   recipeText: string;
   fecha: any;
   pagar: Boolean;
+  imagenUrl: any;
   mainUser = {
     name: '',
   lastname: '',
@@ -63,6 +65,7 @@ export class VerConsultaComponent implements OnInit {
       this.recipeText = consulta.data().recipe
       this.toPay = consulta.data().montoPago
       this.fecha = consulta.data().createdAt
+      this.imagenUrl = consulta.data().imagen
       if(this.mainUser.type=='0'){
         if(this.toPay!=0){
           console.log('mostrar boton pagar')
@@ -84,16 +87,25 @@ export class VerConsultaComponent implements OnInit {
     this.recipe = false;
     this.tratamiento=true;
     this.proxTratamiento=false;
+    this.imagen=false;
 }
 
 mostrarProxTratamientos(){
   this.recipe = false;
   this.tratamiento=false;
   this.proxTratamiento=true;
+  this.imagen=false;
 }
 
 mostrarRecipe():void{
   this.recipe = true;
+  this.tratamiento=false;
+  this.proxTratamiento=false;
+  this.imagen=false;
+}
+mostrarImagen(){
+  this.imagen=true;
+  this.recipe = false;
   this.tratamiento=false;
   this.proxTratamiento=false;
 }

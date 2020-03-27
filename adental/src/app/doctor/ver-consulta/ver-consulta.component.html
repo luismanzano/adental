@@ -15,9 +15,10 @@
                 <div class="col-md-11">
                     <div class="round shadow gap-down">
                         <div class="row opcion opciones">
-                            <div class="col-md-3 offset-1 white_color" id="tratamiento" (click)="mostrarTratamiento()">Tratamientos</div>
+                            <div class="col-md-3 white_color" id="tratamiento" (click)="mostrarTratamiento()">Tratamientos</div>
                             <div class="col-md-4 white_color" id="prox-tratamientos" (click)="mostrarProxTratamientos()">Próximos Tratamientos</div>
-                            <div class="col-md-3 white_color" id="recipe" (click)="mostrarRecipe()">Récipe</div> 
+                            <div class="col-md-2 white_color" id="recipe" (click)="mostrarRecipe()">Récipe</div>
+                            <div class="col-md-3 white_color" id="imagen" (click)="mostrarImagen()">Imagen</div>
                         </div>
                         <div *ngIf="tratamiento">
                             <div class="row">
@@ -74,6 +75,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div *ngIf="imagen">
+                            <div class="shadow round cuadro">
+                                <div class="row">
+                                    <div class="col-md-6 offset-4">
+                                        <img id="imagen" src={{imagenUrl}} alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
                         <div *ngIf="pagar">
                             <div class="row">
                                 <div class="col-md-2 offset-10">

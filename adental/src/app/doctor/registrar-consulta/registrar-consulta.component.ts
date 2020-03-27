@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
@@ -6,6 +6,11 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { TratamientoComponent } from '../tratamiento/tratamiento.component';
 import { ProxTratamientosComponent } from '../prox-tratamientos/prox-tratamientos.component';
 import { RecipeComponent } from '../recipe/recipe.component';
+import {AngularFireStorage} from '@angular/fire/storage';
+import{finalize} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Element } from '@angular/compiler/src/render3/r3_ast';
+
 
 
 
@@ -24,6 +29,7 @@ export class RegistrarConsultaComponent implements OnInit {
   name: string;
   last: string;
   private sub: any;
+  imagen: Boolean;
   recipe:Boolean;
   tratamiento:Boolean;
   proxTratamientos:Boolean;
@@ -42,14 +48,22 @@ export class RegistrarConsultaComponent implements OnInit {
   nombre: string;
   email: string;
   text: string;
+  uploadPercent = 0;
+  urlImage: Observable<string>;
+  urlConsulta: any;
+
+ 
+  
   
 
 
   constructor(private route: ActivatedRoute,
     public firestore: AngularFirestore, 
     private authService: AuthService,
+    private storage: AngularFireStorage
     
     ) { }
+    @ViewChild('imageConsulta',{static:true}) inputImageConsulta: ElementRef;
 
   ngOnInit() {
 
@@ -79,6 +93,7 @@ export class RegistrarConsultaComponent implements OnInit {
       this.recipe = true;
       this.tratamiento=false;
       this.proxTratamientos=false;
+      this.imagen=false;
   }
 
   mostrarTratamiento():void{
@@ -86,12 +101,21 @@ export class RegistrarConsultaComponent implements OnInit {
       this.recipe = false;
       this.tratamiento=true;
       this.proxTratamientos=false;
+      this.imagen=false;
   }
 
   mostrarProxTratamientos(){
       this.recipe = false;
       this.tratamiento=false;
       this.proxTratamientos=true;
+      this.imagen=false;
+  }
+
+  mostrarImagen(){
+      this.recipe = false;
+      this.tratamiento=false;
+      this.proxTratamientos=false;
+      this.imagen=true;
   }
 
   userData(data: string) {
@@ -100,6 +124,7 @@ export class RegistrarConsultaComponent implements OnInit {
   }
 
   registrarConsulta(){
+    console.log(this.urlConsulta);
     this.firestore.collection("consultas").add({
       tratamiento: this.treatment,
       proxTratamiento: this.nextTreatments,
@@ -108,7 +133,8 @@ export class RegistrarConsultaComponent implements OnInit {
       createdAt: new Date(),
       status: false,
       idConsulta: 'Prueba',
-      idDoctor: this.mainUser.id.toString()
+      idDoctor: this.mainUser.id.toString(),
+      imagen: this.urlConsulta
       
     }).then(docRef=>{
       this.idConsulta=docRef.id;
@@ -143,18 +169,34 @@ export class RegistrarConsultaComponent implements OnInit {
 
   enviarFactura(){
     var date = new Date();
-    console.log(this.toPay)
-    console.log(this.treatment)
     const fecha = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
     this.text = "Doctor: " + this.mainUser.name + ' ' + this.mainUser.lastname + 
     '\n' + "Fecha: " + fecha.toString() +
     '\n' + "Monto: " + this.toPay.toString() + 
     '\n' + "Tratamiento: " + this.treatment.toString();
-    console.log(this.email);
     this.authService.sendEmail(this.email, this.text);
     this.treatment='';
     this.nextTreatments='';
     this.recipeText='';
     this.toPay = 0;
   }
+
+  onUpload(e){
+    const id = Math.random().toString(36).substring(2);
+    const storageRef = firebase.storage().ref(`/imagenes/${id}`);
+    const file = e.target.files[0];
+    const task = storageRef.put(file)
+    task.on('state_changed', snapshot=>{
+      let porcentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100
+      this.uploadPercent=porcentage
+    }, error=>{console.log("Error")},
+    ()=>{this.uploadPercent=100;
+          task.snapshot.ref.getDownloadURL().then((url)=>{
+            this.urlConsulta=url;
+            console.log(this.urlConsulta)
+          })}
+    )
+  }
+
+
 }
