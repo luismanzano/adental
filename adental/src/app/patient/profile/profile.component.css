@@ -22,3 +22,8 @@
 .pago{
     margin-left: 0.5em;
 }
+
+#imagen{
+    width: 100%;
+    border-radius: 20px;
+}
