@@ -15,6 +15,7 @@ export class UsuariosAdminComponent implements OnInit {
   private apellido: string;
   private password: string;
   private userType: any;
+  private cedula: number
 
 
 
@@ -24,7 +25,7 @@ export class UsuariosAdminComponent implements OnInit {
   }
 
   createUser() {
-    this.authService.createUser(this.user, this.password, this.nombre, this.apellido, this.userType)
+    this.authService.createUser(this.user, this.password, this.nombre, this.apellido, this.userType, this.cedula)
       .then(() => {
         alert('Usuario Creado de tipo: ' + this.userType.toString());
       })

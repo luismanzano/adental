@@ -38,13 +38,14 @@ export class AuthService {
     public firestore: AngularFirestore
   ) { }
 
-  createUser(email: string, pass: string, nombre: string, apellido: string, userType: string) {
+  createUser(email: string, pass: string, nombre: string, apellido: string, userType: string, cedula:number) {
     return this.af.auth.createUserWithEmailAndPassword(email, pass)
       .then(cred => {
         console.log(cred.user);
         this.cred = cred.user.uid;
         return this.firestore.collection('users').doc(cred.user.uid).set({
           type: userType,
+          ci: cedula,
           username: email,
           password: pass,
           name: nombre,
@@ -165,13 +166,14 @@ export class AuthService {
     return this.firestore.collection('users').doc(documentId).set(data);
   }
 
-  createPatient(email: string, pass: string, nombre: string, apellido: string, userType: string, guardar: boolean) {
+  createPatient(email: string, pass: string, nombre: string, apellido: string, userType: string, guardar: boolean, cedula:number) {
     return this.af.auth.createUserWithEmailAndPassword(email, pass)
       .then(cred => {
         console.log(cred.user);
         this.cred = cred.user.uid;
         this.firestore.collection('users').doc(cred.user.uid).set({
           type: userType,
+          ci:cedula,
           username: email,
           password: pass,
           name: nombre,

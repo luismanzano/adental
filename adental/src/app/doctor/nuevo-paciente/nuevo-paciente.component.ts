@@ -18,7 +18,7 @@ export class NuevoPacienteComponent implements OnInit {
   paciente_apellido: string;
   paciente_email: string;
   paciente_email_saved: string;
-  paciente_cedula: string;
+  paciente_cedula: number;
   paciente_nacimiento: string;
   paciente_contrasena: string;
 
@@ -59,7 +59,7 @@ export class NuevoPacienteComponent implements OnInit {
     console.log(this.paciente_cedula);
     console.log(this.paciente_nacimiento);
     console.log(this.paciente_contrasena);
-    this.authService.createPatient(this.paciente_email, this.paciente_contrasena, this.paciente_nombre, this.paciente_apellido, '0', true);
+    this.authService.createPatient(this.paciente_email, this.paciente_contrasena, this.paciente_nombre, this.paciente_apellido, '0', true, this.paciente_cedula);
     console.log('cred');
     console.log(this.authService.cred);
 

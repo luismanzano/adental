@@ -51,6 +51,7 @@ export class RegistrarConsultaComponent implements OnInit {
   uploadPercent = 0;
   urlImage: Observable<string>;
   urlConsulta: any;
+  ci: number;
 
  
   
@@ -84,6 +85,7 @@ export class RegistrarConsultaComponent implements OnInit {
       this.last = usuario.data().lastname;
       this.nombre= this.name + ' ' + this.last;
       this.email=usuario.data().username;
+      this.ci=usuario.data().ci
     })
 
   

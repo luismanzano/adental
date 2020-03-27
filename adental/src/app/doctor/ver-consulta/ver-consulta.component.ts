@@ -13,6 +13,7 @@ export class VerConsultaComponent implements OnInit {
 
   tratamiento: Boolean;
   proxTratamiento: Boolean;
+  ci: string;
   imagen:Boolean;
   recipe: Boolean;
   idConsulta: string;
@@ -23,13 +24,14 @@ export class VerConsultaComponent implements OnInit {
   recipeText: string;
   fecha: any;
   pagar: Boolean;
+  nombre: string;
   imagenUrl: any;
   mainUser = {
     name: '',
   lastname: '',
   username: '',
   type: '',
-  id: ''
+  id: '',
   };
 
 
@@ -54,7 +56,7 @@ export class VerConsultaComponent implements OnInit {
     this.mainUser.username = localStorage.getItem('username');
     this.mainUser.type = localStorage.getItem('type');
     
-
+    this.nombre=this.mainUser.name + ' ' + this.mainUser.lastname
     this.sub = this.route.params.subscribe(params=>{
       this.idConsulta=params['id'];
     })
